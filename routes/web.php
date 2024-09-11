@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -263,3 +264,31 @@ Route::resource('news/news', 'Admin\\NewsController');
 
 Route::resource('traning-videos', 'TraningVideosController');
 Route::resource('upcomingclasses', 'UpcomingclassesController');
+
+//front controllers
+Route::get('form', [FrontController::class, 'form'])->name('front.form');
+Route::get('learning', [FrontController::class, 'learning'])->name('front.learning');
+Route::get('health-insurance', [FrontController::class, 'health_insurance'])->name('front.health-insurance');
+Route::get('vision-insurance', [FrontController::class, 'vision_insurance'])->name('front.vision-insurance');
+Route::get('dental-insurance', [FrontController::class, 'dental_insurance'])->name('front.dental-insurance');
+Route::get('tactical-responder', [FrontController::class, 'tactical_responder'])->name('front.tactical-responder');
+Route::get('FP-C-course', [FrontController::class, 'fp_c_course'])->name('front.FP-C-course');
+Route::get('CC-C-course', [FrontController::class, 'cc_c_course'])->name('front.CC-C-course');
+Route::get('CC-C-course-2', [FrontController::class, 'cc_c_course_2'])->name('front.CC-C-course-2');
+Route::get('CC-C-course-3', [FrontController::class, 'cc_c_course_3'])->name('front.CC-C-course-3');
+Route::get('CC-C-course-4', [FrontController::class, 'cc_c_course_4'])->name('front.CC-C-course-4');
+Route::get('CC-C-course-5', [FrontController::class, 'cc_c_course_5'])->name('front.CC-C-course-5');
+Route::get('CC-C-course-6', [FrontController::class, 'cc_c_course_6'])->name('front.CC-C-course-6');
+Route::get('CC-C-course-7', [FrontController::class, 'cc_c_course_7'])->name('front.CC-C-course-7');
+Route::get('tactical-austere-medical', [FrontController::class, 'tactical_austere_medical'])->name('front.tactical-austere-medical');
+Route::get('tactical-austere-care', [FrontController::class, 'tactical_austere_care'])->name('front.tactical-austere-care');
+Route::get('first-responder', [FrontController::class, 'first_responder'])->name('front.first-responder');
+Route::get('gams-stop-the-bleed', [FrontController::class, 'gams_stop_the_bleed'])->name('front.gams-stop-the-bleed');
+Route::get('naemt-amls-course', [FrontController::class, 'naemt_amls_course'])->name('front.naemt-amls-course');
+Route::get('naemt-phtls-course', [FrontController::class, 'naemt_phtls_course'])->name('front.naemt-phtls-course');
+Route::get('naemt-tccc-course', [FrontController::class, 'naemt_tccc_course'])->name('front.naemt-tccc-course');
+Route::get('naemt-tccc-course-1', [FrontController::class, 'naemt_tccc_course_1'])->name('front.naemt-tccc-course-1');
+Route::get('naemt-tccc-course-2', [FrontController::class, 'naemt_tccc_course_2'])->name('front.naemt-tccc-course-2');
+Route::get('naemt-tecc-course', [FrontController::class, 'naemt_tecc_course'])->name('front.naemt-tecc-course');
+Route::get('naemt-tecc-course-1', [FrontController::class, 'naemt_tecc_course_1'])->name('front.naemt-tecc-course-1');
+Route::get('affordable-care-act-aca', [FrontController::class, 'affordable_care_act_aca'])->name('front.affordable-care-act-aca');

@@ -1,149 +1,384 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	
-	<?php
-	   $favicon = DB::table('imagetable')->where('table_name', 'favicon')->first();			
-	?>	
 
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Admin Mintone">
-    <meta name="author" content="Admin Mintone">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset(!empty($favicon->img_path)?$favicon->img_path:'')}}">
-    <title>{{ config('app.name') }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors.min.css')}}">
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-extended.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/components.min.css')}}">
-    <!-- END: Theme CSS-->
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vertical-menu-modern.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/palette-gradient.min.css')}}">
-    <!-- END: Page CSS-->
-    <link href="{{asset('plugins/vendors/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
-    <link href="{{asset('plugins/vendors/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-    @stack('before-css')
-    <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
-   <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-    <!-- Custom CSS -->
-    <!-- <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"> -->
-    <!-- <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet"> -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    @stack('after-css')
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- moving letter css  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!-- anime style css  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+          integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/inner.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <title>Engage | @yield('title')</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('images/fav-icon.png')}}">
+
+    @yield('css')
 
 </head>
-			
 
-<body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-<!-- ============================================================== -->
-<!-- Preloader - style you can find in spinners.css')}} -->
-<!-- ============================================================== -->
-@include('layouts.admin.header')
+<body></body>
+<!-- <div class="top-header">
+     <div class="container">
+          <div class="row p-0">
+               <div class="col-lg-12">
+                    <div class="top-line">
+                         <h4>We've helped <b>1739</b> people from this month</h4>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div> -->
+<style>
 
-@include('layouts.admin.sidebar')
+    .two-last-endl {
+        padding: 30px 0px;
+    }
 
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="content-wrapper">
-        @yield('content')
+
+    .quick ul li a {
+        font-size: 16px;
+        font-weight: 500;
+        color: black;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    .last-endl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 100px;
+    }
+
+
+</style>
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="{{route('home')}}">
+                        <img src="{{asset('images/logo_1.png')}}" class="img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link active" href="{{route('home')}}">Home</a>
+                            </li>
+                            <li class="nav-item main_drop">
+                                <!-- insurance-services.php -->
+                                <a class="nav-link" href="#">Insurance Services</a>
+                                <ul class="drop-menu">
+                                    <li><a href="{{route('front.health-insurance')}}">Health</a></li>
+                                    <li><a href="{{route('front.dental-insurance')}}">Dental</a></li>
+                                    <li><a href="{{route('front.vision-insurance')}}">Vision</a></li>
+                                    <li><a href="{{route('front.affordable-care-act-aca')}}">ACA</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('front.learning')}}">Learning ACA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blogs.php">Articles/Blog </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.php">Contact</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                 <a class="nav-link" href="#">Enroll Now</a>
+                            </li> -->
+
+                        </ul>
+                        <a href="tel:+833-775-1105" class="call"><i class="fa-solid fa-phone-volume fa-shake"></i>833-775-1105</a>
+                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Enroll
+                            Now</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </div>
-</div>
+</header>
 
-@include('layouts.admin.footer')
+@yield('content')
 
-<!-- BEGIN: Vendor JS-->
-<script src="{{asset('assets/js/vendors.min.js')}}"></script>
-<!-- BEGIN Vendor JS-->
-<!-- BEGIN: Theme JS-->
-<script src="{{asset('assets/js/app-menu.min.js')}}"></script>
-<script src="{{asset('assets/js/app.min.js')}}"></script>
-<script src="{{asset('assets/js/customizer.min.js')}}"></script>
-<!-- END: Theme JS-->
-<<!-- script src="{{asset('plugins/vendors/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/jquery/spartan-multi-image-picker.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/bootstrap/js/popper.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/ps/perfect-scrollbar.jquery.min.js')}}"></script>
-<script src="{{asset('assets/js/waves.js')}}"></script>
-<script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
-<script src="{{asset('assets/js/custom.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/toast-master/js/jquery.toast.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-<script type="text/javascript" src="{{ asset('assets/js/edituser.js') }}"></script> -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="footer-logo">
+                    <a href="{{route('home')}}"><img src="{{asset('images/logo_1.png')}}" class="img-fluid"></a>
+                    <p class="para-1">Engage with us for easy, personal assistance in selecting an excellent
+                        Affordable Care Act (ACA) health insurance plan for your needs and budget. </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="endl-1">
+                    <div class="phone new-phone">
+                        <p>PHONE</p>
+                        <div class="last-endl-flux">
+                            <!-- <i class="fa-solid fa-phone"></i> -->
+                            <p class="small-para">
+                                Agent/Enroll: <a href="tel:833-775-1105">833-775-1105</a>
+                            </p>
+                        </div>
+                        <div class="last-endl-flux new-contact">
+                            <!-- <i class="fa-solid fa-phone"></i> -->
+                            <p class="small-para">
+                                Customer Service/Office: <a href="tel:954-229-9062 ">954-229-9062 </a>
+                            </p>
+                        </div>
+                        <div class="last-endl-flux new-contact">
+                            <p class="small-para">
+                                Office Hours: 8:30am to 5:00pm M-F est
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="quick">
+                        <p>QUICK LINKS</p>
+                        <ul>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="insurance-services.php">Insurance Services</a></li>
+                            <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
+                            <li><a href="blogs.php">Articles/Blog </a></li>
+                            <li><a href="contact.php">Contact</a></li>
+
+
+                            <!-- <li><a href="#">Enroll Now</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="endl-1">
+                    <div class="phone">
+                        <p>ADDRESS</p>
+                        <div class="last-endl-flux">
+                            <i class="fa-solid fa-map"></i>
+                            <p>Pompano Beach, Florida</p>
+                        </div>
+                    </div>
+                    <div class="quick">
+                        <p>QUICK LINKS</p>
+                        <ul>
+                            <li><a href="{{route('front.health-insurance')}}">Health Insurance</a></li>
+                            <li><a href="{{route('front.dental-insurance')}}">Dental Insurance</a></li>
+                            <li><a href="{{route('front.vision-insurance')}}">Vision Insurance</a></li>
+                            <li><a href="{{route('front.affordable-care-act-aca')}}">Affordable Care Act</a></li>
+
+                            <div class="two-last-endl">
+                                <ul>
+                                    <li><a href="javascript:;">Terms Of Services</a></li>
+                                    <li><a href="javascript:;">Privacy Policy</a></li>
+                                </ul>
+
+                            </div>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="enld2">
+                    <div class="phone endl-2">
+                        <p>GET IN TOUCH</p>
+                        <p class="small-para">We welcome your email inquiries 24/7!</p>
+                        <a href="#">engagedirect@engagehealthinsurance.com</a>
+                        <div class="media">
+                            <a href="javascript:;"><i class="fa-brands fa-facebook-f"></i></a>
+                            <!-- <a href="javascript:;"><i class="fa-brands fa-twitter"></i></a> -->
+                            <!-- <a href="javascript:;"><i class="fa-brands fa-google-plus-g"></i></a> -->
+                            <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="javascript:;"><i class="fa-brands fa-instagram"></i></a>
+                            <!-- <a href="javascript:;"><i class="fa-brands fa-linkedin-in"></i></a> -->
+                        </div>
+                    </div>
+
+                    <div class="img-footer endl-2">
+                        <figure>
+                            <img src="{{asset('images/vector.png')}}" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="last-endl">
+                    <div class="one-last-endl text-center main-footer">
+                        <p>EngageHealthInsurance.com is a website domain of Engage Health Insurance LLC, a
+                            privately-owned non-government website, and is NOT the Health Insurance Marketplace®
+                            website. This website serves as an invitation for you, the customer, to inquire about
+                            further information regarding health insurance and ACA subsidy eligibility and the
+                            opportunity to have a licensed agent assist in performing your enrollment. Submission of
+                            your contact information constitutes permission for an agent from Engage Health Insurance to
+                            contact you with further information by phone, text or email to review details on cost and
+                            coverage which a Qualified ACA Health Plan offers individuals and families. </p>
+                        <p>We are committed to protecting your privacy and any personal data shared with us. Personal
+                            data will be used solely for help in the ACA health plan Marketplace enrollment process and
+                            will not be shared or sold. </p>
+                        <p>This website may not display all of the Qualified Health Plans in your state. Go to the
+                            Health Insurance Marketplace® website at HealthCare.gov for all available data for your
+                            state.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<style>
+    .img-footer.endl-2 {
+        position: absolute;
+        z-index: -1;
+    }
+</style>
+
+
+<section class="custum-modal">
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contact-form">
+                        <h2 class="side-heading">Get A <span class="blue">Free</span> Quote</h2>
+                        <p class="para-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed<span
+                                    class="d-block"> do eiusmod tempor
+                                        incididunt ut labore et aliqua.</span></p>
+                        <form action="">
+                            <div class="main-form">
+                                <input type="text" placeholder="First Name">
+                                <input type="text" placeholder="Last Name">
+                            </div>
+                            <div class="main-form">
+                                <input type="text" placeholder="Email">
+                                <select>
+                                    <option value="service">Select insurance type</option>
+                                    <option value="service1">type1</option>
+                                    <option value="service2">type2</option>
+                                </select>
+                            </div>
+                            <div class="main-form">
+                                <input type="text" placeholder="Phone Number">
+                                <select>
+                                    <option value="service">Best Time To Call</option>
+                                    <option value="service1">2pm</option>
+                                    <option value="service2">3pm</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="submit-btn">
+                            <a href="javascript:;" class="btn btn-custom">Start My Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@yield('js')
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+        integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="{{asset('js/custom.js')}}"></script>
+
+<!-- <script>
+     setTimeout(function() {
+          $('#exampleModal').modal('show');
+     }, 5000);
+</script> -->
 
 
 <script>
-    if($('#summary-ckeditor').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor' );
-    }
-    if($('#summary-ckeditor1').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor1' );
-    }
-    if($('#summary-ckeditor2').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor2' );
-    }
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml6 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({
+        loop: true
+    })
+        .add({
+            targets: '.ml6 .letter',
+            translateY: ["1em", 0],
+            translateZ: 0,
+            duration: 1000,
+            delay: (el, i) => 100 * i
+        }).add({
+        targets: '.ml6',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 3000
+    });
 </script>
-
-
-
-<script>
-	
-	 $(document).ready(function () {
-
-            @if(\Session::has('message'))
-            $.toast({
-                heading: 'Success!',
-                position: 'top-center',
-                text: '{{session()->get('message')}}',
-                loaderBg: '#ff6849',
-                icon: 'success',
-                hideAfter: 3000,
-                stack: 6
-            });
-            @endif
-			
-			
-            @if(\Session::has('flash_message'))
-            $.toast({
-                heading: 'Info!',
-                position: 'top-center',
-                text: '{{session()->get('flash_message')}}',
-                loaderBg: '#ff6849',
-                icon: 'error',
-                hideAfter: 3000,
-                stack: 6
-            });
-            @endif
-			
-			
-        });
-
-	
-</script>
-
-<script type="text/javascript">
-            $(document).ready(function() { $("#e1").select2(); });
-</script>
-
-<script type="text/javascript">
-            $(document).ready(function() { $("#e2").select2(); });
-</script>
-
-<!-- ============================================================== -->
-@stack('js')
 
 </body>
+
 </html>
