@@ -152,18 +152,18 @@
                         <div class="last-endl-flux">
                             <!-- <i class="fa-solid fa-phone"></i> -->
                             <p class="small-para">
-                                Agent/Enroll: <a href="tel:833-775-1105">833-775-1105</a>
+                                Agent/Enroll: <a href="tel:{{App\Http\Traits\HelperTrait::returnFlag(59)}}">{{App\Http\Traits\HelperTrait::returnFlag(59)}}</a>
                             </p>
                         </div>
                         <div class="last-endl-flux new-contact">
                             <!-- <i class="fa-solid fa-phone"></i> -->
                             <p class="small-para">
-                                Customer Service/Office: <a href="tel:954-229-9062 ">954-229-9062 </a>
+                                Customer Service/Office: <a href="tel:{{App\Http\Traits\HelperTrait::returnFlag(1973)}} ">{{App\Http\Traits\HelperTrait::returnFlag(1973)}} </a>
                             </p>
                         </div>
                         <div class="last-endl-flux new-contact">
                             <p class="small-para">
-                                Office Hours: 8:30am to 5:00pm M-F est
+                                Office Hours: {{App\Http\Traits\HelperTrait::returnFlag(1974)}}
                             </p>
                         </div>
 
@@ -189,7 +189,7 @@
                         <p>ADDRESS</p>
                         <div class="last-endl-flux">
                             <i class="fa-solid fa-map"></i>
-                            <p>Pompano Beach, Florida</p>
+                            <p>{{App\Http\Traits\HelperTrait::returnFlag(1975)}}</p>
                         </div>
                     </div>
                     <div class="quick">
@@ -218,13 +218,13 @@
                     <div class="phone endl-2">
                         <p>GET IN TOUCH</p>
                         <p class="small-para">We welcome your email inquiries 24/7!</p>
-                        <a href="#">engagedirect@engagehealthinsurance.com</a>
+                        <a href="mailto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
                         <div class="media">
-                            <a href="javascript:;"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="{{App\Http\Traits\HelperTrait::returnFlag(1977)}}"><i class="fa-brands fa-facebook-f"></i></a>
                             <!-- <a href="javascript:;"><i class="fa-brands fa-twitter"></i></a> -->
                             <!-- <a href="javascript:;"><i class="fa-brands fa-google-plus-g"></i></a> -->
-                            <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
-                            <a href="javascript:;"><i class="fa-brands fa-instagram"></i></a>
+{{--                            <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>--}}
+                            <a href="{{App\Http\Traits\HelperTrait::returnFlag(1978)}}"><i class="fa-brands fa-instagram"></i></a>
                             <!-- <a href="javascript:;"><i class="fa-brands fa-linkedin-in"></i></a> -->
                         </div>
                     </div>
