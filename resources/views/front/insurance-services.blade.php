@@ -1,3 +1,8 @@
+@php
+     $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 9)->first();
+     $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 9)->get();
+@endphp
+
 @extends('layouts.app')
 @section('title', 'Insurance services')
 
@@ -6,20 +11,21 @@
 @endsection
 
 @section('content')
-     <section class="inner-banner">
+     <section class="inner-banner" style="background-image: url({{asset($page->image)}})!important;">
           <div class="container">
                <div class="row">
                     <div class="col-lg-12">
                          <div class="main-heading" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
                          data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                         <h1>Insurance<span class="blue">
-                                   <span class="ml6">
-                                        <span class="text-wrapper">
-                                             <span class="letters">Services</span>
-                                        </span>
-                                   </span>
-                              </span>
-                         </h1>
+{{--                         <h1>Insurance<span class="blue">--}}
+{{--                                   <span class="ml6">--}}
+{{--                                        <span class="text-wrapper">--}}
+{{--                                             <span class="letters">Services</span>--}}
+{{--                                        </span>--}}
+{{--                                   </span>--}}
+{{--                              </span>--}}
+{{--                         </h1>--}}
+                              {!! $page->content !!}
                     </div>
                </div>
           </div>
@@ -31,25 +37,27 @@
                <div class="row align-items-center">
                     <div class="col-lg-12">
                          <div class="enrollment">
-                              <h2 class="side-heading aos-init" aos-init="" aos-animate="" data-aos="fade-down"
-                              data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">Things to
-                              Know About <span class="blue">ACA Health Plan</span> Enrollment</h2>
+{{--                              <h2 class="side-heading aos-init" aos-init="" aos-animate="" data-aos="fade-down"--}}
+{{--                              data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">Things to--}}
+{{--                              Know About <span class="blue">ACA Health Plan</span> Enrollment</h2>--}}
+                              {!! $sections[0]->value !!}
                          </div>
                     </div>
                     <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2> What is an ACA Health Plan <span class="d-block">and its Key Features?</span></h2>
-                              <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a comprehensive health
-                                   care reform law enacted in the United States in March of 2010. The ACA was designed to
-                                   expand health insurance coverage to millions of uninsured Americans and in the process
-                                   improve quality and to make health insurance more affordable, accessible and attainable
-                                   for individuals and families. </p>
-                              <p>There are several key achievements featured in ACA plans:</p>
-                         </div>
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2> What is an ACA Health Plan <span class="d-block">and its Key Features?</span></h2>--}}
+{{--                              <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a comprehensive health--}}
+{{--                                   care reform law enacted in the United States in March of 2010. The ACA was designed to--}}
+{{--                                   expand health insurance coverage to millions of uninsured Americans and in the process--}}
+{{--                                   improve quality and to make health insurance more affordable, accessible and attainable--}}
+{{--                                   for individuals and families. </p>--}}
+{{--                              <p>There are several key achievements featured in ACA plans:</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[1]->value !!}
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <img src="{{asset('images/enrollment.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset($sections[2]->value)}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>
@@ -60,85 +68,86 @@
           <div class="container">
                <div class="row">
                     <div class="col-lg-12">
-                         <div class="main-qa">
-                              <ul>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        1
-                                        <p><span> Coverage for Essential Health Benefits:</span> ACA health plans are
-                                             required to cover essential health benefits, including
-                                             preventive care, prescription drugs, maternity care, mental health services, and
-                                             more. This
-                                             ensures that individuals have access to a comprehensive range of medical
-                                             services.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
+{{--                         <div class="main-qa">--}}
+{{--                              <ul>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
+{{--                                        1--}}
+{{--                                        <p><span> Coverage for Essential Health Benefits:</span> ACA health plans are--}}
+{{--                                             required to cover essential health benefits, including--}}
+{{--                                             preventive care, prescription drugs, maternity care, mental health services, and--}}
+{{--                                             more. This--}}
+{{--                                             ensures that individuals have access to a comprehensive range of medical--}}
+{{--                                             services.</p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
 
-                                        2
-                                        <p><span> Preventive Care Services:</span> ACA plans typically cover preventive care
-                                             services at no additional cost to the
-                                             insured individual. This can include screenings, vaccinations, and counseling
-                                             aimed at preventing or
-                                             detecting health issues early, helping to promote overall wellness.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        3
+{{--                                        2--}}
+{{--                                        <p><span> Preventive Care Services:</span> ACA plans typically cover preventive care--}}
+{{--                                             services at no additional cost to the--}}
+{{--                                             insured individual. This can include screenings, vaccinations, and counseling--}}
+{{--                                             aimed at preventing or--}}
+{{--                                             detecting health issues early, helping to promote overall wellness.</p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
+{{--                                        3--}}
 
-                                        <p><span> No Denial for Pre-existing Conditions:</span> Under the ACA, insurance
-                                             companies are prohibited from denying coverage or
-                                             charging higher premiums based on pre-existing conditions. This protection
-                                             ensures that
-                                             individuals with health issues can still obtain affordable coverage.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        4
-                                        <p> <span> Subsidies and Tax Credits:</span> Many individuals and families may
-                                             qualify for subsidies or tax credits to help
-                                             lower the cost of their health insurance premiums. These financial assistance
-                                             programs are available to
-                                             eligible individuals purchasing coverage through the Health Insurance
-                                             Marketplaces. This key achievement of ACA plans lowers the cost of monthly
-                                             premiums for the insurance plan for the eligible insured. </p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
+{{--                                        <p><span> No Denial for Pre-existing Conditions:</span> Under the ACA, insurance--}}
+{{--                                             companies are prohibited from denying coverage or--}}
+{{--                                             charging higher premiums based on pre-existing conditions. This protection--}}
+{{--                                             ensures that--}}
+{{--                                             individuals with health issues can still obtain affordable coverage.</p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
+{{--                                        4--}}
+{{--                                        <p> <span> Subsidies and Tax Credits:</span> Many individuals and families may--}}
+{{--                                             qualify for subsidies or tax credits to help--}}
+{{--                                             lower the cost of their health insurance premiums. These financial assistance--}}
+{{--                                             programs are available to--}}
+{{--                                             eligible individuals purchasing coverage through the Health Insurance--}}
+{{--                                             Marketplaces. This key achievement of ACA plans lowers the cost of monthly--}}
+{{--                                             premiums for the insurance plan for the eligible insured. </p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
 
-                                        5
-                                        <p><span> Access to Networks of Providers:</span> ACA plans typically offer access
-                                             to networks of doctors, specialists, hospitals,
-                                             and other healthcare providers. Depending on the plan type (such as HMOs or
-                                             PPOs), individuals
-                                             may have varying degrees of flexibility in choosing their healthcare providers.
-                                        </p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
+{{--                                        5--}}
+{{--                                        <p><span> Access to Networks of Providers:</span> ACA plans typically offer access--}}
+{{--                                             to networks of doctors, specialists, hospitals,--}}
+{{--                                             and other healthcare providers. Depending on the plan type (such as HMOs or--}}
+{{--                                             PPOs), individuals--}}
+{{--                                             may have varying degrees of flexibility in choosing their healthcare providers.--}}
+{{--                                        </p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
 
-                                        6
-                                        <p><span> Cost-sharing Reductions for Low-Income Individuals:</span> For those who
-                                             qualify based on income, ACA health plans may offer cost-sharing
-                                             reductions, which lower out-of-pocket costs like deductibles,
-                                             copayments, and coinsurance. This helps make healthcare more affordable for
-                                             lower-income individuals and families.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
+{{--                                        6--}}
+{{--                                        <p><span> Cost-sharing Reductions for Low-Income Individuals:</span> For those who--}}
+{{--                                             qualify based on income, ACA health plans may offer cost-sharing--}}
+{{--                                             reductions, which lower out-of-pocket costs like deductibles,--}}
+{{--                                             copayments, and coinsurance. This helps make healthcare more affordable for--}}
+{{--                                             lower-income individuals and families.</p>--}}
+{{--                                   </li>--}}
+{{--                                   <li data-aos="flip-up" data-aos-duration="2000">--}}
 
-                                        7
-                                        <p> <span> Coverage for Dependents:</span> ACA plans allow young adults to stay on
-                                             their parents' health insurance plans
-                                             until the age of 26, providing coverage for those who may be transitioning into
-                                             the workforce or pursuing
-                                             higher education.</p>
-                                   </li>
-                              </ul>
-                              <p>Ultimately, the "best" ACA health plan for an individual will depend on factors such as
-                                   their healthcare needs, budget, preferred providers, and eligibility for subsidies or
-                                   other financial assistance. It's important for individuals to carefully compare plan
-                                   options and consider their specific circumstances when selecting a health insurance plan.
-                              </p>
-                              <p>The licensed agents at <span>Engage Health Insurance LLC</span> can help check eligibility,
-                                   navigate the
-                                   marketplace applications, and help select which plan is the most useable for an
-                                   individual’s or family’s particular situation. We welcome your call at <a
-                                           href="tel:+833-775-1105">833-775-1105</a>.</p>
-                         </div>
+{{--                                        7--}}
+{{--                                        <p> <span> Coverage for Dependents:</span> ACA plans allow young adults to stay on--}}
+{{--                                             their parents' health insurance plans--}}
+{{--                                             until the age of 26, providing coverage for those who may be transitioning into--}}
+{{--                                             the workforce or pursuing--}}
+{{--                                             higher education.</p>--}}
+{{--                                   </li>--}}
+{{--                              </ul>--}}
+{{--                              <p>Ultimately, the "best" ACA health plan for an individual will depend on factors such as--}}
+{{--                                   their healthcare needs, budget, preferred providers, and eligibility for subsidies or--}}
+{{--                                   other financial assistance. It's important for individuals to carefully compare plan--}}
+{{--                                   options and consider their specific circumstances when selecting a health insurance plan.--}}
+{{--                              </p>--}}
+{{--                              <p>The licensed agents at <span>Engage Health Insurance LLC</span> can help check eligibility,--}}
+{{--                                   navigate the--}}
+{{--                                   marketplace applications, and help select which plan is the most useable for an--}}
+{{--                                   individual’s or family’s particular situation. We welcome your call at <a--}}
+{{--                                           href="tel:+833-775-1105">833-775-1105</a>.</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[3]->value !!}
                     </div>
                </div>
           </div>

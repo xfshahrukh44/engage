@@ -1,3 +1,8 @@
+@php
+     $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 2)->first();
+     $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 2)->get();
+@endphp
+
 @extends('layouts.app')
 @section('title', 'Learning')
 
@@ -10,20 +15,21 @@
 @endsection
 
 @section('content')
-     <section class="inner-banner">
+     <section class="inner-banner" style="background-image: url({{asset($page->image)}})!important;">
           <div class="container">
                <div class="row">
                     <div class="col-lg-12">
                          <div class="main-heading" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
                          data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                         <h1>Learning <span class="blue">
-                                   <span class="ml6">
-                                        <span class="text-wrapper">
-                                             <span class="letters">ACA</span>
-                                        </span>
-                                   </span>
-                              </span>
-                         </h1>
+{{--                         <h1>Learning <span class="blue">--}}
+{{--                                   <span class="ml6">--}}
+{{--                                        <span class="text-wrapper">--}}
+{{--                                             <span class="letters">ACA</span>--}}
+{{--                                        </span>--}}
+{{--                                   </span>--}}
+{{--                              </span>--}}
+{{--                         </h1>--}}
+                              {!! $page->content !!}
                     </div>
                </div>
           </div>
@@ -35,25 +41,28 @@
                <div class="row align-items-center">
                     <div class="col-lg-12">
                          <div class="enrollment">
-                              <h2 class="side-heading aos-init" aos-init="" aos-animate="" data-aos="fade-down"
-                              data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">Things to
-                              Know About <span class="blue">ACA Health Plan</span> Enrollment</h2>
+{{--                              <h2 class="side-heading aos-init" aos-init="" aos-animate="" data-aos="fade-down"--}}
+{{--                              data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">Things to--}}
+{{--                              Know About <span class="blue">ACA Health Plan</span> Enrollment</h2>--}}
+                              {!! $sections[0]->value !!}
                          </div>
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <h2> What is an ACA Health Plan <span class="d-block">and its Key Features?</span></h2>
-                              <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a comprehensive health
-                                   care reform law enacted in the United States in March of 2010. The ACA was designed to
-                                   expand health insurance coverage to millions of uninsured Americans and in the process
-                                   improve quality and to make health insurance more affordable, accessible and attainable
-                                   for individuals and families. </p>
-                              <p>There are several key achievements featured in ACA plans:</p>
+{{--                              <h2> What is an ACA Health Plan <span class="d-block">and its Key Features?</span></h2>--}}
+{{--                              <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a comprehensive health--}}
+{{--                                   care reform law enacted in the United States in March of 2010. The ACA was designed to--}}
+{{--                                   expand health insurance coverage to millions of uninsured Americans and in the process--}}
+{{--                                   improve quality and to make health insurance more affordable, accessible and attainable--}}
+{{--                                   for individuals and families. </p>--}}
+{{--                              <p>There are several key achievements featured in ACA plans:</p>--}}
+                              {!! $sections[1]->value !!}
+                              {!! $sections[2]->value !!}
                          </div>
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <img src="{{asset('images/enrollment.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset($sections[3]->value)}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>
@@ -63,87 +72,7 @@
      <section class="qa-sec">
           <div class="container">
                <div class="row">
-                    <div class="col-lg-12">
-                         <div class="main-qa">
-                              <ul>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        1
-                                        <p><span> Coverage for Essential Health Benefits:</span> ACA health plans are
-                                             required to cover essential health benefits, including
-                                             preventive care, prescription drugs, maternity care, mental health services, and
-                                             more. This
-                                             ensures that individuals have access to a comprehensive range of medical
-                                             services.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-
-                                        2
-                                        <p><span> Preventive Care Services:</span> ACA plans typically cover preventive care
-                                             services at no additional cost to the
-                                             insured individual. This can include screenings, vaccinations, and counseling
-                                             aimed at preventing or
-                                             detecting health issues early, helping to promote overall wellness.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        3
-
-                                        <p><span> No Denial for Pre-existing Conditions:</span> Under the ACA, insurance
-                                             companies are prohibited from denying coverage or
-                                             charging higher premiums based on pre-existing conditions. This protection
-                                             ensures that
-                                             individuals with health issues can still obtain affordable coverage.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-                                        4
-                                        <p> <span> Subsidies and Tax Credits:</span> Many individuals and families may
-                                             qualify for subsidies or tax credits to help
-                                             lower the cost of their health insurance premiums. These financial assistance
-                                             programs are available to
-                                             eligible individuals purchasing coverage through the Health Insurance
-                                             Marketplaces. This key achievement of ACA plans lowers the cost of monthly
-                                             premiums for the insurance plan for the eligible insured. </p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-
-                                        5
-                                        <p><span> Access to Networks of Providers:</span> ACA plans typically offer access
-                                             to networks of doctors, specialists, hospitals,
-                                             and other healthcare providers. Depending on the plan type (such as HMOs or
-                                             PPOs), individuals
-                                             may have varying degrees of flexibility in choosing their healthcare providers.
-                                        </p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-
-                                        6
-                                        <p><span> Cost-sharing Reductions for Low-Income Individuals:</span> For those who
-                                             qualify based on income, ACA health plans may offer cost-sharing
-                                             reductions, which lower out-of-pocket costs like deductibles,
-                                             copayments, and coinsurance. This helps make healthcare more affordable for
-                                             lower-income individuals and families.</p>
-                                   </li>
-                                   <li data-aos="flip-up" data-aos-duration="2000">
-
-                                        7
-                                        <p> <span> Coverage for Dependents:</span> ACA plans allow young adults to stay on
-                                             their parents' health insurance plans
-                                             until the age of 26, providing coverage for those who may be transitioning into
-                                             the workforce or pursuing
-                                             higher education.</p>
-                                   </li>
-                              </ul>
-                              <p>Ultimately, the "best" ACA health plan for an individual will depend on factors such as
-                                   their healthcare needs, budget, preferred providers, and eligibility for subsidies or
-                                   other financial assistance. It's important for individuals to carefully compare plan
-                                   options and consider their specific circumstances when selecting a health insurance plan.
-                              </p>
-                              <p>The licensed agents at <span>Engage Health Insurance LLC</span> can help check eligibility,
-                                   navigate the
-                                   marketplace applications, and help select which plan is the most useable for an
-                                   individual’s or family’s particular situation. We welcome your call at <a
-                                           href="tel:+833-775-1105">833-775-1105</a>.</p>
-                         </div>
-                    </div>
+                    {!! $sections[4]->value !!}
                </div>
           </div>
      </section>
@@ -152,98 +81,103 @@
           <div class="container">
                <div class="row align-items-center">
                     <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2> What kinds of insurance plans will you <span class="d-block">find available with
-                                   ACA?</span></h2>
-                              <h3>Preferred Provider Organization (PPO) Plans</h3>
-                              <p>With a PPO, most healthcare is provided by a network of providers who are partnered with the
-                                   plan and offer a substantial discount to their normal rates. Members can also receive
-                                   service from providers outside of the network for a higher out-of-pocket cost. The major
-                                   advantages of a PPO are flexibility and choice; for example, with a PPO you can get
-                                   specialist visits covered without a referral from your primary care doctor.</p>
-                         </div>
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2> What kinds of insurance plans will you <span class="d-block">find available with--}}
+{{--                                   ACA?</span></h2>--}}
+{{--                              <h3>Preferred Provider Organization (PPO) Plans</h3>--}}
+{{--                              <p>With a PPO, most healthcare is provided by a network of providers who are partnered with the--}}
+{{--                                   plan and offer a substantial discount to their normal rates. Members can also receive--}}
+{{--                                   service from providers outside of the network for a higher out-of-pocket cost. The major--}}
+{{--                                   advantages of a PPO are flexibility and choice; for example, with a PPO you can get--}}
+{{--                                   specialist visits covered without a referral from your primary care doctor.</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[5]->value !!}
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <img src="{{asset('images/aca.png')}}" class="img-fluid" alt="">
-                         </div>
-                    </div>
-               </div>
-               <div class="row align-items-center flex-row-reverse">
-                    <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2>Health Maintenance Organization<span class="d-block">(HMO) Plans</span></h2>
-                              <p>HMOs are a lower cost alternative to PPOs, offering less flexibility but also lower
-                                   premiums. Unlike a PPO, HMO members must receive care from doctors, specialists and
-                                   hospitals that are within the HMO’s network. With an HMO, you select a primary care
-                                   physician, or PCP, who serves as your primary contact for all of your healthcare needs. In
-                                   addition to providing general medical care, your PCP must also be consulted in order to
-                                   see a specialist.</p>
-                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <img src="{{asset('images/hmo.png')}}" class="img-fluid" alt="">
-                         </div>
-                    </div>
-               </div>
-               <div class="row align-items-center">
-                    <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2>Exclusive Provider Organization (EPO)</h2>
-                              <p>An EPO health plan is a managed health insurance plan that requires you to see healthcare
-                                   providers only within the EPO network. EPO plans won't usually pay for out-of-network care
-                                   except in an emergency situation.
-                              </p>
-                              <p> EPOs and HMOs are similar. The primary difference between an EPO and an HMO is that you do
-                                   not typically have to have a primary care physician when you use an EPO. An EPO plan also
-                                   typically has a larger network of providers than an HMO plan.</p>
-                              <p>EPOs are similar to PPOs in that you don't usually have to get a referral to see a
-                                   specialist. However, PPOs tend to be more flexible than EPOs and HMOs since they give you
-                                   more options to go out of network.</p>
-                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <img src="{{asset('images/epo.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset($sections[6]->value)}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>
                <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2>Point of Service (POS) Plans</h2>
-                              <p>With Point of Service plans, the subscriber is given a choice of receiving in net work care
-                                   or out of network care. With in-network care the insured receives care from a particular
-                                   network of doctors and hospitals which is coordinated by the PCP or primary care provider
-                                   who approves specialists and hospital arrangements. The highest level of coverage will be
-                                   in-network. Out-of-network coverage comes into play when the insured sees a provider who
-                                   does not participate in the network and the care is not coordinated by the PCP. The
-                                   insured pays more for out-of-networkcare than they would within the POS network. </p>
-                         </div>
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2>Health Maintenance Organization<span class="d-block">(HMO) Plans</span></h2>--}}
+{{--                              <p>HMOs are a lower cost alternative to PPOs, offering less flexibility but also lower--}}
+{{--                                   premiums. Unlike a PPO, HMO members must receive care from doctors, specialists and--}}
+{{--                                   hospitals that are within the HMO’s network. With an HMO, you select a primary care--}}
+{{--                                   physician, or PCP, who serves as your primary contact for all of your healthcare needs. In--}}
+{{--                                   addition to providing general medical care, your PCP must also be consulted in order to--}}
+{{--                                   see a specialist.</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[7]->value !!}
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <img src="{{asset('images/pos.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset($sections[8]->value)}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>
                <div class="row align-items-center">
                     <div class="col-lg-6">
-                         <div class="feature-plan">
-                              <h2>Health Savings Accounts (HSA) Plans</h2>
-                              <p>Health Savings Account Plans allow you to put tax-free money away to cover healthcare costs.
-                                   HSA Plans must be combined with a High Deductible Health Plan (HDHP), which is a plan that
-                                   offers low premiums in exchange for a high deductible. HSAs and HDHPs complement each
-                                   other because the income tax-free money that you put into your HSA can be used to pay for
-                                   your deductible, should you ever require expensive medical care. HSAs are regulated by the
-                                   IRS, and have similarities with other investment vehicles; for example, ownership can be
-                                   transferred to a spouse tax-free if the account owner dies.</p>
-                         </div>
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2>Exclusive Provider Organization (EPO)</h2>--}}
+{{--                              <p>An EPO health plan is a managed health insurance plan that requires you to see healthcare--}}
+{{--                                   providers only within the EPO network. EPO plans won't usually pay for out-of-network care--}}
+{{--                                   except in an emergency situation.--}}
+{{--                              </p>--}}
+{{--                              <p> EPOs and HMOs are similar. The primary difference between an EPO and an HMO is that you do--}}
+{{--                                   not typically have to have a primary care physician when you use an EPO. An EPO plan also--}}
+{{--                                   typically has a larger network of providers than an HMO plan.</p>--}}
+{{--                              <p>EPOs are similar to PPOs in that you don't usually have to get a referral to see a--}}
+{{--                                   specialist. However, PPOs tend to be more flexible than EPOs and HMOs since they give you--}}
+{{--                                   more options to go out of network.</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[9]->value !!}
                     </div>
                     <div class="col-lg-6">
                          <div class="feature-plan">
-                              <img src="{{asset('images/hso.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset($sections[10]->value)}}" class="img-fluid" alt="">
+                         </div>
+                    </div>
+               </div>
+               <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2>Point of Service (POS) Plans</h2>--}}
+{{--                              <p>With Point of Service plans, the subscriber is given a choice of receiving in net work care--}}
+{{--                                   or out of network care. With in-network care the insured receives care from a particular--}}
+{{--                                   network of doctors and hospitals which is coordinated by the PCP or primary care provider--}}
+{{--                                   who approves specialists and hospital arrangements. The highest level of coverage will be--}}
+{{--                                   in-network. Out-of-network coverage comes into play when the insured sees a provider who--}}
+{{--                                   does not participate in the network and the care is not coordinated by the PCP. The--}}
+{{--                                   insured pays more for out-of-networkcare than they would within the POS network. </p>--}}
+{{--                         </div>--}}
+                         {!! $sections[11]->value !!}
+                    </div>
+                    <div class="col-lg-6">
+                         <div class="feature-plan">
+                              <img src="{{asset($sections[12]->value)}}" class="img-fluid" alt="">
+                         </div>
+                    </div>
+               </div>
+               <div class="row align-items-center">
+                    <div class="col-lg-6">
+{{--                         <div class="feature-plan">--}}
+{{--                              <h2>Health Savings Accounts (HSA) Plans</h2>--}}
+{{--                              <p>Health Savings Account Plans allow you to put tax-free money away to cover healthcare costs.--}}
+{{--                                   HSA Plans must be combined with a High Deductible Health Plan (HDHP), which is a plan that--}}
+{{--                                   offers low premiums in exchange for a high deductible. HSAs and HDHPs complement each--}}
+{{--                                   other because the income tax-free money that you put into your HSA can be used to pay for--}}
+{{--                                   your deductible, should you ever require expensive medical care. HSAs are regulated by the--}}
+{{--                                   IRS, and have similarities with other investment vehicles; for example, ownership can be--}}
+{{--                                   transferred to a spouse tax-free if the account owner dies.</p>--}}
+{{--                         </div>--}}
+                         {!! $sections[13]->value !!}
+                    </div>
+                    <div class="col-lg-6">
+                         <div class="feature-plan">
+                              <img src="{{asset($sections[14]->value)}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>

@@ -1,3 +1,9 @@
+@php
+    $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 25)->first();
+    $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 25)->get();
+@endphp
+
+
 @extends('layouts.app')
 @section('title', 'NAEMT TCCC Course')
 
@@ -21,7 +27,8 @@
                             <li><i class="fa-regular fa-star"></i></li>
                             <li><i class="fa-regular fa-star"></i></li>
                         </ul>
-                        <h5>NAEMT TCCC Course</h5>
+{{--                        <h5>NAEMT TCCC Course</h5>--}}
+                        {!! $page->content !!}
                         <p>Uncategorized
                             <!-- <a href="javascript:;">Upcoming Training</a> -->
                         </p>
@@ -61,18 +68,19 @@
 
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <div class="tactical-paramedic-tab-text">
-                                        <h4>About Course</h4>
-                                        <p>TCCC-CMC (TCCC Combat Medic/Corpsman – Tier 3) is a 63-hour course for military medical personnel including medics, corpsmen, and pararescue personnel deploying in support of combat operations.</p>
-                                        <h5>Other Courses are available upon request, with 20 students minimum.</h5>
-                                        <p>TCCC-CLS (TCCC Combat Lifesaver) is a 40-hour course for non-medical military personnel deploying in support of combat operations.</p>
-                                        <p>TCCC-ASM (TCCC All Service Members) is a 7-hour course for all service members.</p>
-                                        <h5>What Will You Learn:</h5>
-                                        <p>Tactical Combat Casualty Care (TCCC) was developed by the U.S. Department of Defense, Defense Health Agency (DHA) Joint Trauma System (JTS) to teach evidence-based, life-saving techniques and strategies for providing the best trauma care on the battlefield. NAEMT conducts TCCC courses as specified by the <strong class="black">DHA-JTS.</strong>  NAEMT currently offers three types of TCCC courses.</p>
-                                        <p>The foundational medical science upon which TCCC is based is published in NAEMT’s PHTLS Military textbook in which the military chapters are written by members of the JTS Committee on TCCC. TCCC courses offered by NAEMT are endorsed by the Joint Trauma System and the American College of Surgeons. NAEMT’s TCCC-CMC and TCCC-CLS courses are accredited by CAPCE and recognized by NREMT.</p>
-                                        <p>NAEMT’s TCCC courses are taught by a global network of experienced, well-trained instructors. To support training centers, instructors, and students, NAEMT maintains a network of affiliate faculty both in the U.S. and internationally, and staff at its Headquarters Office.</p>
-                                        <p>This nursing continuing professional development activity was approved by the Emergency Nurses Association, an accredited approver by the American Nurses Credentialing Center’s Commission on Accreditation to award 63 contact hours for TCCC-CMC. CE valid for one year: 10/11/2023-10/11/2024.</p>
-                                    </div>
+{{--                                    <div class="tactical-paramedic-tab-text">--}}
+{{--                                        <h4>About Course</h4>--}}
+{{--                                        <p>TCCC-CMC (TCCC Combat Medic/Corpsman – Tier 3) is a 63-hour course for military medical personnel including medics, corpsmen, and pararescue personnel deploying in support of combat operations.</p>--}}
+{{--                                        <h5>Other Courses are available upon request, with 20 students minimum.</h5>--}}
+{{--                                        <p>TCCC-CLS (TCCC Combat Lifesaver) is a 40-hour course for non-medical military personnel deploying in support of combat operations.</p>--}}
+{{--                                        <p>TCCC-ASM (TCCC All Service Members) is a 7-hour course for all service members.</p>--}}
+{{--                                        <h5>What Will You Learn:</h5>--}}
+{{--                                        <p>Tactical Combat Casualty Care (TCCC) was developed by the U.S. Department of Defense, Defense Health Agency (DHA) Joint Trauma System (JTS) to teach evidence-based, life-saving techniques and strategies for providing the best trauma care on the battlefield. NAEMT conducts TCCC courses as specified by the <strong class="black">DHA-JTS.</strong>  NAEMT currently offers three types of TCCC courses.</p>--}}
+{{--                                        <p>The foundational medical science upon which TCCC is based is published in NAEMT’s PHTLS Military textbook in which the military chapters are written by members of the JTS Committee on TCCC. TCCC courses offered by NAEMT are endorsed by the Joint Trauma System and the American College of Surgeons. NAEMT’s TCCC-CMC and TCCC-CLS courses are accredited by CAPCE and recognized by NREMT.</p>--}}
+{{--                                        <p>NAEMT’s TCCC courses are taught by a global network of experienced, well-trained instructors. To support training centers, instructors, and students, NAEMT maintains a network of affiliate faculty both in the U.S. and internationally, and staff at its Headquarters Office.</p>--}}
+{{--                                        <p>This nursing continuing professional development activity was approved by the Emergency Nurses Association, an accredited approver by the American Nurses Credentialing Center’s Commission on Accreditation to award 63 contact hours for TCCC-CMC. CE valid for one year: 10/11/2023-10/11/2024.</p>--}}
+{{--                                    </div>--}}
+                                    {!! $sections[0]->value !!}
                                 </div>
 
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel"

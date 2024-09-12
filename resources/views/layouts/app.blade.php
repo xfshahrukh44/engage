@@ -100,7 +100,7 @@
                                 <a class="nav-link active" href="{{route('home')}}">Home</a>
                             </li>
                             <li class="nav-item main_drop">
-                                <!-- insurance-services.php -->
+                                <!-- insurance-services -->
                                 <a class="nav-link" href="#">Insurance Services</a>
                                 <ul class="drop-menu">
                                     <li><a href="{{route('front.health-insurance')}}">Health</a></li>
@@ -113,10 +113,10 @@
                                 <a class="nav-link" href="{{route('front.learning')}}">Learning ACA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="blogs.php">Articles/Blog </a>
+                                <a class="nav-link" href="{{route('front.blogs')}}">Articles/Blog </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact</a>
+                                <a class="nav-link" href="{{route('front.contact')}}">Contact</a>
                             </li>
                             <!-- <li class="nav-item">
                                  <a class="nav-link" href="#">Enroll Now</a>
@@ -172,10 +172,10 @@
                         <p>QUICK LINKS</p>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="insurance-services.php">Insurance Services</a></li>
+                            <li><a href="{{route('front.insurance-services')}}">Insurance Services</a></li>
                             <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
-                            <li><a href="blogs.php">Articles/Blog </a></li>
-                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="{{route('front.blogs')}}">Articles/Blog </a></li>
+                            <li><a href="{{route('front.contact')}}">Contact</a></li>
 
 
                             <!-- <li><a href="#">Enroll Now</a></li> -->

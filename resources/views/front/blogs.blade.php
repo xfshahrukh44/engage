@@ -1,3 +1,8 @@
+@php
+     $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 7)->first();
+     $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 7)->get();
+@endphp
+
 @extends('layouts.app')
 @section('title', 'Blog')
 
@@ -6,19 +11,20 @@
 @endsection
 
 @section('content')
-     <section class="inner-banner blogs-banner">
+     <section class="inner-banner blogs-banner" style="background-image: url({{asset($page->image)}})!important;">
           <div class="container">
                <div class="row">
                     <div class="col-lg-12">
                          <div class="main-heading" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
                          data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                         <h1>Our <span class="blue">
-                                   <span class="ml6">
-                                        <span class="text-wrapper">
-                                             <span class="letters">Blogs</span>
-                                        </span>
-                                   </span>
-                         </h1>
+{{--                         <h1>Our <span class="blue">--}}
+{{--                                   <span class="ml6">--}}
+{{--                                        <span class="text-wrapper">--}}
+{{--                                             <span class="letters">Blogs</span>--}}
+{{--                                        </span>--}}
+{{--                                   </span>--}}
+{{--                         </h1>--}}
+                              {!! $page->content !!}
                     </div>
                </div>
           </div>

@@ -1,3 +1,8 @@
+@php
+     $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 6)->first();
+     $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 6)->get();
+@endphp
+
 @extends('layouts.app')
 @section('title', 'Affordable care act (ACA)')
 
@@ -6,19 +11,20 @@
 @endsection
 
 @section('content')
-     <section class="inner-banner aca-banner">
+     <section class="inner-banner aca-banner" style="background-image: url({{asset($page->image)}})!important;">
           <div class="container">
                <div class="row">
                     <div class="col-lg-12">
                          <div class="main-heading" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
                          data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                         <h1>Affordable Care Act <span class="blue">
-                                   <span class="ml6">
-                                        <span class="text-wrapper">
-                                             <span class="letters">(ACA)</span>
-                                        </span>
-                                   </span>
-                         </h1>
+{{--                         <h1>Affordable Care Act <span class="blue">--}}
+{{--                                   <span class="ml6">--}}
+{{--                                        <span class="text-wrapper">--}}
+{{--                                             <span class="letters">(ACA)</span>--}}
+{{--                                        </span>--}}
+{{--                                   </span>--}}
+{{--                         </h1>--}}
+                              {!! $page->content !!}
                     </div>
                </div>
           </div>
@@ -63,92 +69,96 @@
                               <div class="tab-content">
                                    <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                         <div class="tabs-coverage">
-                                             <img src="{{asset('images/aca-1.png')}}" class="img-fluid mb-5" alt="">
+                                             <img src="{{asset($sections[0]->value)}}" class="img-fluid mb-5" alt="">
                                              <!-- <div class="eligible-ages">
                                                   <h4>Eligible ages:</h4>
                                                   <h4>Minimum Age: <span> 10 Years </span></h4>
                                                   <h4>Maximum Age: <span> 65 Years </span></h4>
                                              </div> -->
-                                             <h2>Plan for Healthcare & Life’s Changes through Affordable Care Act Insurance
-                                             </h2>
-                                             <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a
-                                                  comprehensive health care reform law enacted in the United States in March
-                                                  of 2010. The ACA was designed to expand health insurance coverage to
-                                                  millions of uninsured Americans and in the process improve quality and make
-                                                  health insurance more affordable, accessible and attainable for individuals
-                                                  and families.
-                                             </p>
+{{--                                             <h2>Plan for Healthcare & Life’s Changes through Affordable Care Act Insurance--}}
+{{--                                             </h2>--}}
+{{--                                             <p>ACA stands for Affordable Care Act, also known as Obamacare. It is a--}}
+{{--                                                  comprehensive health care reform law enacted in the United States in March--}}
+{{--                                                  of 2010. The ACA was designed to expand health insurance coverage to--}}
+{{--                                                  millions of uninsured Americans and in the process improve quality and make--}}
+{{--                                                  health insurance more affordable, accessible and attainable for individuals--}}
+{{--                                                  and families.--}}
+{{--                                             </p>--}}
 
-                                             <p><span>Engage Health Insurance LLC </span> will endeavor to match you with the
-                                                  best plans available in your locale with quality, trusted carriers
-                                                  utilizing the health insurance marketplace enrollment data and process. ACA
-                                                  plans have the following key features:
-                                             </p>
+{{--                                             <p><span>Engage Health Insurance LLC </span> will endeavor to match you with the--}}
+{{--                                                  best plans available in your locale with quality, trusted carriers--}}
+{{--                                                  utilizing the health insurance marketplace enrollment data and process. ACA--}}
+{{--                                                  plans have the following key features:--}}
+{{--                                             </p>--}}
+                                             {!! $sections[1]->value !!}
                                              <div class="row">
                                                   <div class="col-lg-6">
                                                        <div class="plan-insurance">
-                                                            <img src="{{asset('images/couple.png')}}" class="img-fluid" alt="">
+                                                            <img src="{{asset($sections[3]->value)}}" class="img-fluid" alt="">
                                                        </div>
                                                   </div>
                                                   <div class="col-lg-6">
-                                                       <div class="include-health">
-                                                            <ul>
-                                                                 <li>
-                                                                      <p> <span>Coverage for essential health benefits:
-                                                                      </span> Includes preventative care, prescriptions,
-                                                                           maternity care, mental health services, emergency
-                                                                           services and more.</p>
-                                                                 </li>
-                                                                 <li>
-                                                                      <p> <span>Preventative Care Services: </span> No
-                                                                           additional cost screenings such as mammograms and
-                                                                           colonoscopies for early detection of health issues
-                                                                           to promote wellness. Including vaccinations.</p>
-                                                                 </li>
-                                                                 <li>
-                                                                      <p> <span>No Denial for Pre-Existing Conditions:
-                                                                      </span> Under ACA insurance companies cannot deny
-                                                                           coverage or charge higher premiums based on
-                                                                           pre-existing conditions. </p>
-                                                                 </li>
-                                                                 <li>
-                                                                      <p> <span>Subsidies and Tax Credits: </span> If
-                                                                           eligible for financial assistance through income
-                                                                           qualification, ACA financial subsidies can save
-                                                                           you money on premiums and even provide $0 to Low
-                                                                           Cost options to make health care easily affordable
-                                                                           and accessible to you.</p>
-                                                                 </li>
-                                                                 <li>
-                                                                      <p> <span>Access to Provider Networks: </span> Plan
-                                                                           types like HMOs and PPOs offer flexibility in
-                                                                           choosing providers.</p>
-                                                                 </li>
-                                                                 <li>
-                                                                      <p> <span>Cost-sharing Reduction for Low-Income
-                                                                           Individuals: </span>This may lower the
-                                                                           out-of-pocket costs such as deductibles,
-                                                                           copayments and coinsurance. </p>
-                                                                 </li>
-                                                            </ul>
-                                                       </div>
+{{--                                                       <div class="include-health">--}}
+{{--                                                            <ul>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>Coverage for essential health benefits:--}}
+{{--                                                                      </span> Includes preventative care, prescriptions,--}}
+{{--                                                                           maternity care, mental health services, emergency--}}
+{{--                                                                           services and more.</p>--}}
+{{--                                                                 </li>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>Preventative Care Services: </span> No--}}
+{{--                                                                           additional cost screenings such as mammograms and--}}
+{{--                                                                           colonoscopies for early detection of health issues--}}
+{{--                                                                           to promote wellness. Including vaccinations.</p>--}}
+{{--                                                                 </li>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>No Denial for Pre-Existing Conditions:--}}
+{{--                                                                      </span> Under ACA insurance companies cannot deny--}}
+{{--                                                                           coverage or charge higher premiums based on--}}
+{{--                                                                           pre-existing conditions. </p>--}}
+{{--                                                                 </li>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>Subsidies and Tax Credits: </span> If--}}
+{{--                                                                           eligible for financial assistance through income--}}
+{{--                                                                           qualification, ACA financial subsidies can save--}}
+{{--                                                                           you money on premiums and even provide $0 to Low--}}
+{{--                                                                           Cost options to make health care easily affordable--}}
+{{--                                                                           and accessible to you.</p>--}}
+{{--                                                                 </li>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>Access to Provider Networks: </span> Plan--}}
+{{--                                                                           types like HMOs and PPOs offer flexibility in--}}
+{{--                                                                           choosing providers.</p>--}}
+{{--                                                                 </li>--}}
+{{--                                                                 <li>--}}
+{{--                                                                      <p> <span>Cost-sharing Reduction for Low-Income--}}
+{{--                                                                           Individuals: </span>This may lower the--}}
+{{--                                                                           out-of-pocket costs such as deductibles,--}}
+{{--                                                                           copayments and coinsurance. </p>--}}
+{{--                                                                 </li>--}}
+{{--                                                            </ul>--}}
+{{--                                                       </div>--}}
+
+                                                       {!! $sections[2]->value !!}
                                                   </div>
                                              </div>
-                                             <h2 class="side-heading aos-init aos-animate aca-pg" aos-init="" aos-animate=""
-                                             data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine"
-                                             data-aos-duration="1000">
-                                             Affordable, Attainable, Accessible <span class="blue d-block">Engage for
-                                                  Consultation and Help Navigating the ACA enrollment process.</span>
-                                             </h2>
-                                             <p>The agents at Engage Health Insurance LLC will help you with the health
-                                                  insurance marketplace application forms in order to match you up with the
-                                                  best plan for your locale, zip code, income, and stated health concerns. We
-                                                  will help determine if you are eligible for subsidies or cost sharing and
-                                                  will find a plan for you!
-                                             </p>
-                                             <p>We look forward to assisting you with your goals for health, prevention,
-                                                  preparation, and financial protection in the form of an Affordable Health
-                                                  Insurance Policy. </p>
+{{--                                             <h2 class="side-heading aos-init aos-animate aca-pg" aos-init="" aos-animate=""--}}
+{{--                                             data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine"--}}
+{{--                                             data-aos-duration="1000">--}}
+{{--                                             Affordable, Attainable, Accessible <span class="blue d-block">Engage for--}}
+{{--                                                  Consultation and Help Navigating the ACA enrollment process.</span>--}}
+{{--                                             </h2>--}}
+{{--                                             <p>The agents at Engage Health Insurance LLC will help you with the health--}}
+{{--                                                  insurance marketplace application forms in order to match you up with the--}}
+{{--                                                  best plan for your locale, zip code, income, and stated health concerns. We--}}
+{{--                                                  will help determine if you are eligible for subsidies or cost sharing and--}}
+{{--                                                  will find a plan for you!--}}
+{{--                                             </p>--}}
+{{--                                             <p>We look forward to assisting you with your goals for health, prevention,--}}
+{{--                                                  preparation, and financial protection in the form of an Affordable Health--}}
+{{--                                                  Insurance Policy. </p>--}}
+                                             {!! $sections[4]->value !!}
                                         </div>
                                    </div>
 

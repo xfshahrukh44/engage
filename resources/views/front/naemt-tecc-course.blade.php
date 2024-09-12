@@ -1,3 +1,9 @@
+@php
+    $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 28)->first();
+    $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 28)->get();
+@endphp
+
+
 @extends('layouts.app')
 @section('title', 'NAEMT TECC Course')
 
@@ -21,7 +27,8 @@
                             <li><i class="fa-regular fa-star"></i></li>
                             <li><i class="fa-regular fa-star"></i></li>
                         </ul>
-                        <h5>NAEMT TECC Course</h5>
+{{--                        <h5>NAEMT TECC Course</h5>--}}
+                        {!! $page->content !!}
                         <p>Uncategorized
                             <!-- <a href="javascript:;">Upcoming Training</a> -->
                         </p>
@@ -61,38 +68,39 @@
 
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <div class="tactical-paramedic-tab-text">
-                                        <h4>About Course</h4>
-                                        <p>The 2nd edition of NAEMT’s Tactical Emergency Casualty Care (TECC) course teaches EMS practitioners and other prehospital providers how to respond to and care for patients in a civilian tactical environment.</p>
-                                        <p>The course presents the three phases of tactical care and integrates parallel EMS nomenclature:</p>
-                                        <ul>
-                                            <li>Hot Zone/Direct Threat Care that is rendered while under attack or in adverse conditions.</li>
-                                            <li>Warm Zone/Indirect Threat Care that is rendered while the threat has been suppressed but may resurface at any point.</li>
-                                            <li>Cold Zone/Evacuation Care that is rendered while the casualty is being evacuated from the incident site.</li>
-                                        </ul>
-                                        <h5>What Will You Learn?</h5>
-                                        <p>The 16-hour classroom course includes all new patient simulations and covers the following topics:</p>
-                                        <ul>
-                                            <li>Hemorrhage control including immediate action drills for tourniquet application throughout the course;</li>
-                                            <li>Complete coverage of the MARCH assessment;</li>
-                                            <li>Surgical airway control and needle decompression;</li>
-                                            <li>Strategies for treating wounded responders in threatening environments;</li>
-                                            <li>Caring for pediatric patients;</li>
-                                            <li>Techniques for dragging and carrying victims to safety; and</li>
-                                            <li>A final, mass-casualty/active shooter event simulation.</li>
-                                        </ul>
-                                        <p>NAEMT’s TECC course is endorsed by the American College of Surgeons Committee on Trauma, is consistent with the current guidelines established by the <a href="javascript:;">Committee on TECC</a> (Co-TECC), and meets all of the updated <a href="javascript:;">National Tactical Emergency Medical Support Competency Domains.</a> This course is accredited by CAPCE for 16 hours of continuing education credit, and recognized by NREMT.</p>
-                                        <div class="naemt-tecc-course-main">
-                                            <div class="naemt-tecc-course-img">
-                                                <img src="{{asset('images/naemt-tecc-course-img-2.jpg')}}" alt="" class="img-fluid">
-                                            </div>
-                                            <div class="naemt-tecc-course-text">
-                                                <p>NAEMT is a <a href="javascript:;">recognized education partner</a> of the Co-TECC.</p>
-                                            </div>
-                                        </div>
-                                        <p>The Co-TECC establishes guidelines for the provision of prehospital care to injured patients during a tactical incident. The Co-TECC neither creates curriculum for the prehospital provider, nor does it endorse the curriculum of other organizations.</p>
-                                        <h6>Payment plans are available to pay for the course with prior arrangements. </h6>
-                                    </div>
+{{--                                    <div class="tactical-paramedic-tab-text">--}}
+{{--                                        <h4>About Course</h4>--}}
+{{--                                        <p>The 2nd edition of NAEMT’s Tactical Emergency Casualty Care (TECC) course teaches EMS practitioners and other prehospital providers how to respond to and care for patients in a civilian tactical environment.</p>--}}
+{{--                                        <p>The course presents the three phases of tactical care and integrates parallel EMS nomenclature:</p>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>Hot Zone/Direct Threat Care that is rendered while under attack or in adverse conditions.</li>--}}
+{{--                                            <li>Warm Zone/Indirect Threat Care that is rendered while the threat has been suppressed but may resurface at any point.</li>--}}
+{{--                                            <li>Cold Zone/Evacuation Care that is rendered while the casualty is being evacuated from the incident site.</li>--}}
+{{--                                        </ul>--}}
+{{--                                        <h5>What Will You Learn?</h5>--}}
+{{--                                        <p>The 16-hour classroom course includes all new patient simulations and covers the following topics:</p>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>Hemorrhage control including immediate action drills for tourniquet application throughout the course;</li>--}}
+{{--                                            <li>Complete coverage of the MARCH assessment;</li>--}}
+{{--                                            <li>Surgical airway control and needle decompression;</li>--}}
+{{--                                            <li>Strategies for treating wounded responders in threatening environments;</li>--}}
+{{--                                            <li>Caring for pediatric patients;</li>--}}
+{{--                                            <li>Techniques for dragging and carrying victims to safety; and</li>--}}
+{{--                                            <li>A final, mass-casualty/active shooter event simulation.</li>--}}
+{{--                                        </ul>--}}
+{{--                                        <p>NAEMT’s TECC course is endorsed by the American College of Surgeons Committee on Trauma, is consistent with the current guidelines established by the <a href="javascript:;">Committee on TECC</a> (Co-TECC), and meets all of the updated <a href="javascript:;">National Tactical Emergency Medical Support Competency Domains.</a> This course is accredited by CAPCE for 16 hours of continuing education credit, and recognized by NREMT.</p>--}}
+{{--                                        <div class="naemt-tecc-course-main">--}}
+{{--                                            <div class="naemt-tecc-course-img">--}}
+{{--                                                <img src="{{asset('images/naemt-tecc-course-img-2.jpg')}}" alt="" class="img-fluid">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="naemt-tecc-course-text">--}}
+{{--                                                <p>NAEMT is a <a href="javascript:;">recognized education partner</a> of the Co-TECC.</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <p>The Co-TECC establishes guidelines for the provision of prehospital care to injured patients during a tactical incident. The Co-TECC neither creates curriculum for the prehospital provider, nor does it endorse the curriculum of other organizations.</p>--}}
+{{--                                        <h6>Payment plans are available to pay for the course with prior arrangements. </h6>--}}
+{{--                                    </div>--}}
+                                    {!! $sections[0]->value !!}
                                 </div>
 
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel"

@@ -35,10 +35,10 @@
                               <p>QUICK LINKS</p>
                               <ul>
                                    <li><a href="{{route('home')}}">Home</a></li>
-                                   <li><a href="insurance-services.php">Insurance Services</a></li>
+                                   <li><a href="{{route('front.insurance-services')}}">Insurance Services</a></li>
                                    <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
-                                   <li><a href="blogs.php">Articles/Blog </a></li>
-                                   <li><a href="contact.php">Contact</a></li>
+                                   <li><a href="{{route('front.blogs')}}">Articles/Blog </a></li>
+                                   <li><a href="{{route('front.contact')}}">Contact</a></li>
                                    
 
                                    <!-- <li><a href="#">Enroll Now</a></li> -->

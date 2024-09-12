@@ -1,3 +1,9 @@
+@php
+    $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 23)->first();
+    $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 23)->get();
+@endphp
+
+
 @extends('layouts.app')
 @section('title', 'NAEMT AMLS Course')
 
@@ -21,7 +27,8 @@
                             <li><i class="fa-regular fa-star"></i></li>
                             <li><i class="fa-regular fa-star"></i></li>
                         </ul>
-                        <h5>NAEMT AMLS Course</h5>
+{{--                        <h5>NAEMT AMLS Course</h5>--}}
+                        {!! $page->content !!}
                         <p>Uncategorized
                             <!-- <a href="javascript:;">Upcoming Training</a> -->
                         </p>
@@ -61,26 +68,27 @@
 
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <div class="tactical-paramedic-tab-text">
-                                        <h4>About Course</h4>
-                                        <p>Advanced Medical Life Support (AMLS) remains the gold standard of education for emergency medical assessment and treatment. Endorsed by the National Association of EMS Physicians, AMLS emphasizes the use of the AMLS Assessment Pathway, a systematic tool for assessing and managing common medical conditions with urgent accuracy.</p>
-                                        <h5>What Will You Learn?</h5>
-                                        <p>In the third edition of AMLS, students learn to recognize and manage common medical crises through realistic case-based scenarios that challenge students to apply their knowledge to highly critical patients. The course emphasizes the use of scene size-up, first impression, history, interactive group discussion on differential diagnosis and potential treatment strategies, and physical exam to systematically rule out and consider possibilities and probabilities in treating patients’ medical crises. The third edition AMLS library of patient simulations offers students an opportunity to apply critical thinking skills to a variety of patient presentations. Additional features include patient simulation monitor images and ECGs provided by iSimulate, to enhance students’ experience.</p>
-                                        <p>The course utilizes the AMLS textbook and course manual, and covers the following topics:</p>
-                                        <ul>
-                                            <li>Respiratory disorders</li>
-                                            <li>Cardiovascular disorders</li>
-                                            <li>Shock</li>
-                                            <li>Sepsis</li>
-                                            <li>Neurological disorders</li>
-                                            <li>Endocrine/Metabolic disorders</li>
-                                            <li>Infectious disease</li>
-                                            <li>Abdominal disorders</li>
-                                            <li>Toxicological emergencies</li>
-                                            <li>Exposure to hazardous materials</li>
-                                        </ul>
-                                        <p>AMLS is appropriate for EMTs, paramedics, nurses, nurse practitioners, physician assistants, nurse anesthetists and physicians. AMLS is accredited by CAPCE and recognized by NREMT.</p>
-                                    </div>
+{{--                                    <div class="tactical-paramedic-tab-text">--}}
+{{--                                        <h4>About Course</h4>--}}
+{{--                                        <p>Advanced Medical Life Support (AMLS) remains the gold standard of education for emergency medical assessment and treatment. Endorsed by the National Association of EMS Physicians, AMLS emphasizes the use of the AMLS Assessment Pathway, a systematic tool for assessing and managing common medical conditions with urgent accuracy.</p>--}}
+{{--                                        <h5>What Will You Learn?</h5>--}}
+{{--                                        <p>In the third edition of AMLS, students learn to recognize and manage common medical crises through realistic case-based scenarios that challenge students to apply their knowledge to highly critical patients. The course emphasizes the use of scene size-up, first impression, history, interactive group discussion on differential diagnosis and potential treatment strategies, and physical exam to systematically rule out and consider possibilities and probabilities in treating patients’ medical crises. The third edition AMLS library of patient simulations offers students an opportunity to apply critical thinking skills to a variety of patient presentations. Additional features include patient simulation monitor images and ECGs provided by iSimulate, to enhance students’ experience.</p>--}}
+{{--                                        <p>The course utilizes the AMLS textbook and course manual, and covers the following topics:</p>--}}
+{{--                                        <ul>--}}
+{{--                                            <li>Respiratory disorders</li>--}}
+{{--                                            <li>Cardiovascular disorders</li>--}}
+{{--                                            <li>Shock</li>--}}
+{{--                                            <li>Sepsis</li>--}}
+{{--                                            <li>Neurological disorders</li>--}}
+{{--                                            <li>Endocrine/Metabolic disorders</li>--}}
+{{--                                            <li>Infectious disease</li>--}}
+{{--                                            <li>Abdominal disorders</li>--}}
+{{--                                            <li>Toxicological emergencies</li>--}}
+{{--                                            <li>Exposure to hazardous materials</li>--}}
+{{--                                        </ul>--}}
+{{--                                        <p>AMLS is appropriate for EMTs, paramedics, nurses, nurse practitioners, physician assistants, nurse anesthetists and physicians. AMLS is accredited by CAPCE and recognized by NREMT.</p>--}}
+{{--                                    </div>--}}
+                                    {!! $sections[0]->value !!}
                                 </div>
 
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel"

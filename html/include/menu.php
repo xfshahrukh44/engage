@@ -68,10 +68,10 @@
                                         <a class="nav-link" href="{{route('front.learning')}}">Learning ACA</a>
                                    </li>
                                    <li class="nav-item">
-                                        <a class="nav-link" href="blogs.php">Articles/Blog </a>
+                                        <a class="nav-link" href="{{route('front.blogs')}}">Articles/Blog </a>
                                    </li>
                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.php">Contact</a>
+                                        <a class="nav-link" href="{{route('front.contact')}}">Contact</a>
                                    </li>
                                    <!-- <li class="nav-item">
                                         <a class="nav-link" href="#">Enroll Now</a>

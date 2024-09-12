@@ -140,4 +140,19 @@ class FrontController extends Controller
     {
         return view('front.affordable-care-act-(ACA)');
     }
+
+    public function blogs (Request $request)
+    {
+        return view('front.blogs');
+    }
+
+    public function contact (Request $request)
+    {
+        return view('front.contact');
+    }
+
+    public function insurance_services (Request $request)
+    {
+        return view('front.insurance-services');
+    }
 }
