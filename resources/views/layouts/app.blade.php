@@ -218,7 +218,8 @@
                     <div class="phone endl-2">
                         <p>GET IN TOUCH</p>
                         <p class="small-para">We welcome your email inquiries 24/7!</p>
-                        <a href="mai<a class="nav-link" href="#">Insurance Services</a>lto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
+                        <a href="nav-link" href="#">Insurance Services</a>
+                        <a href="nav-link" href="mailto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
                         <div class="media">
                             <a href="{{App\Http\Traits\HelperTrait::returnFlag(1977)}}"><i class="fa-brands fa-facebook-f"></i></a>
                             <!-- <a href="javascript:;"><i class="fa-brands fa-twitter"></i></a> -->
