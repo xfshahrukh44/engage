@@ -97,11 +97,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link active" href="{{route('home')}}">Home</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('home') ? 'active' : '' !!}" href="{{route('home')}}">Home</a>
                             </li>
                             <li class="nav-item main_drop">
                                 <!-- insurance-services -->
-                                <a class="nav-link" href="#">Insurance Services</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.health-insurance') || \Illuminate\Support\Facades\Route::Is('front.dental-insurance') || \Illuminate\Support\Facades\Route::Is('front.vision-insurance') || \Illuminate\Support\Facades\Route::Is('front.affordable-care-act-aca') ? 'active' : '' !!}" href="#">Insurance Services</a>
                                 <ul class="drop-menu">
                                     <li><a href="{{route('front.health-insurance')}}">Health</a></li>
                                     <li><a href="{{route('front.dental-insurance')}}">Dental</a></li>
@@ -110,20 +110,20 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('front.learning')}}">Learning ACA</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.learning') ? 'active' : '' !!}" href="{{route('front.learning')}}">Learning ACA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('front.blogs')}}">Articles/Blog </a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.blogs') ? 'active' : '' !!}" href="{{route('front.blogs')}}">Articles/Blog </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('front.contact')}}">Contact</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.contact') ? 'active' : '' !!}" href="{{route('front.contact')}}">Contact</a>
                             </li>
                             <!-- <li class="nav-item">
                                  <a class="nav-link" href="#">Enroll Now</a>
                             </li> -->
 
                         </ul>
-                        <a href="tel:+833-775-1105" class="call"><i class="fa-solid fa-phone-volume fa-shake"></i>833-775-1105</a>
+                        <a href="tel:+{{App\Http\Traits\HelperTrait::returnFlag(59)}}" class="call"><i class="fa-solid fa-phone-volume fa-shake"></i>{{App\Http\Traits\HelperTrait::returnFlag(59)}}</a>
                         <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Enroll
                             Now</a>
                     </div>
@@ -218,7 +218,7 @@
                     <div class="phone endl-2">
                         <p>GET IN TOUCH</p>
                         <p class="small-para">We welcome your email inquiries 24/7!</p>
-                        <a href="mailto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
+                        <a href="mai<a class="nav-link" href="#">Insurance Services</a>lto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
                         <div class="media">
                             <a href="{{App\Http\Traits\HelperTrait::returnFlag(1977)}}"><i class="fa-brands fa-facebook-f"></i></a>
                             <!-- <a href="javascript:;"><i class="fa-brands fa-twitter"></i></a> -->
