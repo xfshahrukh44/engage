@@ -155,4 +155,29 @@ class FrontController extends Controller
     {
         return view('front.insurance-services');
     }
+
+    public function about (Request $request)
+    {
+        return view('front.about');
+    }
+
+    public function about_content (Request $request)
+    {
+        return view('front.about-content');
+    }
+
+    public function accreditations (Request $request)
+    {
+        return view('front.accreditations');
+    }
+
+    public function capabilities_statement (Request $request)
+    {
+        return view('front.capabilities-statement');
+    }
+
+    public function checkout (Request $request)
+    {
+        return view('front.courses');
+    }
 }

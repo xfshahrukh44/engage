@@ -51,9 +51,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($page as $item)
+                                    @foreach($page as $key => $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+{{--                                        <td>{{ $item->id }}</td>--}}
+                                        <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->page_name }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
@@ -125,12 +126,12 @@
         })
 
         $(function () {
-            $('#myTable').DataTable({
-                'aoColumnDefs': [{
-                    'bSortable': false,
-                    'aTargets': [-1] /* 1st one, start by the right */
-                }]
-            });
+            // $('#myTable').DataTable({
+            //     'aoColumnDefs': [{
+            //         'bSortable': false,
+            //         'aTargets': [-1] /* 1st one, start by the right */
+            //     }]
+            // });
 
         });
     </script>

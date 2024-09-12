@@ -1,3 +1,9 @@
+@php
+    $page = \Illuminate\Support\Facades\DB::table('pages')->where('id', 33)->first();
+    $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 33)->get();
+    $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
+@endphp
+
 @extends('layouts.app')
 @section('title', 'Home')
 
@@ -46,91 +52,125 @@
                 <div class="col-lg-12 p-0">
                     <div class="main-banner-slides">
                         <div class="banner-slides owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="banner-img">
-                                    <img src="{{asset('images/main-bg.png')}}" class="img-fluid" alt="">
-                                    <div class="main-heading">
-                                        <h1>Discover how an <span class="blue">
-                                            <span class="ml6">
-                                                <span class="text-wrapper">
-                                                    <span class="letters"><br>ACA health plan</span>
-                                                </span>
-                                            </span>
-
-                                        </h1>
-                                        <h3> offers affordable, accessible options which we can tailor<br> for your
-                                            location, budget and needs. <span class="blue">
-                                            <span class="d-block">
-                                            </span></h3>
-                                        <div class="code">
-                                            <input type="text" placeholder="Zip Code">
-                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>
-                                            <!-- data-toggle="modal" data-target="#exampleModal" -->
+                            @foreach($banners as $banner)
+                                <div class="item">
+                                    <div class="banner-img">
+                                        <img src="{{asset($banner->image)}}" class="img-fluid" alt="">
+                                        <div class="main-heading">
+{{--                                            <h1>Discover how an--}}
+{{--                                                <span class="blue">--}}
+{{--                                                    <span class="ml6">--}}
+{{--                                                        <span class="text-wrapper">--}}
+{{--                                                            <span class="letters"><br>ACA health plan</span>--}}
+{{--                                                        </span>--}}
+{{--                                                    </span>--}}
+{{--                                                </span>--}}
+{{--                                            </h1>--}}
+{{--                                            <h3>--}}
+{{--                                                offers affordable, accessible options which we can tailor<br> for your--}}
+{{--                                                location, budget and needs.--}}
+{{--                                                <span class="blue">--}}
+{{--                                                    <span class="d-block"></span>--}}
+{{--                                                </span>--}}
+{{--                                            </h3>--}}
+                                            {!! $banner->description !!}
+                                            <div class="code">
+                                                <input type="text" placeholder="Zip Code">
+                                                <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <div class="item">
-                                <div class="banner-img extra-div-banner">
-                                    <img src="{{asset('images/main-banner-3.png')}}" class="img-fluid" alt="">
-                                    <div class="main-heading">
-                                        <h1><span class="blue">
-                                            <span class="ml6">
-                                                <span class="text-wrapper">
-                                                    <span class="letters">ACA OPEN ENROLLMENT </span>
-                                                </span>
-                                            </span>
-                                           <br>
-                                           </span> 1 Nov, 2024 - Jan 15, 2025
-                                        </h1>
-                                        <h3>Evaluate, Update, Choose Your Plan<br> for 2025! Get Set, Get Covered!
-                                            <span
-                                                    class="blue">
-                                            <span class="d-block">
-                                            </span></h3>
-                                        <div class="code">
-                                            <input type="text" placeholder="Zip Code">
-                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>
+{{--                            <div class="item">--}}
+{{--                                <div class="banner-img">--}}
+{{--                                    <img src="{{asset('images/main-bg.png')}}" class="img-fluid" alt="">--}}
+{{--                                    <div class="main-heading">--}}
+{{--                                        <h1>Discover how an <span class="blue">--}}
+{{--                                            <span class="ml6">--}}
+{{--                                                <span class="text-wrapper">--}}
+{{--                                                    <span class="letters"><br>ACA health plan</span>--}}
+{{--                                                </span>--}}
+{{--                                            </span>--}}
+{{--                                        </span>--}}
 
-                                        </div>
-                                        <!-- <p class="para-1">We've helped 1739 people from this month.</p>
-                                        <p class="para-1">We work with 200 partners, including the brands below, to offer
-                                            plans.
-                                        </p> -->
-                                    </div>
-                                </div>
-                            </div>
+{{--                                        </h1>--}}
+{{--                                        <h3> offers affordable, accessible options which we can tailor<br> for your--}}
+{{--                                            location, budget and needs. <span class="blue">--}}
+{{--                                            <span class="d-block">--}}
+{{--                                            </span>--}}
+{{--                                            </span>--}}
+{{--                                        </h3>--}}
+{{--                                        <div class="code">--}}
+{{--                                            <input type="text" placeholder="Zip Code">--}}
+{{--                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>--}}
+{{--                                            <!-- data-toggle="modal" data-target="#exampleModal" -->--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+{{--                            <div class="item">--}}
+{{--                                <div class="banner-img extra-div-banner">--}}
+{{--                                    <img src="{{asset('images/main-banner-3.png')}}" class="img-fluid" alt="">--}}
+{{--                                    <div class="main-heading">--}}
+{{--                                        <h1><span class="blue">--}}
+{{--                                            <span class="ml6">--}}
+{{--                                                <span class="text-wrapper">--}}
+{{--                                                    <span class="letters">ACA OPEN ENROLLMENT </span>--}}
+{{--                                                </span>--}}
+{{--                                            </span>--}}
+{{--                                           <br>--}}
+{{--                                           </span> 1 Nov, 2024 - Jan 15, 2025--}}
+{{--                                        </h1>--}}
+{{--                                        <h3>Evaluate, Update, Choose Your Plan<br> for 2025! Get Set, Get Covered!--}}
+{{--                                            <span--}}
+{{--                                                    class="blue">--}}
+{{--                                            <span class="d-block">--}}
+{{--                                            </span></h3>--}}
+{{--                                        <div class="code">--}}
+{{--                                            <input type="text" placeholder="Zip Code">--}}
+{{--                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>--}}
+
+{{--                                        </div>--}}
+{{--                                        <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
+{{--                                        <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
+{{--                                            plans.--}}
+{{--                                        </p> -->--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
 
-                            <div class="item">
-                                <div class="banner-img">
-                                    <img src="{{asset('images/sec-1-bg.png')}}" class="img-fluid" alt="">
-                                    <div class="main-heading">
-                                        <h1>Stay Healthy – <span class="blue">
-                                            <span class="ml6">
-                                                <span class="text-wrapper">
-                                                    <span class="letters">Stay Covered</span>
-                                                </span>
-                                            </span>
-                                        </h1>
-                                        <h3>Let’s find an affordable, high-quality<br> health plan geared to you! <span
-                                                    class="blue">
-                                            <span class="d-block">
-                                            </span></h3>
-                                        <div class="code">
-                                            <input type="text" placeholder="Zip Code">
-                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>
+{{--                            <div class="item">--}}
+{{--                                <div class="banner-img">--}}
+{{--                                    <img src="{{asset('images/sec-1-bg.png')}}" class="img-fluid" alt="">--}}
+{{--                                    <div class="main-heading">--}}
+{{--                                        <h1>Stay Healthy – <span class="blue">--}}
+{{--                                            <span class="ml6">--}}
+{{--                                                <span class="text-wrapper">--}}
+{{--                                                    <span class="letters">Stay Covered</span>--}}
+{{--                                                </span>--}}
+{{--                                            </span>--}}
+{{--                                        </h1>--}}
+{{--                                        <h3>Let’s find an affordable, high-quality<br> health plan geared to you! <span--}}
+{{--                                                    class="blue">--}}
+{{--                                            <span class="d-block">--}}
+{{--                                            </span></h3>--}}
+{{--                                        <div class="code">--}}
+{{--                                            <input type="text" placeholder="Zip Code">--}}
+{{--                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>--}}
 
-                                        </div>
-                                        <!-- <p class="para-1">We've helped 1739 people from this month.</p>
-                                        <p class="para-1">We work with 200 partners, including the brands below, to offer
-                                            plans.
-                                        </p> -->
-                                    </div>
-                                </div>
-                            </div>
+{{--                                        </div>--}}
+{{--                                        <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
+{{--                                        <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
+{{--                                            plans.--}}
+{{--                                        </p> -->--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
 
@@ -191,28 +231,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about">
-                        <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage with us for coverage in a
-                        great, affordable health insurance plan, <span class="d-block">unbiased and geared to your
-                            health and well-being.</span></h2>
-                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC understands
-                        that health insurance is an important factor in feeling secure and protected for both
-                        preventative care and unexpected illness or injury. Life has many challenges and finding a great
-                        affordable health insurance plan shouldn’t be one of them. Our licensed agents can help answer
-                        your questions, verify subsidy eligibility, and help you navigate the application process. </p>
-                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC works with
-                        multiple trusted carriers in order to find the most useful and affordable choice for your
-                        particular health coverage needs and concerns. </p>
-                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">If you are a working student, self –
-                        employed or your job simply does not provide health insurance we can find a personal plan for
-                        your situation. </p>
-                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">There is no obligation to request and
-                        receive a free health insurance quote for your consideration. We welcome the opportunity to
-                        help. </p>
+{{--                        <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage with us for coverage in a--}}
+{{--                        great, affordable health insurance plan, <span class="d-block">unbiased and geared to your--}}
+{{--                            health and well-being.</span></h2>--}}
+{{--                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC understands--}}
+{{--                        that health insurance is an important factor in feeling secure and protected for both--}}
+{{--                        preventative care and unexpected illness or injury. Life has many challenges and finding a great--}}
+{{--                        affordable health insurance plan shouldn’t be one of them. Our licensed agents can help answer--}}
+{{--                        your questions, verify subsidy eligibility, and help you navigate the application process. </p>--}}
+{{--                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC works with--}}
+{{--                        multiple trusted carriers in order to find the most useful and affordable choice for your--}}
+{{--                        particular health coverage needs and concerns. </p>--}}
+{{--                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">If you are a working student, self –--}}
+{{--                        employed or your job simply does not provide health insurance we can find a personal plan for--}}
+{{--                        your situation. </p>--}}
+{{--                        <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">There is no obligation to request and--}}
+{{--                        receive a free health insurance quote for your consideration. We welcome the opportunity to--}}
+{{--                        help. </p>--}}
+                        {!! $sections[0]->value !!}
                         <a href="{{route('front.learning')}}" class="btn btn-custom">Learn More</a>
                     </div>
                 </div>
@@ -224,46 +265,50 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="insurance">
-                        <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">We Represent Trusted Top-Rated <span
-                                class="blue">Insurance Carriers</span> </h2>
-                        <p class="para-1" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC offers many
-                        ACA health plan choices so that we can match you with the most advantageous fit for your locale
-                        and your life. We are dedicated to helping you navigate the health insurance landscape for a
-                        plan that will serve you well and give you peace of mind.
-                        </p>
-                    </div>
+{{--                    <div class="insurance">--}}
+{{--                        <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">We Represent Trusted Top-Rated <span--}}
+{{--                                class="blue">Insurance Carriers</span> </h2>--}}
+{{--                        <p class="para-1" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300"--}}
+{{--                        data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC offers many--}}
+{{--                        ACA health plan choices so that we can match you with the most advantageous fit for your locale--}}
+{{--                        and your life. We are dedicated to helping you navigate the health insurance landscape for a--}}
+{{--                        plan that will serve you well and give you peace of mind.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+                    {!! $sections[1]->value !!}
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="health" aos-init aos-animate="" data-aos="fade-right" data-aos-offset="300"
                     data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                    <h4>Health Insurance</h4>
-                    <p class="para-1">Meet the uncertainties of life with a health insurance plan to manage the
-                        financial burden of unexpected accidents or illness.</p>
-                    <img src="{{asset('images/doctor-1.png')}}" class="img-fluid">
+{{--                    <h4>Health Insurance</h4>--}}
+{{--                    <p class="para-1">Meet the uncertainties of life with a health insurance plan to manage the--}}
+{{--                        financial burden of unexpected accidents or illness.</p>--}}
+                        {!! $sections[2]->value !!}
+                    <img src="{{asset($sections[3]->value)}}" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="health" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300"
                 data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                <h4>Dental & Vision Insurance</h4>
-                <p class="para-1">Support and protect overall health with plans to ensure preventative care to
-                    maintain your pearly whites and precious eyesight. </p>
-                <img src="{{asset('images/doctor-2.png')}}" class="img-fluid">
+{{--                <h4>Dental & Vision Insurance</h4>--}}
+{{--                <p class="para-1">Support and protect overall health with plans to ensure preventative care to--}}
+{{--                    maintain your pearly whites and precious eyesight. </p>--}}
+                        {!! $sections[4]->value !!}
+                <img src="{{asset($sections[5]->value)}}" class="img-fluid">
             </div>
         </div>
         <div class="col-lg-4">
             <div class="health" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
             data-aos-easing="ease-in-sine" data-aos-duration="1000">
-            <h4>Affordable Care Act</h4>
-            <p class="para-1">A comprehensive health care reform law enacted to provide quality health coverage
-                to millions of uninsured Americans, making health insurance more affordable, accessible and
-                attainable for individuals and families. </p>
-            <img src="{{asset('images/doctor-with-his-arms-crossed-white-background.jpg')}}" class="img-fluid">
+{{--            <h4>Affordable Care Act</h4>--}}
+{{--            <p class="para-1">A comprehensive health care reform law enacted to provide quality health coverage--}}
+{{--                to millions of uninsured Americans, making health insurance more affordable, accessible and--}}
+{{--                attainable for individuals and families. </p>--}}
+                        {!! $sections[6]->value !!}
+            <img src="{{asset($sections[7]->value)}}" class="img-fluid">
         </div>
         </div>
         <div class="col-lg-12">

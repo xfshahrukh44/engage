@@ -40,9 +40,12 @@ class PageController extends Controller
                 ->orWhere('name', 'LIKE', "%$keyword%")
                 ->orWhere('content', 'LIKE', "%$keyword%")
                 ->orWhere('image', 'LIKE', "%$keyword%")
-                ->paginate($perPage);
+//                ->paginate($perPage);
+                ->orderBy('id', 'DESC')
+                ->get();
             } else {
-                $page = Page::paginate($perPage);
+//                $page = Page::paginate($perPage);
+                $page = Page::orderBy('id', 'DESC')->get();
             }
 
             return view('admin.page.index', compact('page'));

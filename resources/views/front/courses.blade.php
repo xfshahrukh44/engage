@@ -28,7 +28,7 @@
 
                     <div class="col-lg-4">
                          <div class="traning-info">
-                              <a href="{{route('front.tactical-paramedic')}}">
+                              <a href="#">
                                    <div class="traning-info-img">
                                         <img src="{{asset('images/courses.png')}}" class="img-fluid" alt="">
                                    </div>
