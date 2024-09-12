@@ -332,35 +332,37 @@
                                     <h2 class="side-heading">Request a <span class="blue">Free</span> Quote</h2>
                                     <p class="para-1">One of our licensed agents can help review your health insurance needs
                                         and match you with a great plan. We welcome your inquiry! </p>
-                                    <form action="">
+                                    <form action="{{route('front.save-quotation')}}" method="POST">
+                                        @csrf
                                         <div class="main-form">
-                                            <input type="text" placeholder="First Name">
-                                            <input type="text" placeholder="Last Name">
+                                            <input type="text" placeholder="First Name" name="first_name">
+                                            <input type="text" placeholder="Last Name" name="last_name">
                                         </div>
                                         <div class="main-form">
-                                            <input type="text" placeholder="Email">
-                                            <select>
-                                                <option value="service">Select insurance type</option>
-                                                <option value="service1">Individual Health</option>
-                                                <option value="service2">Family Health</option>
-                                                <option value="service3">Dental/Vision</option>
+                                            <input type="text" placeholder="Email" name="email">
+                                            <select name="type">
+                                                <option value="">Select insurance type</option>
+                                                <option value="Individual Health">Individual Health</option>
+                                                <option value="Family Health">Family Health</option>
+                                                <option value="Dental/Vision">Dental/Vision</option>
                                             </select>
                                         </div>
                                         <div class="main-form">
-                                            <input type="text" placeholder="Phone Number">
-                                            <select>
-                                                <option value="service">Best Time To Call</option>
-                                                <option value="service1">8am – 10pm</option>
-                                                <option value="service2">10am – 12pm</option>
-                                                <option value="service3">12pm – 3pm</option>
-                                                <option value="service4">3pm – 6pm</option>
+                                            <input type="text" placeholder="Phone Number" name="phone">
+                                            <select name="time_to_call">
+                                                <option value="">Best Time To Call</option>
+                                                <option value="8am – 10pm">8am – 10pm</option>
+                                                <option value="10am – 12pm">10am – 12pm</option>
+                                                <option value="12pm – 3pm">12pm – 3pm</option>
+                                                <option value="3pm – 6pm">3pm – 6pm</option>
                                             </select>
+                                        </div>
+                                        <div class="submit-btn">
+                                            <button type="submit" class="btn btn-custom">Start My Quote</button>
+{{--                                            <a href="#" class="btn btn-custom">Submit</a>--}}
+                                            <!--  data-toggle="modal" data-target="#exampleModal -->
                                         </div>
                                     </form>
-                                    <div class="submit-btn">
-                                        <a href="#" class="btn btn-custom">Submit</a>
-                                        <!--  data-toggle="modal" data-target="#exampleModal -->
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">

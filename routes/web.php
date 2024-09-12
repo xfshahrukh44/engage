@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\QuotationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth', 'roles'],'roles' => 'admin','prefix'=>'ad
 
     Route::get('contact/inquiries','Admin\AdminController@contactSubmissions');
     Route::get('contact/inquiries/{id}','Admin\AdminController@inquiryshow');
+    Route::get('quotation/inquiries','Admin\AdminController@quotationSubmissions');
     Route::get('newsletter/inquiries','Admin\AdminController@newsletterInquiries');
     
     Route::any('contact/submissions/delete/{id}','Admin\AdminController@contactSubmissionsDelete');
@@ -300,3 +302,6 @@ Route::get('naemt-tccc-course-1', [FrontController::class, 'naemt_tccc_course_1'
 Route::get('naemt-tccc-course-2', [FrontController::class, 'naemt_tccc_course_2'])->name('front.naemt-tccc-course-2');
 Route::get('naemt-tecc-course', [FrontController::class, 'naemt_tecc_course'])->name('front.naemt-tecc-course');
 Route::get('naemt-tecc-course-1', [FrontController::class, 'naemt_tecc_course_1'])->name('front.naemt-tecc-course-1');
+
+Route::post('save-quotation', [QuotationController::class, 'store'])->name('front.save-quotation');
+Route::post('save-inquiry', [QuotationController::class, 'inquiryStore'])->name('front.save-inquiry');

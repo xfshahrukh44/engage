@@ -25,7 +25,7 @@ class Inquiry extends Model
      *
      * @var array
      */
-  protected $fillable = ['fname', 'lname', 'email', 'notes', 'phone', 'time', 'date', 'classes', 'form_name'];
+    protected $fillable = ['fname', 'lname', 'email', 'notes', 'phone', 'time', 'date', 'classes', 'form_name', 'address', 'city', 'zipcode', 'type_of_insurance'];
 
     
 }

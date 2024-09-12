@@ -162,22 +162,23 @@
                 <div class="col-lg-12">
                     <div class="sec-text-form">
 
-                        <form id="regForm" action="/action_page.php">
+                        <form id="regForm" action="{{route('front.save-quotation')}}" method="POST">
+                            @csrf
                             <h1>Start My Quote:</h1>
                             <!-- One "tab" for each step in the form: -->
                             <div class="tab individual-family">Are you looking for
                                 <span>Individual or Family coverage?</span>
                                 <p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="type"
                                            id="inlineRadio1"
-                                           value="option1">
+                                           value="Individual">
                                     <label class="form-check-label" type="radio" for="inlineRadio1">INDIVIDUAL</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="type"
                                            id="inlineRadio2"
-                                           value="option2">
+                                           value="Family">
                                     <label class="form-check-label" for="inlineRadio2">FAMILY</label>
                                 </div>
                                 </p>
@@ -188,7 +189,7 @@
                                     <!-- <input placeholder="Size..." type="number" oninput="this.className = ''" name="uname"> -->
 
                                     <select placeholder="household size..." type="text" oninput="this.className = ''"
-                                            name="uname">
+                                            name="household_size">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -204,7 +205,7 @@
                                 <p>
                                     <!-- <input placeholder="Income..." type="number" oninput="this.className = ''" name="uname"> -->
                                     <select placeholder="household income..." type="text" oninput="this.className = ''"
-                                            name="uname">
+                                            name="household_income">
                                         <option value="Below 17,000">Below 17,000</option>
                                         <option value="17,000 - 25,000">17,000 - 25,000</option>
                                         <option value="25,000 – 35,000">25,000 – 35,000</option>
@@ -220,15 +221,15 @@
                             <div class="tab individual-family">What's your gender?
                                 <p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="gender"
                                            id="inlineRadio1"
-                                           value="option1">
+                                           value="Male">
                                     <label class="form-check-label" type="radio" for="inlineRadio1">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="gender"
                                            id="inlineRadio2"
-                                           value="option2">
+                                           value="Female">
                                     <label class="form-check-label" for="inlineRadio2">Female</label>
                                 </div>
                                 </p>
@@ -236,7 +237,7 @@
 
 
                             <div class="tab">What's your date of birth?
-                                <p><input placeholder="dd" type="date" oninput="this.className = ''" name="dd"></p>
+                                <p><input placeholder="dd" type="date" oninput="this.className = ''" name="dob"></p>
                                 <!-- <p><input placeholder="mm"  type="date" oninput="this.className = ''" name="nn"></p>
                                 <p><input placeholder="yyyy"  type="date" oninput="this.className = ''" name="yyyy"></p> -->
                             </div>
@@ -245,16 +246,16 @@
                             <div class="tab">What's your home address?
                                 <p>
                                     <input placeholder="Address..." type="text" oninput="this.className = ''"
-                                           name="uname">
+                                           name="address">
                                 </p>
                             </div>
 
 
                             <div class="tab">What is your <span>full name?</span>
                                 <p><input placeholder="First name..." type="text" oninput="this.className = ''"
-                                          name="fname"></p>
+                                          name="first_name"></p>
                                 <p><input placeholder="Last name..." type="text" oninput="this.className = ''"
-                                          name="lname"></p>
+                                          name="last_name"></p>
                             </div>
 
 
@@ -352,7 +353,7 @@
             }
             // If the valid status is true, mark the step as finished and valid:
             if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
+                // document.getElementsByClassName("step")[currentTab].className += " finish";
             }
             return valid; // return the valid status
         }

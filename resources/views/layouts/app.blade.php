@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
           integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/inner.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
@@ -289,31 +290,35 @@
                         <p class="para-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed<span
                                     class="d-block"> do eiusmod tempor
                                         incididunt ut labore et aliqua.</span></p>
-                        <form action="">
+                        <form action="{{route('front.save-quotation')}}" method="POST">
+                            @csrf
                             <div class="main-form">
-                                <input type="text" placeholder="First Name">
-                                <input type="text" placeholder="Last Name">
+                                <input type="text" placeholder="First Name" name="first_name">
+                                <input type="text" placeholder="Last Name" name="last_name">
                             </div>
                             <div class="main-form">
-                                <input type="text" placeholder="Email">
-                                <select>
-                                    <option value="service">Select insurance type</option>
-                                    <option value="service1">type1</option>
-                                    <option value="service2">type2</option>
+                                <input type="text" placeholder="Email" name="email">
+                                <select name="type">
+                                    <option value="">Select insurance type</option>
+                                    <option value="Individual Health">Individual Health</option>
+                                    <option value="Family Health">Family Health</option>
+                                    <option value="Dental/Vision">Dental/Vision</option>
                                 </select>
                             </div>
                             <div class="main-form">
-                                <input type="text" placeholder="Phone Number">
-                                <select>
-                                    <option value="service">Best Time To Call</option>
-                                    <option value="service1">2pm</option>
-                                    <option value="service2">3pm</option>
+                                <input type="text" placeholder="Phone Number" name="phone">
+                                <select name="time_to_call">
+                                    <option value="">Best Time To Call</option>
+                                    <option value="8am – 10pm">8am – 10pm</option>
+                                    <option value="10am – 12pm">10am – 12pm</option>
+                                    <option value="12pm – 3pm">12pm – 3pm</option>
+                                    <option value="3pm – 6pm">3pm – 6pm</option>
                                 </select>
+                            </div>
+                            <div class="submit-btn">
+                                <button type="submit" class="btn btn-custom">Start My Quote</button>
                             </div>
                         </form>
-                        <div class="submit-btn">
-                            <a href="javascript:;" class="btn btn-custom">Start My Quote</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -346,6 +351,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
         integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    @if(session()->has('success'))
+        toastr.success('{{session()->get('success')}}');
+    @endif
+
+    @if(session()->has('error'))
+        toastr.error('{{session()->get('error')}}');
+    @endif
+</script>
 
 
 <script src="{{asset('js/custom.js')}}"></script>
@@ -364,14 +379,13 @@
 
     anime.timeline({
         loop: true
-    })
-        .add({
-            targets: '.ml6 .letter',
-            translateY: ["1em", 0],
-            translateZ: 0,
-            duration: 1000,
-            delay: (el, i) => 100 * i
-        }).add({
+    }).add({
+        targets: '.ml6 .letter',
+        translateY: ["1em", 0],
+        translateZ: 0,
+        duration: 1000,
+        delay: (el, i) => 100 * i
+    }).add({
         targets: '.ml6',
         opacity: 0,
         duration: 1000,

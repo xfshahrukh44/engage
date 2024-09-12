@@ -44,9 +44,14 @@
                             <span data-i18n="eCommerce">Contact Inquiries</span>
                     </a>
                     </li>
-                    <li class="{{ (request()->is('admin/newsletter/inquiries')) ? 'active' : '' }}">
-                        <a class="menu-item" href="{{url('admin/newsletter/inquiries')}}"><i></i>
-                            <span data-i18n="Crypto">Newsletter Inquiries</span>
+{{--                    <li class="{{ (request()->is('admin/newsletter/inquiries')) ? 'active' : '' }}">--}}
+{{--                        <a class="menu-item" href="{{url('admin/newsletter/inquiries')}}"><i></i>--}}
+{{--                            <span data-i18n="Crypto">Newsletter Inquiries</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+                    <li class="{{ (request()->is('admin/quotation/inquiries')) ? 'active' : '' }}">
+                        <a class="menu-item" href="{{url('admin/quotation/inquiries')}}"><i></i>
+                            <span data-i18n="Crypto">Quotation Inquiries</span>
                         </a>
                     </li>
                 </ul>

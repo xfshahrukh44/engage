@@ -206,9 +206,17 @@ class AdminController extends Controller
 
 
 	public function contactSubmissions() {
-	 	$contact_inquiries = DB::table('inquiry')->get();
+	 	$contact_inquiries = DB::table('inquiry')->orderBy('created_at', 'DESC')->get();
 
 	 	return view('admin.inquires.contact_inquiries', compact('contact_inquiries'));
+
+	}
+
+
+	public function quotationSubmissions() {
+	 	$quotation_inquiries = DB::table('quotations')->orderBy('created_at', 'DESC')->get();
+
+	 	return view('admin.inquires.quotation_inquiries', compact('quotation_inquiries'));
 
 	}
 	

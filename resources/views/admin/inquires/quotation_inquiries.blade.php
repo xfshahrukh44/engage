@@ -7,13 +7,13 @@
 @section('content')
 <div class="content-header row">
     <div class="content-header-left col-md-12 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block">Contact Inquiries</h3>
+        <h3 class="content-header-title mb-0 d-inline-block">Quotation Inquiries</h3>
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active">Home</li>
                     <li class="breadcrumb-item active">Inquires</li>
-                    <li class="breadcrumb-item active">Contact Inquiries</li>
+                    <li class="breadcrumb-item active">Quotation Inquiries</li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Contact Inquiries Info</h4>
+                    <h4 class="card-title">Quotation Inquiries Info</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
@@ -47,30 +47,32 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>City</th>
-                                        <th>Zipcode</th>
                                         <th>Type of insurance</th>
-                                        <th>Message</th>
+                                        <th>Household size</th>
+                                        <th>Household income</th>
+                                        <th>Gender</th>
+                                        <th>Date of birth</th>
                                         <th>Created at</th>
-                                        <th>Action</th>
+{{--                                        <th>Action</th>--}}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($contact_inquiries as $item)
+                                    @foreach($quotation_inquiries as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->fname }}</td>
-                                        <td>{{ $item->lname }}</td>
+                                        <td>{{ $item->first_name }}</td>
+                                        <td>{{ $item->last_name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>{{ $item->address }}</td>
-                                        <td>{{ $item->city }}</td>
-                                        <td>{{ $item->zipcode }}</td>
-                                        <td>{{ $item->type_of_insurance }}</td>
-                                        <td>{{ $item->notes }}</td>
+                                        <td>{{ $item->type }}</td>
+                                        <td>{{ $item->household_size }}</td>
+                                        <td>{{ $item->household_income }}</td>
+                                        <td>{{ $item->gender }}</td>
+                                        <td>{{ $item->dob }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
-                                        <td>
-
+{{--                                        <td>--}}
+{{--                                        --}}
 {{--                                            <a href="{{ url('/admin/contact/inquiries/'.$item->id) }}"--}}
 {{--                                               title="View Language">--}}
 {{--                                                <button class="btn btn-info btn-sm">--}}
@@ -78,14 +80,14 @@
 {{--                                                </button>--}}
 {{--                                            </a>--}}
 
-                                            <a href="{{ url('/admin/contact/submissions/delete',$item->id) }}"
-                                               title="View Language">
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
+{{--                                            <a href="{{ url('/admin/contact/submissions/delete',$item->id) }}"--}}
+{{--                                               title="View Language">--}}
+{{--                                                <button class="btn btn-danger btn-sm">--}}
+{{--                                                    <i class="fa fa-trash-o"></i> Delete--}}
+{{--                                                </button>--}}
+{{--                                            </a>--}}
+{{--                                        </td>  --}}
+                                    </tr> 
                                     @endforeach
                                 </tbody>
                             </table>
