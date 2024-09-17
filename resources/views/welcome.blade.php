@@ -75,8 +75,8 @@
 {{--                                            </h3>--}}
                                             {!! $banner->description !!}
                                             <div class="code">
-                                                <input type="text" placeholder="Zip Code">
-                                                <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>
+                                                <input type="text" placeholder="Zip Code" class="input_zipcode">
+                                                <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
                                             </div>
                                         </div>
                                     </div>
@@ -559,5 +559,26 @@
 @endsection
 
 @section('js')
-<script type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON("{{asset('allowed-zipcodes.json')}}", function (data) {
+            let allowed_zipcodes = [];
+            allowed_zipcodes = data.data;
+
+
+            $('.anchor_start_my_quote').on('click', function (e) {
+                let input = $('.input_zipcode').val();
+                if (input == "" || !(allowed_zipcodes.includes(input))) {
+                    $('.input_zipcode').val('');
+                    alert('Please enter a valid zipcode.');
+
+                    return false;
+                }
+
+                window.location.href = '{{route('front.form')}}';
+            });
+        });
+    });
+</script>
 @endsection

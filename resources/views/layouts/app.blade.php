@@ -125,8 +125,7 @@
 
                         </ul>
                         <a href="tel:+{{App\Http\Traits\HelperTrait::returnFlag(59)}}" class="call"><i class="fa-solid fa-phone-volume fa-shake"></i>{{App\Http\Traits\HelperTrait::returnFlag(59)}}</a>
-                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Enroll
-                            Now</a>
+                        <a href="{{route('front.enroll')}}" class="btn btn-custom">Enroll Now</a>
                     </div>
                 </nav>
             </div>

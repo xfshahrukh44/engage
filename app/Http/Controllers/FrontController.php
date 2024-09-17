@@ -16,6 +16,11 @@ class FrontController extends Controller
         return view('front.learning');
     }
 
+    public function enroll (Request $request)
+    {
+        return view('front.enroll');
+    }
+
     public function health_insurance (Request $request)
     {
         return view('front.health-insurance');

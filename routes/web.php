@@ -270,6 +270,7 @@ Route::resource('upcomingclasses', 'UpcomingclassesController');
 //front controllers
 Route::get('form', [FrontController::class, 'form'])->name('front.form');
 Route::get('learning', [FrontController::class, 'learning'])->name('front.learning');
+Route::get('enroll', [FrontController::class, 'enroll'])->name('front.enroll');
 Route::get('health-insurance', [FrontController::class, 'health_insurance'])->name('front.health-insurance');
 Route::get('vision-insurance', [FrontController::class, 'vision_insurance'])->name('front.vision-insurance');
 Route::get('dental-insurance', [FrontController::class, 'dental_insurance'])->name('front.dental-insurance');
