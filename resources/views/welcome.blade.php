@@ -42,6 +42,12 @@
             gap: 30px;
             margin-bottom: 15px;
         }
+
+        .code.text-center {
+            display: flex;
+            justify-content: center;
+            padding-top: 26px;
+        }
     </style>
 @endsection
 
@@ -311,12 +317,17 @@
             <img src="{{asset($sections[7]->value)}}" class="img-fluid">
         </div>
         </div>
-        <div class="col-lg-12">
-            <div class="health-btn">
-                <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">Start My
-                    Quote</a>
+{{--        <div class="col-lg-12">--}}
+{{--            <div class="health-btn">--}}
+{{--                <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">Start My Quote</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+            <div class="col-lg-12">
+                <div class="code text-center">
+                    <input type="text" placeholder="Zip Code" class="input_zipcode">
+                    <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
+                </div>
             </div>
-        </div>
         </div>
         </div>
     </section>
@@ -476,7 +487,7 @@
                                         can even self-enroll. The exact subsidy will be determined as the application is
                                         completed </p>
                                     <div class="health-btn">
-                                        <a href="#" class="btn btn-custom">Check Subsidy </a>
+                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Check Subsidy </a>
                                     </div>
                                 </div>
                             </div>
@@ -498,7 +509,7 @@
                                         Oscar, Molina, United Health Care and many more! There are many wonderful
                                         networks to choose from. </p>
                                     <div class="health-btn">
-                                        <a href="#" class="btn btn-custom">Check Subsidy </a>
+                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Check Subsidy </a>
                                     </div>
                                 </div>
                             </div>
@@ -577,6 +588,13 @@
                 }
 
                 window.location.href = '{{route('front.form')}}';
+            });
+
+            $('.input_zipcode').on('change', function () {
+                let changed_val = $(this).val();
+                $('.input_zipcode').each((i, item) => {
+                    $(item).val(changed_val);
+                });
             });
         });
     });

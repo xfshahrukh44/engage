@@ -122,6 +122,13 @@
             font-family: Raleway;
             border: 1px solid #aaaaaa;
         }
+        .form-section select {
+            padding: 10px;
+            width: 100%;
+            font-size: 17px;
+            font-family: Raleway;
+            border: 1px solid #aaaaaa;
+        }
     </style>
 @endsection
 
@@ -233,6 +240,54 @@
                                     <label class="form-check-label" for="inlineRadio2">Female</label>
                                 </div>
                                 </p>
+                            </div>
+
+
+                            <div class="tab individual-family">What is your marital status?
+                                <p>
+                                </p><div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="marital_status"
+                                           id="inlineRadio21"
+                                           value="Married">
+                                    <label class="form-check-label" type="radio" for="inlineRadio1">Married</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="marital_status"
+                                           id="inlineRadio22"
+                                           value="Single">
+                                    <label class="form-check-label" for="inlineRadio2">Single</label>
+                                </div>
+                                <p></p>
+                            </div>
+
+                            <div class="tab individual-family">Who needs coverage ?
+                                <p>
+                                </p><div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="is_self">
+                                    <label class="form-check-label" type="checkbox">Self</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="is_spouse">
+                                    <label class="form-check-label">Spouse</label>
+                                </div>
+                                <div class="main-select form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="is_children">
+                                    <select type="text" oninput="this.className = ''" name="children">
+                                        <option selected="">Children</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="0">0</option>
+                                    </select>
+
+                                </div>
+                                <p></p>
                             </div>
 
 

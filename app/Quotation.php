@@ -19,5 +19,10 @@ class Quotation extends Model
         'gender',
         'dob',
         'address',
+        'marital_status',
+        'is_self',
+        'is_spouse',
+        'is_children',
+        'children'
     ];
 }

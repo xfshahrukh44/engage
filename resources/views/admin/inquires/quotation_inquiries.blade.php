@@ -2,6 +2,9 @@
 
 @push('before-css')
     <link href="{{asset('plugins/components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
+    <style>
+
+    </style>
 @endpush
 
 @section('content')
@@ -36,7 +39,7 @@
                     </div>
                 </div>
                 <div class="card-content collapse show">
-                    <div class="card-body card-dashboard">
+                    <div class="card-body card-dashboard" style="overflow-x: scroll;">
                         <div class="">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -51,6 +54,11 @@
                                         <th>Household size</th>
                                         <th>Household income</th>
                                         <th>Gender</th>
+                                        <th>Marital status</th>
+                                        <th>For self</th>
+                                        <th>For spouse</th>
+                                        <th>For children</th>
+                                        <th>Number of children</th>
                                         <th>Date of birth</th>
                                         <th>Created at</th>
 {{--                                        <th>Action</th>--}}
@@ -69,6 +77,11 @@
                                         <td>{{ $item->household_size }}</td>
                                         <td>{{ $item->household_income }}</td>
                                         <td>{{ $item->gender }}</td>
+                                        <td>{{ $item->marital_status }}</td>
+                                        <td>{{ $item->is_self }}</td>
+                                        <td>{{ $item->is_spouse }}</td>
+                                        <td>{{ $item->is_children }}</td>
+                                        <td>{{ $item->children }}</td>
                                         <td>{{ $item->dob }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>
 {{--                                        <td>--}}
@@ -126,7 +139,8 @@
             'aoColumnDefs': [{
                 'bSortable': false,
                 'aTargets': [-1] /* 1st one, start by the right */
-            }]
+            }],
+            'autoWidth': true,
         });
 
     });

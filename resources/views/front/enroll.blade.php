@@ -2,7 +2,15 @@
 @section('title', 'Enroll')
 
 @section('css')
-
+    <style>
+        .enroll-ankers li a {
+            text-decoration: underline !important;
+            color: var(--black-color);
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.2 ease-in-out;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -13,9 +21,10 @@
                     <div class="main-heading text-center" aos-init aos-animate data-aos="fade-left"
                          data-aos-offset="300"
                          data-aos-easing="ease-in-sine" data-aos-duration="1500">
-                        <h1>Shop <span class="d-block">Check Subsidy</span> View Plans <span
-                                    class="d-block"> Enroll</span>
-                        </h1>
+                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" style="text-decoration: underline !important; color: #000000;">
+                            <h1>Shop  <span class="d-block">Check Subsidy</span> View Plans <span class="d-block"> Enroll</span>
+                            </h1>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,35 +82,81 @@
 
                                         <div class="row">
                                             <div class="col-lg-4">
-                                                <ul>
-                                                    <li>Alabama</li>
-                                                    <li>Arkansas</li>
-                                                    <li>Arizona</li>
-                                                    <li>Florida</li>
-                                                    <li>Georgia</li>
-                                                    <li>Iowa</li>
-                                                    <li>Indiana</li>
-                                                    <li>Kansas</li>
-                                                    <li>Louisiana</li>
-                                                    <li>Michigan</li>
-                                                    <li>Missouri</li>
-                                                    <li>Mississippi</li>
+                                                <ul class="enroll-ankers">
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Alabama</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Arkansas</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Arizona</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Florida</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Georgia</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Iowa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Indiana</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Kansas</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Louisiana</a>
+                                                    </li>
+                                                    <li>
+                                                            <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Michigan</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Missouri</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Mississippi</a>
+                                                    </li>
                                                 </ul>
                                             </div>
 
                                             <div class="col-lg-4">
-                                                <ul>
-                                                    <li>North Carolina</li>
-                                                    <li>Nebraska</li>
-                                                    <li>Ohio</li>
-                                                    <li>Oklahoma</li>
-                                                    <li>South Carolina</li>
-                                                    <li>Tennessee</li>
-                                                    <li>Texas</li>
-                                                    <li>Utah</li>
-                                                    <li>Virginia</li>
-                                                    <li>West Virginia</li>
-                                                    <li>Wisconsin</li>
+                                                <ul class="enroll-ankers">
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">North Carolina</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Nebraska</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Ohio</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Oklahoma</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">South Carolina</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Tennessee</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Texas</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Utah</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Virginia</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">West Virginia</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag">Wisconsin</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
