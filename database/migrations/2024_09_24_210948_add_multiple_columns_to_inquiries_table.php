@@ -13,7 +13,7 @@ class AddMultipleColumnsToInquiriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('inquiries', function (Blueprint $table) {
+        Schema::table('inquiry', function (Blueprint $table) {
             $table->string('suite')->nullable();
             $table->string('state')->nullable();
         });
