@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="form-group">
                                              <label>Street Address *</label>
-                                             <input type="text" name="address" class="form-control" placeholder="Apt, Suite, Bldg"
+                                             <input type="text" name="address" class="form-control" placeholder=""
                                                     required="">
                                         </div>
 
@@ -93,11 +93,17 @@
                                         </div>
 
                                         <div class="form-group">
+                                             <label>Email *</label>
+                                             <input type="text" name="email" class="form-control" placeholder="" required="">
+                                        </div>
+
+                                        <div class="form-group">
                                              <label>Type of Insurance Inqiry: *</label>
                                              <select name="type_of_insurance" class="form-control">
                                                   <option value="Individual Health">Individual Health</option>
                                                   <option value="Family Health">Family Health</option>
                                                   <option value="Dental/Vision">Dental/Vision</option>
+                                                  <option value="Other">Other</option>
                                              </select>
                                         </div>
                                         <div class="mssg-group">
@@ -115,17 +121,27 @@
                                              <input type="text" name="lname" class="form-control" placeholder="" required="">
                                         </div>
                                         <div class="form-group">
-                                             <label>Email *</label>
-                                             <input type="text" name="email" class="form-control" placeholder="" required="">
+                                             <label>Apt, Suite, Bldg</label>
+                                             <input type="text" name="suite" class="form-control" placeholder="" required="">
+                                        </div>
+
+                                        <div class="row">
+                                             <div class="col-md-6">
+                                                  <div class="form-group">
+                                                       <label>State</label>
+                                                       <input type="text" name="state" class="form-control" placeholder="" required="">
+                                                  </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                  <div class="form-group">
+                                                       <label>Zip Code </label>
+                                                       <input type="text" name="zipcode" class="form-control" placeholder="" required="">
+                                                  </div>
+                                             </div>
                                         </div>
                                         <div class="form-group">
                                              <label>Phone (optional)</label>
                                              <input type="text" name="phone" class="form-control" placeholder="" required="">
-                                        </div>
-
-                                        <div class="form-group">
-                                             <label>Zip Code </label>
-                                             <input type="text" name="zipcode" class="form-control" placeholder="" required="">
                                         </div>
                                         <div class="form-group">
                                         <textarea name="notes" id="textarea" class="form-control"
