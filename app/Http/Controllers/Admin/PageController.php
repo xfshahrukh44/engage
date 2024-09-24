@@ -42,10 +42,13 @@ class PageController extends Controller
                 ->orWhere('image', 'LIKE', "%$keyword%")
 //                ->paginate($perPage);
                 ->orderBy('id', 'DESC')
+                ->whereNotIn('id', [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
                 ->get();
             } else {
 //                $page = Page::paginate($perPage);
-                $page = Page::orderBy('id', 'DESC')->get();
+                $page = Page::orderBy('id', 'DESC')
+                    ->whereNotIn('id', [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
+                    ->get();
             }
 
             return view('admin.page.index', compact('page'));
