@@ -1306,7 +1306,7 @@ footer:before {
 /* modal css  */
 .custum-modal .modal-content {
   /* width: 700px; */
-  background: #2d325c;
+  background: white;
   border-radius: 22px;
   padding: 30px 30px;
   position: relative;
@@ -1314,12 +1314,13 @@ footer:before {
 }
 
 .custum-modal .modal-content .btn-custom {
-  background: #52c2ec;
+  background: #2d325c;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .custum-modal .modal-content h2.side-heading {
-  color: white;
+  color: #000;
 }
 
 .custum-modal .modal-dialog {
@@ -1327,15 +1328,16 @@ footer:before {
 }
 
 .custum-modal .modal-content .contact-form p {
-  color: white;
+  color: #8e92a8;
   margin: 16px 0 2px;
+  text-align: center;
 }
 
 .custum-modal .modal-content button.close {
   position: absolute;
   top: 30px;
   right: 20px;
-  color: white;
+  color: #000;
   opacity: 1;
 }
 
@@ -1561,6 +1563,24 @@ header li.nav-item a.nav-link.active:before {
 }
 
 .ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml60 {
+  position: relative;
+}
+
+.ml60 .text-wrapper60 {
+  position: relative;
+  display: inline-block;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  overflow: hidden;
+  top: 20px;
+}
+
+.ml60 .letter {
   display: inline-block;
   line-height: 1em;
 }

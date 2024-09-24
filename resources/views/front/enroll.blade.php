@@ -10,6 +10,15 @@
             font-weight: 500;
             transition: 0.2 ease-in-out;
         }
+        .Enroll-banner .main-heading a h1 {
+    color: #2b325b;
+}
+.Enroll-banner .main-heading a:hover {
+    color: #2b325b !important;
+}
+.enroll-ankers li a:hover {
+    color: var(--blue-color);
+}
     </style>
 @endsection
 
@@ -250,7 +259,12 @@
 
 
     </section>
+
+    @include('front.call-agent')
+
 @endsection
+
+
 
 @section('js')
 

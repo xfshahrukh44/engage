@@ -452,6 +452,9 @@
                </div>
           </div>
      </section>
+
+     @include('front.call-agent')
+
 @endsection
 
 @section('js')

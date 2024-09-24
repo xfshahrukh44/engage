@@ -114,7 +114,7 @@
                                 <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.learning') ? 'active' : '' !!}" href="{{route('front.learning')}}">Learning ACA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.blogs') ? 'active' : '' !!}" href="{{route('front.blogs')}}">Articles/Blog </a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.blogs') ? 'active' : '' !!}" href="{{route('front.enroll')}}">Browse Plan/Enroll</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.contact') ? 'active' : '' !!}" href="{{route('front.contact')}}">Contact</a>
@@ -125,7 +125,7 @@
 
                         </ul>
                         <a href="tel:+{{App\Http\Traits\HelperTrait::returnFlag(59)}}" class="call"><i class="fa-solid fa-phone-volume fa-shake"></i>{{App\Http\Traits\HelperTrait::returnFlag(59)}}</a>
-                        <a href="{{route('front.enroll')}}" class="btn btn-custom">Enroll Now</a>
+                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">Enroll Now</a>
                     </div>
                 </nav>
             </div>
@@ -174,7 +174,7 @@
                             <li><a href="{{route('home')}}">Home</a></li>
                             <li><a href="{{route('front.insurance-services')}}">Insurance Services</a></li>
                             <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
-                            <li><a href="{{route('front.blogs')}}">Articles/Blog </a></li>
+                            <li><a href="{{route('front.enroll')}}">Browse Plan/Enroll</a></li>
                             <li><a href="{{route('front.contact')}}">Contact</a></li>
 
 
@@ -285,10 +285,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="contact-form">
-                        <h2 class="side-heading">Get A <span class="blue">Free</span> Quote</h2>
-                        <p class="para-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed<span
-                                    class="d-block"> do eiusmod tempor
-                                        incididunt ut labore et aliqua.</span></p>
+                        <h2 class="side-heading">Request a <span class="blue">Free</span> Quote</h2>
+                        <p class="para-1">One of our licensed agents can help review your health insurance needs
+                            and match you with a great plan. We welcome your inquiry! </p>
                         <form action="{{route('front.save-quotation')}}" method="POST">
                             @csrf
                             <div class="main-form">
@@ -316,6 +315,8 @@
                             </div>
                             <div class="submit-btn">
                                 <button type="submit" class="btn btn-custom">Start My Quote</button>
+{{--                                            <a href="#" class="btn btn-custom">Submit</a>--}}
+                                <!--  data-toggle="modal" data-target="#exampleModal -->
                             </div>
                         </form>
                     </div>
@@ -386,6 +387,26 @@
         delay: (el, i) => 100 * i
     }).add({
         targets: '.ml6',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 3000
+    });
+
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml60 .letters60');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({
+        loop: true
+    }).add({
+        targets: '.ml60 .letter',
+        translateY: ["1em", 0],
+        translateZ: 0,
+        duration: 1000,
+        delay: (el, i) => 100 * i
+    }).add({
+        targets: '.ml60',
         opacity: 0,
         duration: 1000,
         easing: "easeOutExpo",

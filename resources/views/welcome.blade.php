@@ -89,33 +89,6 @@
                                 </div>
                             @endforeach
 
-{{--                            <div class="item">--}}
-{{--                                <div class="banner-img">--}}
-{{--                                    <img src="{{asset('images/main-bg.png')}}" class="img-fluid" alt="">--}}
-{{--                                    <div class="main-heading">--}}
-{{--                                        <h1>Discover how an <span class="blue">--}}
-{{--                                            <span class="ml6">--}}
-{{--                                                <span class="text-wrapper">--}}
-{{--                                                    <span class="letters"><br>ACA health plan</span>--}}
-{{--                                                </span>--}}
-{{--                                            </span>--}}
-{{--                                        </span>--}}
-
-{{--                                        </h1>--}}
-{{--                                        <h3> offers affordable, accessible options which we can tailor<br> for your--}}
-{{--                                            location, budget and needs. <span class="blue">--}}
-{{--                                            <span class="d-block">--}}
-{{--                                            </span>--}}
-{{--                                            </span>--}}
-{{--                                        </h3>--}}
-{{--                                        <div class="code">--}}
-{{--                                            <input type="text" placeholder="Zip Code">--}}
-{{--                                            <a href="{{route('front.form')}}" class="btn btn-custom">Start My Quote</a>--}}
-{{--                                            <!-- data-toggle="modal" data-target="#exampleModal" -->--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
 {{--                            <div class="item">--}}
 {{--                                <div class="banner-img extra-div-banner">--}}
@@ -149,15 +122,14 @@
 {{--                            </div>--}}
 
 
-
 {{--                            <div class="item">--}}
 {{--                                <div class="banner-img">--}}
 {{--                                    <img src="{{asset('images/sec-1-bg.png')}}" class="img-fluid" alt="">--}}
 {{--                                    <div class="main-heading">--}}
 {{--                                        <h1>Stay Healthy – <span class="blue">--}}
-{{--                                            <span class="ml6">--}}
-{{--                                                <span class="text-wrapper">--}}
-{{--                                                    <span class="letters">Stay Covered</span>--}}
+{{--                                            <span class="ml60">--}}
+{{--                                                <span class="text-wrapper60">--}}
+{{--                                                    <span class="letters60">Stay Covered</span>--}}
 {{--                                                </span>--}}
 {{--                                            </span>--}}
 {{--                                        </h1>--}}
@@ -465,7 +437,7 @@
                                                 class="fa-solid fa-phone-volume fa-shake"></i>833-775-1105 for licensed
                                         agent!!</a>
                                     <div class="health-btn">
-                                        <a href="#" class="btn btn-custom">See Plans </a>
+                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">See Plans </a>
                                     </div>
                                 </div>
                             </div>
@@ -556,7 +528,7 @@
                                                 class="fa-solid fa-phone-volume fa-shake"></i>833-775-1105 for licensed
                                         agent!!</a>
                                     <div class="health-btn">
-                                        <a href="#" class="btn btn-custom">See Plans </a>
+                                        <a href="https://www.healthsherpa.com/?_agent_id=judith-lovell-gcgdag" class="btn btn-custom">See Plans </a>
                                     </div>
                                 </div>
                             </div>

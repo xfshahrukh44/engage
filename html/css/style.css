@@ -1306,7 +1306,7 @@ footer:before {
 /* modal css  */
 .custum-modal .modal-content {
   /* width: 700px; */
-  background: #2d325c;
+  background: #ffffff ;
   border-radius: 22px;
   padding: 30px 30px;
   position: relative;
@@ -1316,10 +1316,11 @@ footer:before {
 .custum-modal .modal-content .btn-custom {
   background: #52c2ec;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .custum-modal .modal-content h2.side-heading {
-  color: white;
+  color: black;
 }
 
 .custum-modal .modal-dialog {
@@ -1327,7 +1328,7 @@ footer:before {
 }
 
 .custum-modal .modal-content .contact-form p {
-  color: white;
+  color: #777777;
   margin: 16px 0 2px;
 }
 
@@ -1335,7 +1336,7 @@ footer:before {
   position: absolute;
   top: 30px;
   right: 20px;
-  color: white;
+  color: black;
   opacity: 1;
 }
 
