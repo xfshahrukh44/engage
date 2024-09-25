@@ -1,8 +1,9 @@
 $('.banner-slides').owlCarousel({
     loop: false,
     margin: 10,
-    nav: false,
-    dots: true,
+    nav: true,
+    dots: false,
+    nav: true,
     navText: ["<img src='images/arrow-img.png'>", "<img src='images/arrow-img.png'>"],
     responsive: {
         0: {
