@@ -268,14 +268,14 @@
                                                        and low deductibles. With a gold plan you’ll pay 20% when services are
                                                        used. Gold plans can be a good value if you need frequent care as
                                                        though the monthly premium cold be more, nearly all other costs would
-                                                       be covered. (N 80/20 plan)
+                                                       be covered. (An 80/20 plan)
                                                   </p>
      
                                                   <p>
                                                        <strong>Platinum: </strong>
                                                        Has the highest monthly premium but like the Gold plans could be a
                                                        good choice if you use a lot of care. Deductibles are low and the
-                                                       coinsurance is 10% for services used. (N 90/10 plan)
+                                                       coinsurance is 10% for services used. (A 90/10 plan)
                                                   </p>
      
                                                   <p>

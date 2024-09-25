@@ -203,7 +203,7 @@
                             <div class="two-last-endl">
                                 <ul>
                                     <li><a href="javascript:;">Terms Of Services</a></li>
-                                    <li><a href="javascript:;">Privacy Policy</a></li>
+                                    <li><a href="{{route('front.privacy-policy')}}">Privacy Policy</a></li>
                                 </ul>
 
                             </div>

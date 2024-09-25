@@ -303,6 +303,7 @@ Route::get('naemt-tccc-course-1', [FrontController::class, 'naemt_tccc_course_1'
 Route::get('naemt-tccc-course-2', [FrontController::class, 'naemt_tccc_course_2'])->name('front.naemt-tccc-course-2');
 Route::get('naemt-tecc-course', [FrontController::class, 'naemt_tecc_course'])->name('front.naemt-tecc-course');
 Route::get('naemt-tecc-course-1', [FrontController::class, 'naemt_tecc_course_1'])->name('front.naemt-tecc-course-1');
+Route::get('privacy-policy', [FrontController::class, 'privacy_policy'])->name('front.privacy-policy');
 
 Route::post('save-quotation', [QuotationController::class, 'store'])->name('front.save-quotation');
 Route::post('save-inquiry', [QuotationController::class, 'inquiryStore'])->name('front.save-inquiry');

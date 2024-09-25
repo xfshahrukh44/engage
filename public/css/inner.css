@@ -873,3 +873,23 @@ span.color-blue-div:after {
 }
 
 /*  */
+
+
+/* privacy-policy-text */
+.privacy-policy-text .para-1{
+  padding-bottom: 15px;
+}
+.privacy-policy-text h2{
+  padding-top: 20px;
+}
+.privacy-policy-text ul{
+  list-style: disc !important;
+  padding: 0.2rem 0 0.5rem 1rem !important;
+  color: #777777;
+  margin: 0;
+  font-size: 17px;
+}
+.privacy-policy-text ul li{
+  padding-bottom: 10px;
+}
+/* privacy-policy-text */

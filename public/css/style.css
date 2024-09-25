@@ -1613,18 +1613,23 @@ header li.nav-item a.nav-link.active:before {
   background: white !important;
   right: 40px;
 }
-
 .main-banner-slides .owl-nav button img {
   width: 25%;
 }
-
-.main-banner-slides .owl-nav .owl-next {
-  right: 100px;
-}
-
-.main-banner-slides .owl-nav .owl-prev img {
+.main-banner-slides .owl-nav .owl-next img {
   transform: rotate(180deg);
 }
+.main-banner-slides .owl-nav .owl-prev img {
+  transform: rotate(0deg);
+}
+.main-banner-slides .owl-nav .owl-prev {
+  right: 70px;
+}
+.main-banner-slides .owl-nav .owl-next {
+  right: 10px;
+}
+
+
 
 .main-banner-slides .owl-nav button:focus {
   outline: none !important;

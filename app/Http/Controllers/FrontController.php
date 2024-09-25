@@ -185,4 +185,9 @@ class FrontController extends Controller
     {
         return view('front.courses');
     }
+
+    public function privacy_policy (Request $request)
+    {
+        return view('front.privacy-policy');
+    }
 }
