@@ -114,10 +114,10 @@
                                 <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.learning') ? 'active' : '' !!}" href="{{route('front.learning')}}">Learning ACA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.blogs') ? 'active' : '' !!}" href="{{route('front.enroll')}}">Browse Plan/Enroll</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.blogs') ? 'active' : '' !!}" href="{{route('front.enroll')}}">Browse Plans/Enroll</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.contact') ? 'active' : '' !!}" href="{{route('front.contact')}}">Contact</a>
+                                <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('front.contact') ? 'active' : '' !!}" href="{{route('front.contact')}}">Contact Us</a>
                             </li>
                             <!-- <li class="nav-item">
                                  <a class="nav-link" href="#">Enroll Now</a>
@@ -174,8 +174,8 @@
                             <li><a href="{{route('home')}}">Home</a></li>
                             <li><a href="{{route('front.insurance-services')}}">Insurance Services</a></li>
                             <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
-                            <li><a href="{{route('front.enroll')}}">Browse Plan/Enroll</a></li>
-                            <li><a href="{{route('front.contact')}}">Contact</a></li>
+                            <li><a href="{{route('front.enroll')}}">Browse Plans/Enroll</a></li>
+                            <li><a href="{{route('front.contact')}}">Contact Us</a></li>
 
 
                             <!-- <li><a href="#">Enroll Now</a></li> -->

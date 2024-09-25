@@ -359,16 +359,22 @@
 }
 
 .contact-info {
-  padding: 100px 80px;
-  text-align: center;
+  padding: 100px 0 0 0;
+    text-align: center;
 }
-
 .find-us h4 {
-  color: #3d434f;
+  color: #2083c2;
   font-size: 35px;
   font-weight: 600;
   font-family: "Lato";
   margin-bottom: 20px;
+}
+.find-us h5{
+  font-size: 20px;
+  padding: 34px 0 50px 0;
+  width: 50%;
+  margin: auto;
+  line-height: 28px;
 }
 .find-us p {
   color: #63676f;
@@ -391,7 +397,7 @@
 .icon-flex p {
   display: flex;
   align-items: center;
-  gap: 70px;
+  gap: 40px;
   justify-content: center;
 }
 

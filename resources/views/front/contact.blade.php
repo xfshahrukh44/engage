@@ -54,21 +54,21 @@
                     </div>
 
                     <div class="col-lg-12">
-                         <div class="find-us  text-center pt-2">
-                              <h5>	Questions? Concerns? Eligibility? Enrollment? <span class="d-block"></span>						
+                         <div class="find-us  text-center">
+                              <h5>	Questions? Concerns? Eligibility? Enrollment?					
                                    We are just a phone call or an email away! </h5>
                          </div>
                     </div>
 
                     <div class="col-lg-6">
-                         <div class="find-us pt-5">
+                         <div class="find-us">
                               <p><span>Agent:</span><a href="tel:+833-775-1105">833-775-1105</a></p>
                               <p><span>Office:</span><a href="tel:+987-654-321">954-229-9062</a></p>
                              
                          </div>
                     </div>
                     <div class="col-lg-6">
-                         <div class="find-us icon-flex text-left pt-5">
+                         <div class="find-us icon-flex text-left">
                               <p><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i
                                                 class="fa-brands fa-twitter"></i></a><a href="#"><i
                                                 class="fa-brands fa-facebook-f"></i></a></p>
@@ -84,9 +84,7 @@
 
                     <div class="col-lg-12">
                          <div class="find-us  text-center pt-3">
-                              <h5>			Fill out the form below and we will be in touch with you soon to answer your questions									
-                                 							
-                    <span class="d-block"></span>	  or help with a quotation on your ACA health insurance plan options:	</h5>
+                              <h5>			Fill out the form below and we will be in touch with you soon to answer your questions or help with a quotation on your ACA health insurance plan options:	</h5>
                          </div>
                     </div>
 
