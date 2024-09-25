@@ -48,6 +48,10 @@
             justify-content: center;
             padding-top: 26px;
         }
+
+        button.owl-dot.active {
+            outline: none !important;
+        }
     </style>
 @endsection
 
