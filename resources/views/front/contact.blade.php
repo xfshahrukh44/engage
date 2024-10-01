@@ -41,7 +41,7 @@
 
                          </div>
                     </div> -->
-                    
+
                     <div class="col-lg-6">
                          <div class="find-us">
                               <h4>Contact us</h4>
@@ -55,7 +55,7 @@
 
                     <div class="col-lg-12">
                          <div class="find-us  text-center">
-                              <h5>	Questions? Concerns? Eligibility? Enrollment?					
+                              <h5>	Questions? Concerns? Eligibility? Enrollment?
                                    We are just a phone call or an email away! </h5>
                          </div>
                     </div>
@@ -64,7 +64,7 @@
                          <div class="find-us">
                               <p><span>Agent:</span><a href="tel:+833-775-1105">833-775-1105</a></p>
                               <p><span>Office:</span><a href="tel:+987-654-321">954-229-9062</a></p>
-                             
+
                          </div>
                     </div>
                     <div class="col-lg-6">
@@ -107,19 +107,16 @@
                                    <div class="col-6">
                                         <div class="form-group">
                                              <label>First Name *</label>
-                                             <input type="text" name="fname" class="form-control" placeholder="Peter"
-                                                    required="">
+                                             <input type="text" name="fname" class="form-control" placeholder="Peter" required="">
                                         </div>
                                         <div class="form-group">
-                                             <label>Street Address *</label>
-                                             <input type="text" name="address" class="form-control" placeholder=""
-                                                    required="">
+                                             <label>Street Address</label>
+                                             <input type="text" name="address" class="form-control" placeholder="">
                                         </div>
 
                                         <div class="form-group">
-                                             <label>City *</label>
-                                             <input type="text" name="city" class="form-control" placeholder="State"
-                                                    required="">
+                                             <label>City</label>
+                                             <input type="text" name="city" class="form-control" placeholder="State">
                                         </div>
 
                                         <div class="form-group">
@@ -128,7 +125,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                             <label>Type of Insurance Inqiry: *</label>
+                                             <label>Type of Insurance Inqiry:</label>
                                              <select name="type_of_insurance" class="form-control">
                                                   <option value="Individual Health">Individual Health</option>
                                                   <option value="Family Health">Family Health</option>
@@ -148,29 +145,29 @@
                                    <div class="col-6">
                                         <div class="form-group">
                                              <label>Last Name (optional)</label>
-                                             <input type="text" name="lname" class="form-control" placeholder="" required="">
+                                             <input type="text" name="lname" class="form-control" placeholder="">
                                         </div>
                                         <div class="form-group">
                                              <label>Apt, Suite, Bldg</label>
-                                             <input type="text" name="suite" class="form-control" placeholder="" required="">
+                                             <input type="text" name="suite" class="form-control" placeholder="">
                                         </div>
 
                                         <div class="row">
                                              <div class="col-md-6">
                                                   <div class="form-group">
                                                        <label>State</label>
-                                                       <input type="text" name="state" class="form-control" placeholder="" required="">
+                                                       <input type="text" name="state" class="form-control" placeholder="" >
                                                   </div>
                                              </div>
                                              <div class="col-md-6">
                                                   <div class="form-group">
-                                                       <label>Zip Code </label>
+                                                       <label>Zip Code *</label>
                                                        <input type="text" name="zipcode" class="form-control" placeholder="" required="">
                                                   </div>
                                              </div>
                                         </div>
                                         <div class="form-group">
-                                             <label>Phone (optional)</label>
+                                             <label>Phone (optional) *</label>
                                              <input type="text" name="phone" class="form-control" placeholder="" required="">
                                         </div>
                                         <div class="form-group">

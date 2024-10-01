@@ -315,16 +315,18 @@
                     </div>
                     <div class="col-lg-12">
                          <div class="amerities-img dental_flex">
+                              <img src="{{asset('images/ameritas.png')}}" class="img-fluid" alt="">
                               <img src="{{asset('images/cigna.png')}}" class="img-fluid" alt="">
-                              <img src="{{asset('images/afiac.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset('images/allstate.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset('images/anthem.png')}}" class="img-fluid" alt="">
+                              <img src="{{asset('images/BCBS.png')}}" class="img-fluid" alt="">
                               <img src="{{asset('images/uniterd.png')}}" class="img-fluid" alt="">
-                              <img src="{{asset('images/vision-logo.png')}}" class="img-fluid" alt="">
                          </div>
                     </div>
                </div>
           </div>
      </section>
-     
+
      @include('front.call-agent')
 
 @endsection

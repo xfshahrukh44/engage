@@ -186,9 +186,12 @@
                                                   </div>
                                              </div>
                                              <div class="amerities-img">
-                                                  <img src="{{asset('images/ameritas-logo.png')}}" class="img-fluid" alt="">
-                                                  <img src="{{asset('images/uniterd.png')}}" class="img-fluid" alt="">
-                                                  <img src="{{asset('images/vision-logo.png')}}" class="img-fluid" alt="">
+                                                <img src="{{ asset('images/ameritas.png') }}" class="img-fluid" alt="">
+                                                <img src="{{asset('images/vision-logo.png')}}" class="img-fluid" alt="">
+                                                <img src="{{ asset('images/allstate.png') }}" class="img-fluid" alt="">
+                                                <img src="{{ asset('images/cigna.png') }}" class="img-fluid" alt="">
+
+
                                              </div>
                                         </div>
                                    </div>

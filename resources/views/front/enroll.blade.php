@@ -58,20 +58,9 @@
                                      data-parent="#accordion">
                                     <div class="card-body">
 
-                                        <p><a class="main-blue-color" href="index.php">Engage Health Insurance LLC</a>
-                                            represents multiple health insurance carriers for an unbiased approach in
-                                            helping select the best plan for a client’s particular financial situation
-                                            and medical needs. Insurance plans and availability do vary from state to
-                                            state and by zip code within a state. All of the plans in the ACA
-                                            marketplaces conform to the same Affordable Care Act standards. </p>
+                                        <p><a class="main-blue-color" href="index.php">Engage Health Insurance LLC</a>  represents multiple health insurance carriers for an unbiased approach in helping select the best plan for a client’s particular financial situation and medical needs. Insurance plans and availability do vary from state to state and by zip code within a state. All of the plans in the ACA marketplaces conform to the same Affordable Care Act standards.</p>
 
-                                        <p>While we recommend utilizing the assistance of an experienced, licensed
-                                            health insurance agent with <a class="main-blue-color" href="index.php">Engage
-                                                Health Insurance LLC</a> to help you navigate the enrollment process,
-                                            the state links below will allow you to enter some basic information about
-                                            yourself to see your potential subsidy amount (the financial help figure),
-                                            how that subsidy amount is applied to a plan, check eligibility for a zero
-                                            or low cost plan, browse plans and even self- enroll in many of them.</p>
+                                        <p>While we recommend utilizing the assistance of an experienced, licensed health insurance agent with <a class="main-blue-color" href="index.php">Engage Health Insurance LLC</a> to help you navigate the enrollment process, the state links below will allow you to enter some basic information about yourself to see your potential subsidy amount (the financial help figure), how that subsidy amount is applied to a plan, check eligibility for a zero or low cost plan, browse plans and even self- enroll in many of them. Any state we are currently unable to support enrollment in will give notice of where to call for enrollment into your selected plan at the “start application button “ stage when browsing the plan display. </p>
                                     </div>
                                 </div>
                             </div>
@@ -269,3 +258,4 @@
 @section('js')
 
 @endsection
+
