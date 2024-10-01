@@ -1270,7 +1270,8 @@ footer:before {
   background-color: #222222;
   height: 1px;
   width: 100%;
-  bottom: 169px;
+  /*bottom: 169px;*/
+  bottom: 223px;
   left: 0;
 }
 
