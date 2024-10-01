@@ -172,7 +172,6 @@
                         <p>QUICK LINKS</p>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="{{route('front.insurance-services')}}">Insurance Services</a></li>
                             <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
                             <li><a href="{{route('front.enroll')}}">Browse Plans/Enroll</a></li>
                             <li><a href="{{route('front.contact')}}">Contact Us</a></li>
@@ -186,14 +185,14 @@
             <div class="col-lg-3">
                 <div class="endl-1">
                     <div class="phone">
-                        <p>ADDRESS</p>
+                        <p>LOCATION</p>
                         <div class="last-endl-flux">
                             <i class="fa-solid fa-map"></i>
                             <p>{{App\Http\Traits\HelperTrait::returnFlag(1975)}}</p>
                         </div>
                     </div>
                     <div class="quick">
-                        <p>QUICK LINKS</p>
+                        <p>Insurance Services</p>
                         <ul>
                             <li><a href="{{route('front.health-insurance')}}">Health Insurance</a></li>
                             <li><a href="{{route('front.dental-insurance')}}">Dental Insurance</a></li>
@@ -218,7 +217,6 @@
                     <div class="phone endl-2">
                         <p>GET IN TOUCH</p>
                         <p class="small-para">We welcome your email inquiries 24/7!</p>
-                        <a href="nav-link" href="#">Insurance Services</a>
                         <a href="nav-link" href="mailto:{{App\Http\Traits\HelperTrait::returnFlag(1976)}}">{{App\Http\Traits\HelperTrait::returnFlag(1976)}}</a>
                         <div class="media">
                             <a href="{{App\Http\Traits\HelperTrait::returnFlag(1977)}}"><i class="fa-brands fa-facebook-f"></i></a>
@@ -254,6 +252,7 @@
                         <p>This website may not display all of the Qualified Health Plans in your state. Go to the
                             Health Insurance Marketplace® website at HealthCare.gov for all available data for your
                             state.</p>
+                        <p>Copyright © 2014 - 2024 Engage - All Rights Reserved</p>
                     </div>
 
                 </div>
@@ -314,7 +313,7 @@
                                 </select>
                             </div>
                             <div class="submit-btn">
-                                <button type="submit" class="btn btn-custom">Start My Quote</button>
+                                <button type="submit" class="btn btn-custom">Submit</button>
 {{--                                            <a href="#" class="btn btn-custom">Submit</a>--}}
                                 <!--  data-toggle="modal" data-target="#exampleModal -->
                             </div>

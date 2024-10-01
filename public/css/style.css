@@ -1207,7 +1207,7 @@ footer {
 .phone.endl-2 a {
   color: var(--purple);
   border-bottom: 1px solid #52c2ec;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none !important;
 }
@@ -1270,7 +1270,7 @@ footer:before {
   background-color: #222222;
   height: 1px;
   width: 100%;
-  bottom: 169px;
+  bottom: 223px;
   left: 0;
 }
 
@@ -1680,4 +1680,8 @@ header li.nav-item a.nav-link.active:before {
 .extra-div-banner {
     position: relative;
     z-index: 0;
+}
+.card-body p  strong {
+    color: var(--purple);
+    font-weight: 700;
 }
