@@ -31,7 +31,7 @@ class QuotationController extends Controller
         $quotation->children = $request->get('children');
         $quotation->save();
 
-        return redirect()->back()->with('success', 'Your quotation has been submitted!');
+        return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
     }
 
     public function inquiryStore (Request $request)
