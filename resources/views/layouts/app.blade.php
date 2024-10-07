@@ -201,7 +201,7 @@
 
                             <div class="two-last-endl">
                                 <ul>
-                                    <li><a href="javascript:;">Terms Of Services</a></li>
+                                    <li><a href="javascript:;">Terms of Use</a></li>
                                     <li><a href="{{route('front.privacy-policy')}}">Privacy Policy</a></li>
                                 </ul>
 
@@ -252,7 +252,7 @@
                         <p>This website may not display all of the Qualified Health Plans in your state. Go to the
                             Health Insurance Marketplace® website at HealthCare.gov for all available data for your
                             state.</p>
-                        <p>Copyright © 2014 - 2024 Engage - All Rights Reserved</p>
+                        <p>Copyright © 2024 Engage Health Insurance LLC - All Rights Reserved</p>
                     </div>
 
                 </div>
