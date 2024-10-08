@@ -224,7 +224,8 @@
                             <!-- <a href="javascript:;"><i class="fa-brands fa-twitter"></i></a> -->
                             <!-- <a href="javascript:;"><i class="fa-brands fa-google-plus-g"></i></a> -->
 {{--                            <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>--}}
-                            <a href="{{App\Http\Traits\HelperTrait::returnFlag(1978)}}"><i class="fa-brands fa-instagram"></i></a>
+                            <!-- <a href="{{App\Http\Traits\HelperTrait::returnFlag(1978)}}"><i class="fa-brands fa-instagram"></i></a> -->
+                            <a target="_blank" href="https://www.instagram.com/engagehealthinsurancellc/"><i class="fa-brands fa-instagram"></i></a>
                             <!-- <a href="javascript:;"><i class="fa-brands fa-linkedin-in"></i></a> -->
                         </div>
                     </div>

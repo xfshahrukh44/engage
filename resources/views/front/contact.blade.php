@@ -71,7 +71,7 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                 <div class="find-us icon-flex text-left">
                     <p>
                         <a target="_blank" href="https://www.facebook.com/people/Engage-Health-Insurance/61559676192349/"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a></p>
+                        <a target="_blank" href="https://www.instagram.com/engagehealthinsurancellc/"><i class="fa-brands fa-instagram"></i></a></p>
                 </div>
             </div>
 
