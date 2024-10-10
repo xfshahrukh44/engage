@@ -201,7 +201,7 @@
 
                             <div class="two-last-endl">
                                 <ul>
-                                    <li><a href="javascript:;">Terms of Use</a></li>
+                                    <li><a href="{{route('front.terms')}}">Terms of Use</a></li>
                                     <li><a href="{{route('front.privacy-policy')}}">Privacy Policy</a></li>
                                 </ul>
 

@@ -40,13 +40,13 @@
                                   </span>
                           </span>
                          </h1>
-                           
+
                     </div>
                </div>
           </div>
           </div>
      </section>
-     
+
 
      <section class="faq-sec privacy-policy-text">
           <div class="container">
@@ -92,22 +92,22 @@
                               <p class="para-1">Your use of this website, its forms and EDE links, signifies your agreement with this Privacy Policy. Any changes to this policy will be posted here for you and continued use of this site indicates acceptance of those changes. </p>
 
 
-     
+
                          </div>
                     </div>
 
                </div>
           </div>
-     
-     
-     </section>
-     
 
-     
-     
+
+     </section>
+
+
+
+
 
      @include('front.call-agent')
-     
+
 @endsection
 
 @section('js')
