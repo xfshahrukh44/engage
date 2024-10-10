@@ -26,7 +26,7 @@
 
 @section('content')
 
-<section class="inner-banner" style="background-image: url({{asset('images/privicy-policy-666.jpg')}})!important;">
+<section class="inner-banner" style="background-image: url({{asset('images/terms-of-use.jpg')}})!important;">
     <div class="container">
          <div class="row">
               <div class="col-lg-12">
