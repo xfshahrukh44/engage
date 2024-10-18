@@ -108,7 +108,7 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                         <div class="col-6">
                             <div class="form-group">
                                 <label>First Name *</label>
-                                <input type="text" name="fname" class="form-control" placeholder="Peter" required="">
+                                <input type="text" name="fname" class="form-control" placeholder="First Name" required="">
                             </div>
                             <div class="form-group">
                                 <label>Street Address</label>
@@ -117,7 +117,7 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
 
                             <div class="form-group">
                                 <label>City</label>
-                                <input type="text" name="city" class="form-control" placeholder="State">
+                                <input type="text" name="city" class="form-control" placeholder="City">
                             </div>
 
                             <div class="form-group">
@@ -146,7 +146,7 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Last Name (optional)</label>
+                                <label>Last Name  *</label>
                                 <input type="text" name="lname" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
