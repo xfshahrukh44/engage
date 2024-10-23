@@ -52,7 +52,7 @@ class QuotationController extends Controller
         $html .= "children: ".$quotation->children."\n";
 
         Mail::send([], [], function ($message) use ($html) {
-            $message->to('info@engagehealthinsurance.com')
+            $message->to('info@engagehealthinsurance.org')
                 ->subject('Quotation')
                 ->setBody($html, 'text/html');
         });
@@ -81,7 +81,7 @@ class QuotationController extends Controller
         $html .= "suite: ".$inquiry->suite."\n";
 
         Mail::send([], [], function ($message) use ($html) {
-            $message->to('info@engagehealthinsurance.com')
+            $message->to('info@engagehealthinsurance.org')
                 ->subject('Contact inquiry')
                 ->setBody($html, 'text/html');
         });
