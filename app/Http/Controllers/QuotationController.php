@@ -33,23 +33,23 @@ class QuotationController extends Controller
         $quotation->save();
 
         $html = '';
-        $html .= "first name: ".$quotation->first_name."\n";
-        $html .= "last name: ".$quotation->last_name."\n";
-        $html .= "email: ".$quotation->email."\n";
-        $html .= "phone: ".$quotation->phone."\n";
-        $html .= "insurance type: ".$quotation->insurance_type."\n";
-        $html .= "time to call: ".$quotation->time_to_call."\n";
-        $html .= "type: ".$quotation->type."\n";
-        $html .= "household size: ".$quotation->household_size."\n";
-        $html .= "household income: ".$quotation->household_income."\n";
-        $html .= "gender: ".$quotation->gender."\n";
-        $html .= "dob: ".$quotation->dob."\n";
-        $html .= "address: ".$quotation->address."\n";
-        $html .= "marital status: ".$quotation->marital_status."\n";
-        $html .= "for self: ".$quotation->is_self."\n";
-        $html .= "for spouse: ".$quotation->is_spouse."\n";
-        $html .= "for children: ".$quotation->is_children."\n";
-        $html .= "children: ".$quotation->children."\n";
+        $html .= "first name: ".$quotation->first_name."<br>";
+        $html .= "last name: ".$quotation->last_name."<br>";
+        $html .= "email: ".$quotation->email."<br>";
+        $html .= "phone: ".$quotation->phone."<br>";
+        $html .= "insurance type: ".$quotation->insurance_type."<br>";
+        $html .= "time to call: ".$quotation->time_to_call."<br>";
+        $html .= "type: ".$quotation->type."<br>";
+        $html .= "household size: ".$quotation->household_size."<br>";
+        $html .= "household income: ".$quotation->household_income."<br>";
+        $html .= "gender: ".$quotation->gender."<br>";
+        $html .= "dob: ".$quotation->dob."<br>";
+        $html .= "address: ".$quotation->address."<br>";
+        $html .= "marital status: ".$quotation->marital_status."<br>";
+        $html .= "for self: ".$quotation->is_self."<br>";
+        $html .= "for spouse: ".$quotation->is_spouse."<br>";
+        $html .= "for children: ".$quotation->is_children."<br>";
+        $html .= "children: ".$quotation->children."<br>";
 
         Mail::send([], [], function ($message) use ($html) {
             $message->to('info@engagehealthinsurance.org')
@@ -65,20 +65,20 @@ class QuotationController extends Controller
         $inquiry = Inquiry::create($request->all());
 
         $html = '';
-        $html .= "fname: ".$inquiry->fname."\n";
-        $html .= "lname: ".$inquiry->lname."\n";
-        $html .= "email: ".$inquiry->email."\n";
-        $html .= "notes: ".$inquiry->notes."\n";
-        $html .= "phone: ".$inquiry->phone."\n";
-        $html .= "time: ".$inquiry->time."\n";
-        $html .= "date: ".$inquiry->date."\n";
-        $html .= "classes: ".$inquiry->classes."\n";
-        $html .= "form name: ".$inquiry->form_name."\n";
-        $html .= "address: ".$inquiry->address."\n";
-        $html .= "city: ".$inquiry->city."\n";
-        $html .= "zipcode: ".$inquiry->zipcode."\n";
-        $html .= "type of insurance: ".$inquiry->type_of_insurance."\n";
-        $html .= "suite: ".$inquiry->suite."\n";
+        $html .= "fname: ".$inquiry->fname."<br>";
+        $html .= "lname: ".$inquiry->lname."<br>";
+        $html .= "email: ".$inquiry->email."<br>";
+        $html .= "notes: ".$inquiry->notes."<br>";
+        $html .= "phone: ".$inquiry->phone."<br>";
+        $html .= "time: ".$inquiry->time."<br>";
+        $html .= "date: ".$inquiry->date."<br>";
+        $html .= "classes: ".$inquiry->classes."<br>";
+        $html .= "form name: ".$inquiry->form_name."<br>";
+        $html .= "address: ".$inquiry->address."<br>";
+        $html .= "city: ".$inquiry->city."<br>";
+        $html .= "zipcode: ".$inquiry->zipcode."<br>";
+        $html .= "type of insurance: ".$inquiry->type_of_insurance."<br>";
+        $html .= "suite: ".$inquiry->suite."<br>";
 
         Mail::send([], [], function ($message) use ($html) {
             $message->to('info@engagehealthinsurance.org')
