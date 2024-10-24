@@ -33,27 +33,27 @@ class QuotationController extends Controller
         $quotation->save();
 
         $html = '';
-        $html .= "first name: ".$quotation->first_name."<br>";
-        $html .= "last name: ".$quotation->last_name."<br>";
-        $html .= "email: ".$quotation->email."<br>";
-        $html .= "phone: ".$quotation->phone."<br>";
-        $html .= "insurance type: ".$quotation->insurance_type."<br>";
-        $html .= "time to call: ".$quotation->time_to_call."<br>";
-        $html .= "type: ".$quotation->type."<br>";
-        $html .= "household size: ".$quotation->household_size."<br>";
-        $html .= "household income: ".$quotation->household_income."<br>";
-        $html .= "gender: ".$quotation->gender."<br>";
-        $html .= "dob: ".$quotation->dob."<br>";
-        $html .= "address: ".$quotation->address."<br>";
-        $html .= "marital status: ".$quotation->marital_status."<br>";
-        $html .= "for self: ".$quotation->is_self."<br>";
-        $html .= "for spouse: ".$quotation->is_spouse."<br>";
-        $html .= "for children: ".$quotation->is_children."<br>";
-        $html .= "children: ".$quotation->children."<br>";
+        $html .= "First name: ".$quotation->first_name."<br>";
+        $html .= "Last name: ".$quotation->last_name."<br>";
+        $html .= "Email: ".$quotation->email."<br>";
+        $html .= "Phone: ".$quotation->phone."<br>";
+        $html .= "Insurance type: ".$quotation->insurance_type."<br>";
+        $html .= "Time to call: ".$quotation->time_to_call."<br>";
+        $html .= "Type: ".$quotation->type."<br>";
+        $html .= "Household size: ".$quotation->household_size."<br>";
+        $html .= "Household income: ".$quotation->household_income."<br>";
+        $html .= "Gender: ".$quotation->gender."<br>";
+        $html .= "Date of birth: ".$quotation->dob."<br>";
+        $html .= "Address: ".$quotation->address."<br>";
+        $html .= "Marital status: ".$quotation->marital_status."<br>";
+        $html .= "For self: ".$quotation->is_self."<br>";
+        $html .= "For spouse: ".$quotation->is_spouse."<br>";
+        $html .= "For children: ".$quotation->is_children."<br>";
+        $html .= "Children: ".$quotation->children."<br>";
 
         Mail::send([], [], function ($message) use ($html) {
             $message->to('info@engagehealthinsurance.org')
-                ->subject('Quotation')
+                ->subject('Engage | Get a Quote')
                 ->setBody($html, 'text/html');
         });
 
@@ -65,24 +65,24 @@ class QuotationController extends Controller
         $inquiry = Inquiry::create($request->all());
 
         $html = '';
-        $html .= "fname: ".$inquiry->fname."<br>";
-        $html .= "lname: ".$inquiry->lname."<br>";
-        $html .= "email: ".$inquiry->email."<br>";
-        $html .= "notes: ".$inquiry->notes."<br>";
-        $html .= "phone: ".$inquiry->phone."<br>";
-        $html .= "time: ".$inquiry->time."<br>";
-        $html .= "date: ".$inquiry->date."<br>";
-        $html .= "classes: ".$inquiry->classes."<br>";
-        $html .= "form name: ".$inquiry->form_name."<br>";
-        $html .= "address: ".$inquiry->address."<br>";
-        $html .= "city: ".$inquiry->city."<br>";
-        $html .= "zipcode: ".$inquiry->zipcode."<br>";
-        $html .= "type of insurance: ".$inquiry->type_of_insurance."<br>";
-        $html .= "suite: ".$inquiry->suite."<br>";
+        $html .= "First name: ".$inquiry->fname."<br>";
+        $html .= "Last name: ".$inquiry->lname."<br>";
+        $html .= "Email: ".$inquiry->email."<br>";
+        $html .= "Notes: ".$inquiry->notes."<br>";
+        $html .= "Phone: ".$inquiry->phone."<br>";
+        $html .= "Time: ".$inquiry->time."<br>";
+        $html .= "Date: ".$inquiry->date."<br>";
+        $html .= "Classes: ".$inquiry->classes."<br>";
+        $html .= "Form name: ".$inquiry->form_name."<br>";
+        $html .= "Address: ".$inquiry->address."<br>";
+        $html .= "City: ".$inquiry->city."<br>";
+        $html .= "Zipcode: ".$inquiry->zipcode."<br>";
+        $html .= "Type of insurance: ".$inquiry->type_of_insurance."<br>";
+        $html .= "Suite: ".$inquiry->suite."<br>";
 
         Mail::send([], [], function ($message) use ($html) {
             $message->to('info@engagehealthinsurance.org')
-                ->subject('Contact inquiry')
+                ->subject('Engage | Contact inquiry')
                 ->setBody($html, 'text/html');
         });
 
