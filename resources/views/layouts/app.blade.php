@@ -57,26 +57,6 @@
 </div> -->
 <style>
 
-    .two-last-endl {
-        padding: 30px 0px;
-    }
-
-
-    .quick ul li a {
-        font-size: 16px;
-        font-weight: 500;
-        color: black;
-        padding: 0;
-        text-decoration: none;
-    }
-
-    .last-endl {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 100px;
-    }
-
 
 </style>
 
@@ -85,7 +65,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg">
+            
+                <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="{{route('home')}}">
                         <img src="{{asset('images/logo_1.png')}}" class="img-fluid">
                     </a>
@@ -96,7 +77,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav m-auto">
                             <li class="nav-item active">
                                 <a class="nav-link {!! \Illuminate\Support\Facades\Route::Is('home') ? 'active' : '' !!}" href="{{route('home')}}">Home</a>
                             </li>
@@ -232,7 +213,7 @@
 
                     <div class="img-footer endl-2">
                         <figure>
-                            <img src="{{asset('images/vector.png')}}" alt="">
+                            <img src="{{asset('images/vector.png')}}" class="img-fluid" alt="">
                         </figure>
                     </div>
                 </div>

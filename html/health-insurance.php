@@ -526,10 +526,6 @@
           margin: 0px 29px;
      }
 
-     span.blue {
-          color: #117cbe !important;
-          font-style: italic;
-     }
 
      .tabs-coverage p span {
           color: #117cbe;

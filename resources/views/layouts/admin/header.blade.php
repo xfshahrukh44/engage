@@ -1,8 +1,8 @@
 <?php
-    
-     $logo = DB::table('imagetable')
-                ->where('table_name', 'logo')
-                ->first();
+
+$logo = DB::table('imagetable')
+    ->where('table_name', 'logo')
+    ->first();
 ?>
 
 <!-- BEGIN: Header-->
@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-container content">
             <div class="collapse navbar-collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav mr-auto float-left">
+                <ul class="nav navbar-nav m-auto float-left">
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
@@ -95,12 +95,12 @@
                             <span class="mr-1 user-name text-bold-700">{{auth()->user()->name}}</span>
                             <span class="avatar avatar-online">
                                 @if(auth()->check())
-                                    @if(empty(auth()->user()->profile->pic))
-                                        <img src="{{asset('imgs/noimage.png')}}" alt="avatar">
-                                     @else
-                                        <img src="{{asset('storage/uploads/users/'.auth()->user()->profile->pic)}}"
-                                             alt="user-img">
-                                     @endif
+                                @if(empty(auth()->user()->profile->pic))
+                                <img src="{{asset('imgs/noimage.png')}}" alt="avatar">
+                                @else
+                                <img src="{{asset('storage/uploads/users/'.auth()->user()->profile->pic)}}"
+                                    alt="user-img">
+                                @endif
                                 @endif
                                 <i></i>
                             </span>

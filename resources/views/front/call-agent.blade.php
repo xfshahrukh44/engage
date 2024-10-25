@@ -3,10 +3,6 @@
         width: 14%;
     }
 
-    span.blue {
-        color: #117cbe !important;
-        font-style: italic;
-    }
 
     .tabs-coverage p span {
         color: #117cbe;

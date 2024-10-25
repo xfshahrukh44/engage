@@ -94,7 +94,7 @@
 
                          <div class="img-footer endl-2">
                               <figure>
-                                   <img src="images/vector.png" alt="">
+                                   <img src="images/vector.png" class="img-fluid" alt="">
                               </figure>
                          </div>
                     </div>

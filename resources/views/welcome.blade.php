@@ -13,10 +13,6 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         width: 14%;
     }
 
-    span.blue {
-        color: #117cbe !important;
-        font-style: italic;
-    }
 
     .tabs-coverage p span {
         color: #117cbe;
@@ -68,6 +64,8 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
 @endsection
 
 @section('content')
+
+
 <section class="main-sec">
     <div class="container-fluid">
         <div class="row">

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	
-	<?php
-	   $favicon = DB::table('imagetable')->where('table_name', 'favicon')->first();			
-	?>	
+
+    <?php
+    $favicon = DB::table('imagetable')->where('table_name', 'favicon')->first();
+    ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,9 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset(!empty($favicon->img_path)?$favicon->img_path:'')}}">
     <title>{{ config('app.name') }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors.min.css')}}">
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -32,7 +35,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     @stack('before-css')
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
-   <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <!-- Custom CSS -->
     <!-- <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"> -->
     <!-- <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet"> -->
@@ -45,105 +48,111 @@
     @stack('after-css')
 
 </head>
-			
 
-<body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
-<!-- ============================================================== -->
-<!-- Preloader - style you can find in spinners.css')}} -->
-<!-- ============================================================== -->
-@include('layouts.admin.header')
 
-@include('layouts.admin.sidebar')
+<body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click"
+    data-menu="vertical-menu-modern" data-col="2-columns">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css')}} -->
+    <!-- ============================================================== -->
+    @include('layouts.admin.header')
 
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="content-wrapper">
-        @yield('content')
+    @include('layouts.admin.sidebar')
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
     </div>
-</div>
 
-@include('layouts.admin.footer')
+    @include('layouts.admin.footer')
 
-<!-- BEGIN: Vendor JS-->
-<script src="{{asset('assets/js/vendors.min.js')}}"></script>
-<!-- BEGIN Vendor JS-->
-<!-- BEGIN: Theme JS-->
-<script src="{{asset('assets/js/app-menu.min.js')}}"></script>
-<script src="{{asset('assets/js/app.min.js')}}"></script>
-<script src="{{asset('assets/js/customizer.min.js')}}"></script>
-<!-- END: Theme JS-->
-<<!-- script src="{{asset('plugins/vendors/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/jquery/spartan-multi-image-picker.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/bootstrap/js/popper.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/ps/perfect-scrollbar.jquery.min.js')}}"></script>
-<script src="{{asset('assets/js/waves.js')}}"></script>
-<script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
-<script src="{{asset('assets/js/custom.min.js')}}"></script>
-<script src="{{asset('plugins/vendors/toast-master/js/jquery.toast.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-<script type="text/javascript" src="{{ asset('assets/js/edituser.js') }}"></script> -->
-
-
-<script>
-    if($('#summary-ckeditor').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor' );
-    }
-    if($('#summary-ckeditor1').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor1' );
-    }
-    if($('#summary-ckeditor2').length != 0){
-        CKEDITOR.replace( 'summary-ckeditor2' );
-    }
-</script>
+    <!-- BEGIN: Vendor JS-->
+    <script src="{{asset('assets/js/vendors.min.js')}}"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="{{asset('assets/js/app-menu.min.js')}}"></script>
+    <script src="{{asset('assets/js/app.min.js')}}"></script>
+    <script src="{{asset('assets/js/customizer.min.js')}}"></script>
+    <!-- END: Theme JS-->
+    <<!-- script src="{{asset('plugins/vendors/jquery/jquery.min.js')}}">
+        </script>
+        <script src="{{asset('plugins/vendors/jquery/spartan-multi-image-picker.min.js')}}"></script>
+        <script src="{{asset('plugins/vendors/bootstrap/js/popper.min.js')}}"></script>
+        <script src="{{asset('plugins/vendors/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('plugins/vendors/ps/perfect-scrollbar.jquery.min.js')}}"></script>
+        <script src="{{asset('assets/js/waves.js')}}"></script>
+        <script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
+        <script src="{{asset('assets/js/custom.min.js')}}"></script>
+        <script src="{{asset('plugins/vendors/toast-master/js/jquery.toast.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/edituser.js') }}"></script> -->
 
 
+        <script>
+        if ($('#summary-ckeditor').length != 0) {
+            CKEDITOR.replace('summary-ckeditor');
+        }
+        if ($('#summary-ckeditor1').length != 0) {
+            CKEDITOR.replace('summary-ckeditor1');
+        }
+        if ($('#summary-ckeditor2').length != 0) {
+            CKEDITOR.replace('summary-ckeditor2');
+        }
+        </script>
 
-<script>
-	
-	 $(document).ready(function () {
+
+
+        <script>
+        $(document).ready(function() {
 
             @if(\Session::has('message'))
             $.toast({
                 heading: 'Success!',
                 position: 'top-center',
-                text: '{{session()->get('message')}}',
+                text: '{{session()->get('
+                message ')}}',
                 loaderBg: '#ff6849',
                 icon: 'success',
                 hideAfter: 3000,
                 stack: 6
             });
             @endif
-			
-			
+
+
             @if(\Session::has('flash_message'))
             $.toast({
                 heading: 'Info!',
                 position: 'top-center',
-                text: '{{session()->get('flash_message')}}',
+                text: '{{session()->get('
+                flash_message ')}}',
                 loaderBg: '#ff6849',
                 icon: 'error',
                 hideAfter: 3000,
                 stack: 6
             });
             @endif
-			
-			
+
+
         });
+        </script>
 
-	
-</script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#e1").select2();
+        });
+        </script>
 
-<script type="text/javascript">
-            $(document).ready(function() { $("#e1").select2(); });
-</script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#e2").select2();
+        });
+        </script>
 
-<script type="text/javascript">
-            $(document).ready(function() { $("#e2").select2(); });
-</script>
-
-<!-- ============================================================== -->
-@stack('js')
+        <!-- ============================================================== -->
+        @stack('js')
 
 </body>
+
 </html>

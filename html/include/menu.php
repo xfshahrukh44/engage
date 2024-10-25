@@ -11,25 +11,6 @@
 </div> -->
 <style>
      
-.two-last-endl {
-    padding: 30px 0px;
-}
-
-
-.quick ul li a {
-  font-size: 16px;
-  font-weight: 500;
-  color: black;
-  padding: 0;
-  text-decoration: none;
-}
-
-.last-endl {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 100px;
-}
 
 
 </style>
@@ -50,7 +31,7 @@
                          </button>
 
                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                              <ul class="navbar-nav mr-auto">
+                              <ul class="navbar-nav m-auto">
                                    <li class="nav-item active">
                                         <a class="nav-link active" href="{{route('home')}}">Home</a>
                                    </li>
