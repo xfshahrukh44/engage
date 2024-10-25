@@ -308,7 +308,7 @@
                                 <input type="text" placeholder="Phone Number" name="phone">
                                 <select name="time_to_call">
                                     <option value="">Best Time To Call</option>
-                                    <option value="8am – 10pm">8am – 10pm</option>
+                                    <option value="8am – 10am">8am – 10am</option>
                                     <option value="10am – 12pm">10am – 12pm</option>
                                     <option value="12pm – 3pm">12pm – 3pm</option>
                                     <option value="3pm – 6pm">3pm – 6pm</option>

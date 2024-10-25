@@ -266,7 +266,7 @@
                                         <input type="text" placeholder="Phone Number">
                                         <select>
                                             <option value="service">Best Time To Call</option>
-                                            <option value="service1">8am – 10pm</option>
+                                            <option value="service1">8am – 10am</option>
                                             <option value="service2">10am – 12pm</option>
                                             <option value="service3">12pm – 3pm</option>
                                             <option value="service4">3pm – 6pm</option>
