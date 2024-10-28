@@ -549,13 +549,13 @@
   color: var(--white-color);
 }
 .financial-assistance {
-  display: flex;
+  display: block;
   align-items: center;
   margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 20px 1px #00000040;
   padding: 10px;
-  height: 150px;
+  height: auto;
 }
 
 .financial-name {
@@ -566,7 +566,7 @@
 }
 
 .financial-discription {
-  width: 60%;
+  width: 100%;
 }
 
 .financial-name img {

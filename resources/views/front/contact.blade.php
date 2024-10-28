@@ -18,13 +18,13 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                 <div class="main-heading" aos-init aos-animate="" data-aos="fade-left" data-aos-offset="300"
                     data-aos-easing="ease-in-sine" data-aos-duration="1500">
                     {{-- <h1>Contact <span class="blue"> --}}
-                            {{-- <span class="ml6"> --}}
-                                {{-- <span class="text-wrapper"> --}}
-                                    {{-- <span class="letters">US</span> --}}
-                                    {{-- </span> --}}
-                                {{-- </span> --}}
-                            {{-- </span> --}}
-                        {{-- </h1> --}}
+                    {{-- <span class="ml6"> --}}
+                    {{-- <span class="text-wrapper"> --}}
+                    {{-- <span class="letters">US</span> --}}
+                    {{-- </span> --}}
+                    {{-- </span> --}}
+                    {{-- </span> --}}
+                    {{-- </h1> --}}
                     {!! $page->content !!}
                 </div>
             </div>
@@ -71,7 +71,8 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                 <div class="find-us icon-flex text-left">
                     <p>
                         <a target="_blank" href="https://www.facebook.com/people/Engage-Health-Insurance/61559676192349/"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/engagehealthinsurancellc/"><i class="fa-brands fa-instagram"></i></a></p>
+                        <a target="_blank" href="https://www.instagram.com/engagehealthinsurancellc/"><i class="fa-brands fa-instagram"></i></a>
+                    </p>
                 </div>
             </div>
 
@@ -105,7 +106,7 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                 <form action="{{ route('front.save-inquiry') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
                                 <label>First Name *</label>
                                 <input type="text" name="fname" class="form-control" placeholder="First Name" required="">
@@ -134,19 +135,11 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-                            <div class="mssg-group">
-                                <button type="submit" class="btn btn-custom">send a message</button>
-                            </div>
 
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input gaapo" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Yes, email me about news, deadline
-                                    or update information regarding ACA enrollment timelines. </label>
-                            </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Last Name  *</label>
+                                <label>Last Name *</label>
                                 <input type="text" name="lname" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
@@ -180,6 +173,17 @@ $sections = \Illuminate\Support\Facades\DB::table('section')->where('page_id', 8
                             </div>
 
 
+                        </div>
+                        <div class="col-12">
+                            <div class="mssg-group">
+                                <button type="submit" class="btn btn-custom">send a message</button>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input gaapo" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Yes, email me about news, deadline
+                                    or update information regarding ACA enrollment timelines. </label>
+                            </div>
                         </div>
                     </div>
                 </form>

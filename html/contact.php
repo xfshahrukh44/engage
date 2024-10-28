@@ -37,8 +37,8 @@
                          <p><span>Phone:</span><a href="tel:+987-654-321">987-654-321</a></p>
                          <p class="border-bot"><span>Email:</span><a
                                    href="mailto:support@domain.com">engagedirect@engagehealthinsurance.com</a></p>
-                                   <p>Manchester, New Hampshire Stockholm, Sweden</p>
-                              </div>
+                         <p>Manchester, New Hampshire Stockholm, Sweden</p>
+                    </div>
                </div>
                <div class="col-lg-6">
                     <div class="find-us icon-flex">
@@ -58,7 +58,7 @@
           <div class="row">
                <div class="col-lg-12">
                     <div class="contact-form">
-                         <h2 class="side-heading aos-init aos-animate="" aos-init="" aos-animate="" data-aos="fade-down"
+                         <h2 class="side-heading aos-init aos-animate="" aos-init="" aos-animate="" data-aos=" fade-down"
                               data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">Get in <span
                                    class="blue">touch</span> </h2>
                     </div>
@@ -67,13 +67,12 @@
                               <div class="col-6">
                                    <div class="form-group">
                                         <label>First Name *</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Peter"
-                                             required="">
+                                        <input type="text" name="name" class="form-control" placeholder="Peter" required="">
                                    </div>
                                    <div class="form-group">
                                         <label>Street Address *</label>
-                                        <input type="text" name="organization" class="form-control" placeholder="Apt, Suite, Bldg"
-                                             required="">
+                                        <input type="text" name="organization" class="form-control"
+                                             placeholder="Apt, Suite, Bldg" required="">
                                    </div>
 
                                    <div class="form-group">
@@ -84,8 +83,8 @@
 
                                    <div class="form-group">
                                         <label>Street Address *</label>
-                                        <input type="text" name="organization" class="form-control" placeholder="Apt, Suite, Bldg"
-                                             required="">
+                                        <input type="text" name="organization" class="form-control"
+                                             placeholder="Apt, Suite, Bldg" required="">
                                    </div>
 
                                    <div class="form-group">
@@ -100,10 +99,6 @@
                                         <button type="submit" class="btn btn-custom">send a message</button>
                                    </div>
 
-                                   <div class="form-check">
-                                        <input type="checkbox" class="form-check-input gaapo" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Yes, email me about news, deadline or update information regarding ACA enrollment timelines. </label>
-                                      </div>
                               </div>
                               <div class="col-6">
                                    <div class="form-group">
@@ -125,10 +120,18 @@
                                    </div>
                                    <div class="form-group">
                                         <textarea name="message" id="textarea" class="form-control"
-                                             placeholder="How can we help you? (do not include sensitive information such as SSN here) *" rows="6"></textarea>
+                                             placeholder="How can we help you? (do not include sensitive information such as SSN here) *"
+                                             rows="6"></textarea>
                                    </div>
 
 
+                              </div>
+                              <div class="col-12">
+                                   <div class="form-check">
+                                        <input type="checkbox" class="form-check-input gaapo" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Yes, email me about news, deadline
+                                             or update information regarding ACA enrollment timelines. </label>
+                                   </div>
                               </div>
                          </div>
                     </form>

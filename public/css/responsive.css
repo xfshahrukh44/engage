@@ -44,6 +44,10 @@
     left: 40px;
   }
 
+  .man-img img {
+    margin-top: 50px;
+}
+
 }
 
 @media (max-width: 1199px) {
@@ -92,6 +96,7 @@
   nav.navbar.navbar-expand-lg {
     padding: 0;
   }
+
 }
 
 @media (max-width: 991px) {
@@ -176,6 +181,11 @@
     margin: auto;
     margin-bottom: 2rem;
   }
+
+  .quote {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 }
 
@@ -404,5 +414,12 @@
     left: 170px;
     bottom: 14px;
   }
+
+  .accordionStyle .card .card-header button .fas {
+    right: 4px;
+}
+section.inner-banner.contact-banner h1 {
+  color: white;
+}
 
 }

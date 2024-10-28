@@ -1766,3 +1766,8 @@ span.blue {
   color: #117cbe !important;
   font-style: italic;
 }
+
+.speak-sec {
+  background-color: var(--purple);
+  padding: 3rem 0;
+}
