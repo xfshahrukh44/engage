@@ -453,7 +453,7 @@
     padding: 0;
     width: 100%;
     min-width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
   }
 
   .sec-text-form .tab {
@@ -480,7 +480,7 @@
     padding: 0;
     width: 100%;
     min-width: 100%;
-    background-color: black;
+    /* background-color: black; */
   }
 
   .sec-text-form h1 {
