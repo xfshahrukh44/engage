@@ -177,13 +177,13 @@
                                 <span>Individual or Family coverage?</span>
                                 <p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type"
+                                    <input class="form-check-input" type="radio" name="type" data-label="Coverage type"
                                            id="inlineRadio1"
                                            value="Individual">
                                     <label class="form-check-label" type="radio" for="inlineRadio1">INDIVIDUAL</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type"
+                                    <input class="form-check-input" type="radio" name="type" data-label="Coverage type"
                                            id="inlineRadio2"
                                            value="Family">
                                     <label class="form-check-label" for="inlineRadio2">FAMILY</label>
@@ -228,16 +228,16 @@
                             <div class="tab individual-family">What's your gender?
                                 <p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           id="inlineRadio1"
+                                    <input class="form-check-input" type="radio" name="gender" data-label="Gender"
+                                           id="gender_1"
                                            value="Male">
-                                    <label class="form-check-label" type="radio" for="inlineRadio1">Male</label>
+                                    <label class="form-check-label" type="radio" for="gender_1">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           id="inlineRadio2"
+                                    <input class="form-check-input" type="radio" name="gender" data-label="Gender"
+                                           id="gender_2"
                                            value="Female">
-                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                    <label class="form-check-label" for="gender_2">Female</label>
                                 </div>
                                 </p>
                             </div>
@@ -246,16 +246,16 @@
                             <div class="tab individual-family">What is your marital status?
                                 <p>
                                 </p><div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="marital_status"
-                                           id="inlineRadio21"
+                                    <input class="form-check-input" type="radio" name="marital_status" data-label="Marital Status"
+                                           id="ms_1"
                                            value="Married">
-                                    <label class="form-check-label" type="radio" for="inlineRadio1">Married</label>
+                                    <label class="form-check-label" type="radio" for="ms_1">Married</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="marital_status"
-                                           id="inlineRadio22"
+                                    <input class="form-check-input" type="radio" name="marital_status" data-label="Marital Status"
+                                           id="ms_2"
                                            value="Single">
-                                    <label class="form-check-label" for="inlineRadio2">Single</label>
+                                    <label class="form-check-label" for="ms_2">Single</label>
                                 </div>
                                 <p></p>
                             </div>
@@ -263,12 +263,12 @@
                             <div class="tab individual-family">Who needs coverage ?
                                 <p>
                                 </p><div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="is_self">
-                                    <label class="form-check-label" type="checkbox">Self</label>
+                                    <input class="form-check-input" type="checkbox" name="is_self" id="is_self">
+                                    <label class="form-check-label" type="checkbox" for="is_self">Self</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="is_spouse">
-                                    <label class="form-check-label">Spouse</label>
+                                    <input class="form-check-input" type="checkbox" name="is_spouse" id="is_spouse">
+                                    <label class="form-check-label" for="is_spouse">Spouse</label>
                                 </div>
                                 <div class="main-select form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_children">
@@ -349,6 +349,9 @@
 @endsection
 
 @section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
@@ -422,5 +425,14 @@
             //... and adds the "active" class on the current step:
             x[n].className += " active";
         }
+    </script>
+    <script>
+        $(document).ready(() => {
+            $('.form-check-input').on('change', function () {
+                if ($(this).data('label') !== '' && typeof $(this).data('label') != 'undefined') {
+                    toastr.success($(this).data('label') + ' selected!');
+                }
+            });
+        });
     </script>
 @endsection
