@@ -341,8 +341,8 @@
 
 
   .ml6 .text-wrapper {
-    top: 0px;
-  }
+    top: 10px;
+}
 
   .main-heading {
     left: 15px;
@@ -427,7 +427,7 @@
     right: 4px;
 }
 section.inner-banner.contact-banner h1 {
-  color: white;
+  color: #000000;
 }
 
 }
