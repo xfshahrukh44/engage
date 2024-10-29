@@ -64,7 +64,14 @@ p {
   position: absolute;
   z-index: -1;
   content: "";
-  clip-path: polygon(
+  -webkit-clip-path: polygon(
+    0 0,
+    calc(100% - 40px) 0,
+    100% 50%,
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+          clip-path: polygon(
     0 0,
     calc(100% - 40px) 0,
     100% 50%,
@@ -82,7 +89,14 @@ p {
   position: absolute;
   z-index: -1;
   content: "";
-  clip-path: polygon(
+  -webkit-clip-path: polygon(
+    0 0,
+    calc(100% - 40px) 0,
+    100% 50%,
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+          clip-path: polygon(
     0 0,
     calc(100% - 40px) 0,
     100% 50%,
@@ -540,13 +554,15 @@ footer {
 
 .footer-links .social-links a img {
   width: 22px;
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
   opacity: 0.5;
   transition: all ease 0.5s;
 }
 .footer-links .social-links .box-same:hover img {
   width: 25px;
-  filter: unset;
+  -webkit-filter: unset;
+          filter: unset;
   opacity: 1;
   rotate: 360deg;
   transition: all ease 0.5s;

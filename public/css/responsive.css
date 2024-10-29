@@ -7,6 +7,7 @@
 @media (max-width: 1440px) {
   .banner-img img {
     height: 600px;
+    -o-object-fit: cover;
     object-fit: cover;
   }
 
@@ -46,7 +47,7 @@
 
   .man-img img {
     margin-top: 50px;
-}
+  }
 
 }
 
@@ -127,6 +128,7 @@
   }
 
   .health img {
+    -o-object-fit: contain;
     object-fit: contain;
   }
 
@@ -185,11 +187,11 @@
   .quote {
     padding-left: 10px;
     padding-right: 10px;
-}
+  }
 
-.img-footer.endl-2 {
-  display: none;
-}
+  .img-footer.endl-2 {
+    display: none;
+  }
 
 }
 
@@ -291,6 +293,7 @@
   .thing img {
     height: 200px;
     width: 100%;
+    -o-object-fit: contain;
     object-fit: contain;
   }
 
@@ -333,16 +336,29 @@
 
   .img-footer.endl-2 {
     display: none;
-}
+  }
+
+  #regForm {
+    margin: 60px auto;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+  }
 
 }
 
 @media (max-width: 575px) {
 
+  #regForm {
+    margin: 60px auto;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+  }
 
   .ml6 .text-wrapper {
     top: 10px;
-}
+  }
 
   .main-heading {
     left: 15px;
@@ -425,9 +441,58 @@
 
   .accordionStyle .card .card-header button .fas {
     right: 4px;
+  }
+
+  section.inner-banner.contact-banner h1 {
+    color: #000000;
+  }
+
+
+  #regForm {
+    margin: 60px auto;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    background-color: blue;
+  }
+
+  .sec-text-form .tab {
+    color: #2b325b;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0px;
+  }
+
+  .sec-text-form button {
+    padding: 8px 14px;
+  }
+
+  .sec-text-form h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
 }
-section.inner-banner.contact-banner h1 {
-  color: #000000;
-}
+
+@media (max-width: 320px) {
+
+  #regForm {
+    margin: 60px auto;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    background-color: black;
+  }
+
+  .sec-text-form h1 {
+    font-size: 18px;
+  }
+
+  .sec-text-form .tab {
+    font-size: 18px;
+  }
+
+  .individual-family label {
+    padding: 0px;
+  }
 
 }

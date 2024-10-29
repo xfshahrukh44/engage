@@ -2,6 +2,12 @@ html {
   overflow-x: hidden;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Lato;
   overflow-x: hidden !important;
@@ -264,7 +270,8 @@ h2.side-heading {
   width: 160px !important;
   height: 55px;
   /* filter: grayscale(2); */
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .slider {
@@ -656,7 +663,6 @@ span.progress-bar.golds {
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
   border-left: 0;
-  -webkit-transform-origin: center left;
   transform-origin: center left;
 }
 
@@ -669,7 +675,6 @@ span.progress-bar.golds {
   border-top-left-radius: 75px;
   border-bottom-left-radius: 75px;
   border-right: 0;
-  -webkit-transform-origin: center right;
   transform-origin: center right;
 }
 
@@ -698,165 +703,231 @@ span.progress-bar.golds {
 }
 
 .progress[data-percentage="10"] .progress-right .progress-bar {
-  animation: loading-1 1.5s linear forwards;
+  -webkit-animation: loading-1 1.5s linear forwards;
+          animation: loading-1 1.5s linear forwards;
 }
 
 .progress[data-percentage="10"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="20"] .progress-right .progress-bar {
-  animation: loading-2 1.5s linear forwards;
+  -webkit-animation: loading-2 1.5s linear forwards;
+          animation: loading-2 1.5s linear forwards;
 }
 
 .progress[data-percentage="20"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="30"] .progress-right .progress-bar {
-  animation: loading-3 1.5s linear forwards;
+  -webkit-animation: loading-3 1.5s linear forwards;
+          animation: loading-3 1.5s linear forwards;
 }
 
 .progress[data-percentage="30"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="40"] .progress-right .progress-bar {
-  animation: loading-4 1.5s linear forwards;
+  -webkit-animation: loading-4 1.5s linear forwards;
+          animation: loading-4 1.5s linear forwards;
 }
 
 .progress[data-percentage="40"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="50"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="50"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="56"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="56"] .progress-left .progress-bar {
-  animation: 0;
+  -webkit-animation: 0;
+          animation: 0;
 }
 
 .progress[data-percentage="60"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="60"] .progress-left .progress-bar {
-  animation: loading-1 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-1 1.5s linear forwards 1.5s;
+          animation: loading-1 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="65"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="65"] .progress-left .progress-bar {
-  animation: loading-1 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-1 1.5s linear forwards 1.5s;
+          animation: loading-1 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="70"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="70"] .progress-left .progress-bar {
-  animation: loading-2 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-2 1.5s linear forwards 1.5s;
+          animation: loading-2 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="80"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="80"] .progress-left .progress-bar {
-  animation: loading-3 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-3 1.5s linear forwards 1.5s;
+          animation: loading-3 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="90"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="90"] .progress-left .progress-bar {
-  animation: loading-4 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-4 1.5s linear forwards 1.5s;
+          animation: loading-4 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="95"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="95"] .progress-left .progress-bar {
-  animation: loading-4 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-4 1.5s linear forwards 1.5s;
+          animation: loading-4 1.5s linear forwards 1.5s;
 }
 
 .progress[data-percentage="100"] .progress-right .progress-bar {
-  animation: loading-5 1.5s linear forwards;
+  -webkit-animation: loading-5 1.5s linear forwards;
+          animation: loading-5 1.5s linear forwards;
 }
 
 .progress[data-percentage="100"] .progress-left .progress-bar {
-  animation: loading-5 1.5s linear forwards 1.5s;
+  -webkit-animation: loading-5 1.5s linear forwards 1.5s;
+          animation: loading-5 1.5s linear forwards 1.5s;
 }
 
-@keyframes loading-1 {
+@-webkit-keyframes loading-1 {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(36);
     transform: rotate(36deg);
+  }
+}
+
+@keyframes loading-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(36deg);
+  }
+}
+
+@-webkit-keyframes loading-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(72deg);
   }
 }
 
 @keyframes loading-2 {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(72);
     transform: rotate(72deg);
+  }
+}
+
+@-webkit-keyframes loading-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(108deg);
   }
 }
 
 @keyframes loading-3 {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(108);
     transform: rotate(108deg);
+  }
+}
+
+@-webkit-keyframes loading-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(144deg);
   }
 }
 
 @keyframes loading-4 {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(144);
     transform: rotate(144deg);
+  }
+}
+
+@-webkit-keyframes loading-5 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
   }
 }
 
 @keyframes loading-5 {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(180);
     transform: rotate(180deg);
   }
 }
@@ -882,6 +953,30 @@ span.progress-bar.golds {
   border: none;
   margin-bottom: 13px;
   background-color: #f3f5fa;
+}
+
+.main-form input::-webkit-input-placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #7f8081;
+}
+
+.main-form input::-moz-placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #7f8081;
+}
+
+.main-form input:-ms-input-placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #7f8081;
+}
+
+.main-form input::-ms-input-placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #7f8081;
 }
 
 .main-form input::placeholder {
@@ -920,7 +1015,8 @@ select:focus-visible {
 .thing img {
   width: 80%;
   height: 490px;
-  animation: view 7s linear infinite;
+  -webkit-animation: view 7s linear infinite;
+          animation: view 7s linear infinite;
 }
 
 .thing {
@@ -971,7 +1067,8 @@ select:focus-visible {
 .man-img img {
   margin-top: -25px;
   width: 100%;
-  animation: view 7s linear infinite;
+  -webkit-animation: view 7s linear infinite;
+          animation: view 7s linear infinite;
 }
 
 .email-quote {
@@ -1355,6 +1452,22 @@ footer:before {
   color: white;
 }
 
+.custum-modal .main-form input::-webkit-input-placeholder {
+  font-size: 16px;
+}
+
+.custum-modal .main-form input::-moz-placeholder {
+  font-size: 16px;
+}
+
+.custum-modal .main-form input:-ms-input-placeholder {
+  font-size: 16px;
+}
+
+.custum-modal .main-form input::-ms-input-placeholder {
+  font-size: 16px;
+}
+
 .custum-modal .main-form input::placeholder {
   font-size: 16px;
 }
@@ -1390,6 +1503,20 @@ header li.nav-item a.nav-link.active:before {
   right: 0;
   bottom: 0;
   /* opacity: 0; */
+}
+
+@-webkit-keyframes view {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(45px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes view {
@@ -1721,11 +1848,11 @@ header li.nav-item a.nav-link.active:before {
 
 
 .quick ul li a {
-font-size: 16px;
-font-weight: 500;
-color: black;
-padding: 0;
-text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  padding: 0;
+  text-decoration: none;
 }
 
 .last-endl {
@@ -1771,3 +1898,130 @@ span.blue {
   background-color: var(--purple);
   padding: 3rem 0;
 }
+
+
+/* foam css  */
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.sec-text-form h1 {
+  text-align: center;
+}
+
+.sec-text-form input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.sec-text-form input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.sec-text-form .tab {
+  display: none;
+}
+
+.sec-text-form button {
+  color: white;
+  background-color: var(--purple);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+}
+
+.sec-text-form button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.sec-text-form .step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+
+
+.form-section {
+  height: 600px;
+}
+
+.inner-banner.form-banner {
+  /*background-image: url(../images/life-health-insurance-policy-concept-idea.jpg) !important;*/
+  position: relative;
+  z-index: 0;
+}
+
+.inner-banner.form-banner:before {
+  position: absolute;
+  z-index: 0;
+  content: '';
+  background: linear-gradient(45deg, white, transparent, transparent);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.sec-text-form .tab {
+  color: #2b325b;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+button#prevBtn {
+  color: white;
+  background-color: var(--purple);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+}
+
+.form-section select {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+.form-section select {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* foam css  */

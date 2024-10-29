@@ -741,7 +741,8 @@
   margin: 50px 0;
 }
 .aetna-img.health-insurances-img img{
-  filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 
 .inner-banner.aca-banner {
