@@ -553,7 +553,7 @@
   align-items: center;
   margin-bottom: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px 1px #00000040;
+  box-shadow: 0 6px 4px 0px #0000001f;
   padding: 10px;
   height: auto;
 }
