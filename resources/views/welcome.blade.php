@@ -586,30 +586,59 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $.getJSON("{{asset('allowed-zipcodes.json')}}", function (data) {
-            let allowed_zipcodes = [];
-            allowed_zipcodes = data.data;
+        fetch("{{route('allowed-zipcodes')}}", { mode: 'cors' })
+            .then(response => response.json())
+            .then(data => {
+                // alert(data);
+                let allowed_zipcodes = [];
+                allowed_zipcodes = data.data.data;
 
 
-            $('.anchor_start_my_quote').on('click', function (e) {
-                let input = $('.input_zipcode').val();
-                if (input == "" || !(allowed_zipcodes.includes(input))) {
-                    $('.input_zipcode').val('');
-                    alert('Please enter a valid zipcode.');
+                $('.anchor_start_my_quote').on('click', function (e) {
+                    let input = $('.input_zipcode').val();
+                    if (input == "" || !(allowed_zipcodes.includes(input))) {
+                        $('.input_zipcode').val('');
+                        alert('Please enter a valid zipcode.');
 
-                    return false;
-                }
+                        return false;
+                    }
 
-                window.location.href = '{{route('front.form')}}';
-            });
-
-            $('.input_zipcode').on('change', function () {
-                let changed_val = $(this).val();
-                $('.input_zipcode').each((i, item) => {
-                    $(item).val(changed_val);
+                    window.location.href = '{{route('front.form')}}';
                 });
-            });
-        });
+
+                $('.input_zipcode').on('change', function () {
+                    let changed_val = $(this).val();
+                    $('.input_zipcode').each((i, item) => {
+                        $(item).val(changed_val);
+                    });
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+        {{--$.getJSON("{{asset('allowed-zipcodes.json')}}", function (data) {--}}
+        {{--    let allowed_zipcodes = [];--}}
+        {{--    allowed_zipcodes = data.data;--}}
+
+
+        {{--    $('.anchor_start_my_quote').on('click', function (e) {--}}
+        {{--        let input = $('.input_zipcode').val();--}}
+        {{--        if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+        {{--            $('.input_zipcode').val('');--}}
+        {{--            alert('Please enter a valid zipcode.');--}}
+
+        {{--            return false;--}}
+        {{--        }--}}
+
+        {{--        window.location.href = '{{route('front.form')}}';--}}
+        {{--    });--}}
+
+        {{--    $('.input_zipcode').on('change', function () {--}}
+        {{--        let changed_val = $(this).val();--}}
+        {{--        $('.input_zipcode').each((i, item) => {--}}
+        {{--            $(item).val(changed_val);--}}
+        {{--        });--}}
+        {{--    });--}}
+        {{--});--}}
     });
 </script>
 @endsection

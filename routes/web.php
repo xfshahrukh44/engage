@@ -308,3 +308,7 @@ Route::get('terms', [FrontController::class, 'terms'])->name('front.terms');
 
 Route::post('save-quotation', [QuotationController::class, 'store'])->name('front.save-quotation');
 Route::post('save-inquiry', [QuotationController::class, 'inquiryStore'])->name('front.save-inquiry');
+
+Route::get('/allowed-zipcodes', function () {
+    return response()->json(['data' => json_decode(file_get_contents(public_path('allowed-zipcodes.json')))]);
+})->name('allowed-zipcodes');
