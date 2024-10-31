@@ -586,34 +586,75 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        fetch("{{route('allowed-zipcodes')}}", { mode: 'cors' })
-            .then(response => response.json())
-            .then(data => {
-                // alert(data);
-                let allowed_zipcodes = [];
-                allowed_zipcodes = data.data.data;
+        {{--fetch("{{route('allowed-zipcodes')}}", { mode: 'cors' })--}}
+        {{--    .then(response => response.json())--}}
+        {{--    .then(data => {--}}
+        {{--        // alert(data);--}}
+        {{--        let allowed_zipcodes = [];--}}
+        {{--        allowed_zipcodes = data.data.data;--}}
 
 
-                $('.anchor_start_my_quote').on('click', function (e) {
-                    let input = $('.input_zipcode').val();
-                    if (input == "" || !(allowed_zipcodes.includes(input))) {
-                        $('.input_zipcode').val('');
-                        alert('Please enter a valid zipcode.');
+        {{--        $('.anchor_start_my_quote').on('click', function (e) {--}}
+        {{--            let input = $('.input_zipcode').val();--}}
+        {{--            if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+        {{--                $('.input_zipcode').val('');--}}
+        {{--                alert('Please enter a valid zipcode.');--}}
 
-                        return false;
-                    }
+        {{--                return false;--}}
+        {{--            }--}}
+
+        {{--            window.location.href = '{{route('front.form')}}';--}}
+        {{--        });--}}
+
+        {{--        $('.input_zipcode').on('change', function () {--}}
+        {{--            let changed_val = $(this).val();--}}
+        {{--            $('.input_zipcode').each((i, item) => {--}}
+        {{--                $(item).val(changed_val);--}}
+        {{--            });--}}
+        {{--        });--}}
+        {{--    })--}}
+        {{--    .catch(error => console.error('Error:', error));--}}
+
+        $('.anchor_start_my_quote').on('click', function (e) {
+            let input = $('.input_zipcode').val();
+            // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
+            // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
+
+            $.ajax({
+                url: 'https://api.zippopotam.us/us/' + input,
+                method: 'GET',
+                data: {},
+                success: (data) => {
+                    // alert(typeof data);
+                    // console.log(data);
 
                     window.location.href = '{{route('front.form')}}';
-                });
+                },
+                error: (e) => {
+                    $('.input_zipcode').val('');
+                    alert('Please enter a valid zipcode.');
 
-                $('.input_zipcode').on('change', function () {
-                    let changed_val = $(this).val();
-                    $('.input_zipcode').each((i, item) => {
-                        $(item).val(changed_val);
-                    });
-                });
-            })
-            .catch(error => console.error('Error:', error));
+                    return false;
+                },
+            });
+
+            {{--// if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+            {{--if (!isValidZip) {--}}
+            {{--    $('.input_zipcode').val('');--}}
+            {{--    alert('Please enter a valid zipcode.');--}}
+
+            {{--    return false;--}}
+            {{--}--}}
+
+            {{--window.location.href = '{{route('front.form')}}';--}}
+        });
+
+        $('.input_zipcode').on('change', function () {
+            let changed_val = $(this).val();
+            $('.input_zipcode').each((i, item) => {
+                $(item).val(changed_val);
+            });
+        });
 
         {{--$.getJSON("{{asset('allowed-zipcodes.json')}}", function (data) {--}}
         {{--    let allowed_zipcodes = [];--}}
