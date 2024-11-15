@@ -213,7 +213,7 @@
 
                     <div class="img-footer endl-2">
                         <figure>
-                            <img src="{{asset('images/vector.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('images/vector.png')}}" class="img-setting" alt="">
                         </figure>
                     </div>
                 </div>
