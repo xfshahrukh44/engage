@@ -9,18 +9,20 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
 
 @section('css')
 <style>
-    ul.list-items-parent {
-        list-style: disc;
-        padding: 0 11px;
-        font-weight: 600;
-        font-size: 18px;
-        margin-top: 1rem;
-        width: 50%;
-    }
 
-    ul.list-items-parent li {
-        margin: 13px 0;
-    }
+
+        ul.list-items-parent {
+            list-style: disc;
+            padding: 0 11px;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 1rem;
+            width: 50%;
+        }
+
+        ul.list-items-parent li {
+            margin: 13px 0;
+        }
 
     .aetna-img img {
         width: 14%;
@@ -66,12 +68,10 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         background: aqua;
         box-shadow: 23px 0px 27px -2px black;
     }
-
-    .banner-img .banner-before {
+    .banner-img .banner-before{
         position: relative;
         z-index: 0;
     }
-
     button.owl-dot.active {
         outline: none !important;
     }
@@ -93,21 +93,21 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                 <img src="{{asset($banner->image)}}" class="img-fluid" alt="">
                                 <div class="main-heading">
                                     {{-- <h1>Discover how an--}}
-                                    {{-- <span class="blue">--}}
-                                    {{-- <span class="ml6">--}}
-                                    {{-- <span class="text-wrapper">--}}
-                                    {{-- <span class="letters">ACA health plan</span>--}}
-                                    {{-- </span>--}}
-                                    {{-- </span>--}}
-                                    {{-- </span>--}}
-                                    {{-- </h1>--}}
+                                        {{-- <span class="blue">--}}
+                                            {{-- <span class="ml6">--}}
+                                                {{-- <span class="text-wrapper">--}}
+                                                    {{-- <span class="letters">ACA health plan</span>--}}
+                                                    {{-- </span>--}}
+                                                {{-- </span>--}}
+                                            {{-- </span>--}}
+                                        {{-- </h1>--}}
                                     {{-- <h3>--}}
-                                    {{-- offers affordable, accessible options which we can tailor<br> for your--}}
-                                    {{-- location, budget and needs.--}}
-                                    {{-- <span class="blue">--}}
-                                    {{-- <span class="d-block"></span>--}}
-                                    {{-- </span>--}}
-                                    {{-- </h3>--}}
+                                        {{-- offers affordable, accessible options which we can tailor<br> for your--}}
+                                        {{-- location, budget and needs.--}}
+                                        {{-- <span class="blue">--}}
+                                            {{-- <span class="d-block"></span>--}}
+                                            {{-- </span>--}}
+                                        {{-- </h3>--}}
                                     {!! $banner->description !!}
                                     <div class="code">
                                         <input type="text" placeholder="Zip Code" class="input_zipcode">
@@ -120,65 +120,65 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
 
 
                         {{-- <div class="item">--}}
-                        {{-- <div class="banner-img banner-before extra-div-banner">--}}
-                        {{-- <img src="{{asset('images/main-banner-3.png')}}" class="img-fluid" alt="">--}}
-                        {{-- <div class="main-heading">--}}
-                        {{-- <h1><span class="blue">--}}
-                        {{-- <span class="ml6">--}}
-                        {{-- <span class="text-wrapper">--}}
-                        {{-- <span class="letters">ACA OPEN ENROLLMENT </span>--}}
-                        {{-- </span>--}}
-                        {{-- </span>--}}
-                        {{-- <br>--}}
-                        {{-- </span> 1 Nov, 2024 - Jan 15, 2025--}}
-                        {{-- </h1>--}}
-                        {{-- <h3>Evaluate, Update, Choose Your Plan<br> for 2025! Get Set, Get Covered!--}}
-                        {{-- <span--}} {{-- class="blue">--}}
-                        {{-- <span class="d-block">--}}
-                        {{-- </span></h3>--}}
-                        {{-- <div class="code">--}}
-                        {{-- <input type="text" placeholder="Zip Code">--}}
-                        {{-- <a href="{{route('front.form')}}" class="btn btn-custom">Start My
-                        Quote</a>--}}
+                            {{-- <div class="banner-img banner-before extra-div-banner">--}}
+                                {{-- <img src="{{asset('images/main-banner-3.png')}}" class="img-fluid" alt="">--}}
+                                {{-- <div class="main-heading">--}}
+                                    {{-- <h1><span class="blue">--}}
+                                            {{-- <span class="ml6">--}}
+                                                {{-- <span class="text-wrapper">--}}
+                                                    {{-- <span class="letters">ACA OPEN ENROLLMENT </span>--}}
+                                                    {{-- </span>--}}
+                                                {{-- </span>--}}
+                                            {{-- <br>--}}
+                                            {{-- </span> 1 Nov, 2024 - Jan 15, 2025--}}
+                                        {{-- </h1>--}}
+                                    {{-- <h3>Evaluate, Update, Choose Your Plan<br> for 2025! Get Set, Get Covered!--}}
+                                        {{-- <span--}} {{-- class="blue">--}}
+                                            {{-- <span class="d-block">--}}
+                                                {{-- </span></h3>--}}
+                                    {{-- <div class="code">--}}
+                                        {{-- <input type="text" placeholder="Zip Code">--}}
+                                        {{-- <a href="{{route('front.form')}}" class="btn btn-custom">Start My
+                                            Quote</a>--}}
 
-                        {{-- </div>--}}
-                        {{-- <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
-                        {{-- <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
-                        {{-- plans.--}}
-                        {{-- </p> -->--}}
-                        {{-- </div>--}}
-                        {{-- </div>--}}
-                        {{-- </div>--}}
+                                        {{-- </div>--}}
+                                    {{-- <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
+{{--                                        <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
+{{--                                            plans.--}}
+{{--                                        </p> -->--}}
+                                    {{-- </div>--}}
+                                {{-- </div>--}}
+                            {{-- </div>--}}
 
 
                         {{-- <div class="item">--}}
-                        {{-- <div class="banner-img">--}}
-                        {{-- <img src="{{asset('images/sec-1-bg.png')}}" class="img-fluid" alt="">--}}
-                        {{-- <div class="main-heading">--}}
-                        {{-- <h1>Stay Healthy – <span class="blue">--}}
-                        {{-- <span class="ml60">--}}
-                        {{-- <span class="text-wrapper60">--}}
-                        {{-- <span class="letters60">Stay Covered</span>--}}
-                        {{-- </span>--}}
-                        {{-- </span>--}}
-                        {{-- </h1>--}}
-                        {{-- <h3>Let’s find an affordable, high-quality<br> health plan geared to you!
+                            {{-- <div class="banner-img">--}}
+                                {{-- <img src="{{asset('images/sec-1-bg.png')}}" class="img-fluid" alt="">--}}
+                                {{-- <div class="main-heading">--}}
+                                    {{-- <h1>Stay Healthy – <span class="blue">--}}
+                                            {{-- <span class="ml60">--}}
+                                                {{-- <span class="text-wrapper60">--}}
+                                                    {{-- <span class="letters60">Stay Covered</span>--}}
+                                                    {{-- </span>--}}
+                                                {{-- </span>--}}
+                                            {{-- </h1>--}}
+                                    {{-- <h3>Let’s find an affordable, high-quality<br> health plan geared to you!
                                         <span--}} {{-- class="blue">--}}
-                        {{-- <span class="d-block">--}}
-                        {{-- </span></h3>--}}
-                        {{-- <div class="code">--}}
-                        {{-- <input type="text" placeholder="Zip Code">--}}
-                        {{-- <a href="{{route('front.form')}}" class="btn btn-custom">Start My
-                        Quote</a>--}}
+                                            {{-- <span class="d-block">--}}
+                                                {{-- </span></h3>--}}
+                                    {{-- <div class="code">--}}
+                                        {{-- <input type="text" placeholder="Zip Code">--}}
+                                        {{-- <a href="{{route('front.form')}}" class="btn btn-custom">Start My
+                                            Quote</a>--}}
 
-                        {{-- </div>--}}
-                        {{-- <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
-                        {{-- <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
-                        {{-- plans.--}}
-                        {{-- </p> -->--}}
-                        {{-- </div>--}}
-                        {{-- </div>--}}
-                        {{-- </div>--}}
+                                        {{-- </div>--}}
+                                    {{-- <!-- <p class="para-1">We've helped 1739 people from this month.</p>--}}
+{{--                                        <p class="para-1">We work with 200 partners, including the brands below, to offer--}}
+{{--                                            plans.--}}
+{{--                                        </p> -->--}}
+                                    {{-- </div>--}}
+                                {{-- </div>--}}
+                            {{-- </div>--}}
 
 
 
@@ -240,38 +240,38 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
             <div class="col-lg-12">
                 <div class="about">
                     {{-- <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300" --}}
-                    {{-- data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage with us for coverage in
+                        {{-- data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage with us for coverage in
                         a--}}
-                    {{-- great, affordable health insurance plan, <span class="d-block">unbiased and geared to
+                        {{-- great, affordable health insurance plan, <span class="d-block">unbiased and geared to
                             your--}}
-                    {{-- health and well-being.</span></h2>--}}
+                            {{-- health and well-being.</span></h2>--}}
                     {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300" --}} {{--
                         data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC
                         understands--}}
-                    {{-- that health insurance is an important factor in feeling secure and protected for both--}}
-                    {{-- preventative care and unexpected illness or injury. Life has many challenges and finding a
+                        {{-- that health insurance is an important factor in feeling secure and protected for both--}}
+                        {{-- preventative care and unexpected illness or injury. Life has many challenges and finding a
                         great--}}
-                    {{-- affordable health insurance plan shouldn’t be one of them. Our licensed agents can help
+                        {{-- affordable health insurance plan shouldn’t be one of them. Our licensed agents can help
                         answer--}}
-                    {{-- your questions, verify subsidy eligibility, and help you navigate the application process.
+                        {{-- your questions, verify subsidy eligibility, and help you navigate the application process.
                     </p>--}}
                     {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300" --}} {{--
                         data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC works
                         with--}}
-                    {{-- multiple trusted carriers in order to find the most useful and affordable choice for
+                        {{-- multiple trusted carriers in order to find the most useful and affordable choice for
                         your--}}
-                    {{-- particular health coverage needs and concerns. </p>--}}
+                        {{-- particular health coverage needs and concerns. </p>--}}
                     {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300" --}} {{--
                         data-aos-easing="ease-in-sine" data-aos-duration="1000">If you are a working student, self –--}}
-                    {{-- employed or your job simply does not provide health insurance we can find a personal plan
+                        {{-- employed or your job simply does not provide health insurance we can find a personal plan
                         for--}}
-                    {{-- your situation. </p>--}}
+                        {{-- your situation. </p>--}}
                     {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300" --}} {{--
                         data-aos-easing="ease-in-sine" data-aos-duration="1000">There is no obligation to request
                         and--}}
-                    {{-- receive a free health insurance quote for your consideration. We welcome the opportunity
+                        {{-- receive a free health insurance quote for your consideration. We welcome the opportunity
                         to--}}
-                    {{-- help. </p>--}}
+                        {{-- help. </p>--}}
                     {!! $sections[0]->value !!}
                     <a href="{{route('front.learning')}}" class="btn btn-custom">Learn More</a>
                 </div>
@@ -285,19 +285,19 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         <div class="row">
             <div class="col-lg-12">
                 {{-- <div class="insurance">--}}
-                {{-- <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
+                    {{-- <h2 class="side-heading" aos-init aos-animate="" data-aos="fade-down" data-aos-offset="300"
                         --}} {{-- data-aos-easing="ease-in-sine" data-aos-duration="1000">We Represent Trusted Top-Rated
                         <span--}} {{-- class="blue">Insurance Carriers</span> </h2>--}}
-                {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300" --}} {{--
+                    {{-- <p class="para-1" aos-init aos-animate="" data-aos="fade-up" data-aos-offset="300" --}} {{--
                         data-aos-easing="ease-in-sine" data-aos-duration="1000">Engage Health Insurance LLC offers
                         many--}}
-                {{-- ACA health plan choices so that we can match you with the most advantageous fit for your
+                        {{-- ACA health plan choices so that we can match you with the most advantageous fit for your
                         locale--}}
-                {{-- and your life. We are dedicated to helping you navigate the health insurance landscape for
+                        {{-- and your life. We are dedicated to helping you navigate the health insurance landscape for
                         a--}}
-                {{-- plan that will serve you well and give you peace of mind.--}}
-                {{-- </p>--}}
-                {{-- </div>--}}
+                        {{-- plan that will serve you well and give you peace of mind.--}}
+                        {{-- </p>--}}
+                    {{-- </div>--}}
                 {!! $sections[1]->value !!}
             </div>
         </div>
@@ -307,7 +307,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                     data-aos-easing="ease-in-sine" data-aos-duration="1000">
                     {{-- <h4>Health Insurance</h4>--}}
                     {{-- <p class="para-1">Meet the uncertainties of life with a health insurance plan to manage the--}}
-                    {{-- financial burden of unexpected accidents or illness.</p>--}}
+                        {{-- financial burden of unexpected accidents or illness.</p>--}}
                     {!! $sections[2]->value !!}
                     <img src="{{asset($sections[3]->value)}}" class="img-fluid">
                 </div>
@@ -318,7 +318,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                     {{-- <h4>Dental & Vision Insurance</h4>--}}
                     {{-- <p class="para-1">Support and protect overall health with plans to ensure preventative care
                         to--}}
-                    {{-- maintain your pearly whites and precious eyesight. </p>--}}
+                        {{-- maintain your pearly whites and precious eyesight. </p>--}}
                     {!! $sections[4]->value !!}
                     <img src="{{asset($sections[5]->value)}}" class="img-fluid">
                 </div>
@@ -329,19 +329,19 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                     {{-- <h4>Affordable Care Act</h4>--}}
                     {{-- <p class="para-1">A comprehensive health care reform law enacted to provide quality health
                         coverage--}}
-                    {{-- to millions of uninsured Americans, making health insurance more affordable, accessible
+                        {{-- to millions of uninsured Americans, making health insurance more affordable, accessible
                         and--}}
-                    {{-- attainable for individuals and families. </p>--}}
+                        {{-- attainable for individuals and families. </p>--}}
                     {!! $sections[6]->value !!}
                     <img src="{{asset($sections[7]->value)}}" class="img-fluid">
                 </div>
             </div>
             {{-- <div class="col-lg-12">--}}
-            {{-- <div class="health-btn">--}}
-            {{-- <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">Start My
+                {{-- <div class="health-btn">--}}
+                    {{-- <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#exampleModal">Start My
                         Quote</a>--}}
-            {{-- </div>--}}
-            {{-- </div>--}}
+                    {{-- </div>--}}
+                {{-- </div>--}}
             <div class="col-lg-12">
                 <div class="code text-center">
                     <input type="text" placeholder="Zip Code" class="input_zipcode">
@@ -432,7 +432,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                 <p class="para-1">Text:</p>
                                 <a href="tel:+833-775-1105" class="btn btn-custom"><i
                                         class="fa-solid fa-phone-volume fa-shake"></i>
-                                    954-280-4561</a>
+                                        {{ $phone[1] }}</a>
                             </div>
                         </div>
                         <a href="mailto:engagedirect@engagehealthinsurance.com" class="email-quote"> <i
@@ -600,329 +600,101 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-                {
-                    {
-                        --fetch("{{route('allowed-zipcodes')}}", {
-                            mode: 'cors'
-                        }) --
-                    }
-                } {
-                    {
-                        --.then(response => response.json()) --
-                    }
-                } {
-                    {
-                        --.then(data => {
-                                --
-                            }
-                        } {
-                            {
-                                -- // alert(data);--}}
-                                {
-                                    {
-                                        --
-                                        let allowed_zipcodes = [];
-                                        --
-                                    }
-                                } {
-                                    {
-                                        --allowed_zipcodes = data.data.data;
-                                        --
-                                    }
-                                }
+    $(document).ready(function () {
+        {{--fetch("{{route('allowed-zipcodes')}}", { mode: 'cors' })--}}
+        {{--    .then(response => response.json())--}}
+        {{--    .then(data => {--}}
+        {{--        // alert(data);--}}
+        {{--        let allowed_zipcodes = [];--}}
+        {{--        allowed_zipcodes = data.data.data;--}}
 
 
-                                {
-                                    {
-                                        --$('.anchor_start_my_quote').on('click', function(e) {
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                                let input = $('.input_zipcode').val();
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                                if (input == "" || !(allowed_zipcodes.includes(input))) {
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --$('.input_zipcode').val('');
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --alert('Please enter a valid zipcode.');
-                                                    --
-                                                }
-                                            }
+        {{--        $('.anchor_start_my_quote').on('click', function (e) {--}}
+        {{--            let input = $('.input_zipcode').val();--}}
+        {{--            if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+        {{--                $('.input_zipcode').val('');--}}
+        {{--                alert('Please enter a valid zipcode.');--}}
 
-                                            {
-                                                {
-                                                    --
-                                                    return false;
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                }--
-                                            }
-                                        }
+        {{--                return false;--}}
+        {{--            }--}}
 
-                                        {
-                                            {
-                                                --window.location.href = '{{route('
-                                                front.form ')}}';
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                            });
-                                        --
-                                    }
-                                }
+        {{--            window.location.href = '{{route('front.form')}}';--}}
+        {{--        });--}}
 
-                                {
-                                    {
-                                        --$('.input_zipcode').on('change', function() {
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                                let changed_val = $(this).val();
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --$('.input_zipcode').each((i, item) => {
-                                                        --
-                                                    }
-                                                } {
-                                                    {
-                                                        --$(item).val(changed_val);
-                                                        --
-                                                    }
-                                                } {
-                                                    {
-                                                        --
-                                                    });
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                            });
-                                        --
-                                    }
-                                } {
-                                    {
-                                        --
-                                    }) --
-                            }
-                        } {
-                            {
-                                --.catch(error => console.error('Error:', error));
-                                --
-                            }
-                        }
+        {{--        $('.input_zipcode').on('change', function () {--}}
+        {{--            let changed_val = $(this).val();--}}
+        {{--            $('.input_zipcode').each((i, item) => {--}}
+        {{--                $(item).val(changed_val);--}}
+        {{--            });--}}
+        {{--        });--}}
+        {{--    })--}}
+        {{--    .catch(error => console.error('Error:', error));--}}
 
-                        $('.anchor_start_my_quote').on('click', function(e) {
-                            let input = $('.input_zipcode').val();
-                            // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
-                            // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
+        $('.anchor_start_my_quote').on('click', function (e) {
+            let input = $('.input_zipcode').val();
+            // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
+            // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
 
-                            $.ajax({
-                                url: 'https://api.zippopotam.us/us/' + input,
-                                method: 'GET',
-                                data: {},
-                                success: (data) => {
-                                    // alert(typeof data);
-                                    // console.log(data);
+            $.ajax({
+                url: 'https://api.zippopotam.us/us/' + input,
+                method: 'GET',
+                data: {},
+                success: (data) => {
+                    // alert(typeof data);
+                    // console.log(data);
 
-                                    window.location.href = '{{route('
-                                    front.form ')}}';
-                                },
-                                error: (e) => {
-                                    $('.input_zipcode').val('');
-                                    alert('Please enter a valid zipcode.');
+                    window.location.href = '{{route('front.form')}}';
+                },
+                error: (e) => {
+                    $('.input_zipcode').val('');
+                    alert('Please enter a valid zipcode.');
 
-                                    return false;
-                                },
-                            });
+                    return false;
+                },
+            });
 
-                            {
-                                {
-                                    -- // if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
-                                    {
-                                        {
-                                            --
-                                            if (!isValidZip) {
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --$('.input_zipcode').val('');
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --alert('Please enter a valid zipcode.');
-                                                --
-                                            }
-                                        }
+            {{--// if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+            {{--if (!isValidZip) {--}}
+            {{--    $('.input_zipcode').val('');--}}
+            {{--    alert('Please enter a valid zipcode.');--}}
 
-                                        {
-                                            {
-                                                --
-                                                return false;
-                                                --
-                                            }
-                                        } {
-                                            {
-                                                --
-                                            }--
-                                        }
-                                    }
+            {{--    return false;--}}
+            {{--}--}}
 
-                                    {
-                                        {
-                                            --window.location.href = '{{route('
-                                            front.form ')}}';
-                                            --
-                                        }
-                                    }
-                                });
+            {{--window.location.href = '{{route('front.form')}}';--}}
+        });
 
-                            $('.input_zipcode').on('change', function() {
-                                let changed_val = $(this).val();
-                                $('.input_zipcode').each((i, item) => {
-                                    $(item).val(changed_val);
-                                });
-                            });
+        $('.input_zipcode').on('change', function () {
+            let changed_val = $(this).val();
+            $('.input_zipcode').each((i, item) => {
+                $(item).val(changed_val);
+            });
+        });
 
-                            {
-                                {
-                                    --$.getJSON("{{asset('allowed-zipcodes.json')}}", function(data) {
-                                            --
-                                        }
-                                    } {
-                                        {
-                                            --
-                                            let allowed_zipcodes = [];
-                                            --
-                                        }
-                                    } {
-                                        {
-                                            --allowed_zipcodes = data.data;
-                                            --
-                                        }
-                                    }
+        {{--$.getJSON("{{asset('allowed-zipcodes.json')}}", function (data) {--}}
+        {{--    let allowed_zipcodes = [];--}}
+        {{--    allowed_zipcodes = data.data;--}}
 
 
-                                    {
-                                        {
-                                            --$('.anchor_start_my_quote').on('click', function(e) {
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                    let input = $('.input_zipcode').val();
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                    if (input == "" || !(allowed_zipcodes.includes(input))) {
-                                                        --
-                                                    }
-                                                } {
-                                                    {
-                                                        --$('.input_zipcode').val('');
-                                                        --
-                                                    }
-                                                } {
-                                                    {
-                                                        --alert('Please enter a valid zipcode.');
-                                                        --
-                                                    }
-                                                }
+        {{--    $('.anchor_start_my_quote').on('click', function (e) {--}}
+        {{--        let input = $('.input_zipcode').val();--}}
+        {{--        if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
+        {{--            $('.input_zipcode').val('');--}}
+        {{--            alert('Please enter a valid zipcode.');--}}
 
-                                                {
-                                                    {
-                                                        --
-                                                        return false;
-                                                        --
-                                                    }
-                                                } {
-                                                    {
-                                                        --
-                                                    }--
-                                                }
-                                            }
+        {{--            return false;--}}
+        {{--        }--}}
 
-                                            {
-                                                {
-                                                    --window.location.href = '{{route('
-                                                    front.form ')}}';
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                });
-                                            --
-                                        }
-                                    }
+        {{--        window.location.href = '{{route('front.form')}}';--}}
+        {{--    });--}}
 
-                                    {
-                                        {
-                                            --$('.input_zipcode').on('change', function() {
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                    let changed_val = $(this).val();
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --$('.input_zipcode').each((i, item) => {
-                                                            --
-                                                        }
-                                                    } {
-                                                        {
-                                                            --$(item).val(changed_val);
-                                                            --
-                                                        }
-                                                    } {
-                                                        {
-                                                            --
-                                                        });
-                                                    --
-                                                }
-                                            } {
-                                                {
-                                                    --
-                                                });
-                                            --
-                                        }
-                                    } {
-                                        {
-                                            --
-                                        });
-                                    --
-                                }
-                            }
-                        });
+        {{--    $('.input_zipcode').on('change', function () {--}}
+        {{--        let changed_val = $(this).val();--}}
+        {{--        $('.input_zipcode').each((i, item) => {--}}
+        {{--            $(item).val(changed_val);--}}
+        {{--        });--}}
+        {{--    });--}}
+        {{--});--}}
+    });
 </script>
 @endsection

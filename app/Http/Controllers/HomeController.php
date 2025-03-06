@@ -55,8 +55,8 @@ class HomeController extends Controller
     public function index()
     { 
        $page = DB::table('pages')->where('id', 1)->first();
- 
-       return view('welcome', compact('page'));
+       $phone = DB::table('m_flag')->pluck('flag_value');
+       return view('welcome', compact('page' , 'phone'));
     }
 
  
