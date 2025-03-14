@@ -21,6 +21,14 @@
   /* .img-footer.endl-2 img{
     margin-top: 240px;
   } */
+  
+  .ml6 .text-wrapper {
+    top: 11px;
+  }
+  
+  .main-heading h1 {
+      font-size: 29px;
+  }
 
   .phone.endl-2 a {
     font-size: 14px;

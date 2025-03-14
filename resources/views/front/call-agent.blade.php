@@ -53,7 +53,7 @@
                         <div class="para-div">
                             <p class="para-1">Text:</p>
                             <a href="tel:+833-775-1105" class="btn btn-custom"><i class="fa-solid fa-phone-volume fa-shake"></i>
-                                954-280-4561</a>
+                                954-466-4482 </a>
                         </div>
                     </div>
                     <a href="mailto:engagedirect@engagehealthinsurance.com" class="email-quote"> <i
