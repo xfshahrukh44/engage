@@ -201,19 +201,21 @@ a.nav-link.active {
   position: absolute;
   z-index: 1;
   top: 0;
-  left: 150px;
+  left: 50px;
   bottom: 0;
   display: flex;
   align-items: baseline;
   flex-direction: column;
   justify-content: center;
+  width: 40%;
 }
 
 .main-heading h1 {
   font-family: Poppins;
-  font-weight: 900;
+  font-weight: 400 !important;!i;!;
   color: black;
-  font-size: 39px;
+  font-size: 28px;
+  line-height: normal;
 }
 
 
@@ -2025,3 +2027,10 @@ button#prevBtn {
 }
 
 /* foam css  */
+
+.main-heading h1 span {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 8px;
+}
