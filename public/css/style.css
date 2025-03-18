@@ -1693,7 +1693,7 @@ header li.nav-item a.nav-link.active:before {
 
 .ml6 .letter {
   display: inline-block;
-  line-height: 1em;
+  line-height: 0em;
 }
 
 .ml60 {
