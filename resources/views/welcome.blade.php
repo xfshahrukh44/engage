@@ -17,7 +17,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
             font-weight: 600;
             font-size: 18px;
             margin-top: 1rem;
-            width: 66%;
+            width: 69%;
         }
 
         ul.list-items-parent li {
