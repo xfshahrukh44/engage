@@ -212,9 +212,9 @@ a.nav-link.active {
 
 .main-heading h1 {
   font-family: Poppins;
-  font-weight: 400 !important;!i;!;
+  font-weight: 700 !important;!i;!;
   color: black;
-  font-size: 28px;
+  font-size: 24px;
   line-height: normal;
 }
 
@@ -2033,5 +2033,5 @@ button#prevBtn {
     font-size: 34px;
     font-weight: 800;
     line-height: normal;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
