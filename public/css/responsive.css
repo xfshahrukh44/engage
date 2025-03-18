@@ -71,8 +71,8 @@
 
   ul.list-items-parent {
     margin: 0;
-    font-size: 13px;
-    width: 58%;
+    font-size: 14px !important;
+    width: 65% !important;
   }
 
 }
