@@ -1688,6 +1688,7 @@ header li.nav-item a.nav-link.active:before {
   padding-bottom: 0em;
   overflow: hidden;
   top: 20px;
+  padding-right: 10px;
 }
 
 .ml6 .letter {
