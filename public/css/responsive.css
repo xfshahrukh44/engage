@@ -59,6 +59,7 @@
 
   .main-heading {
     left: 40px;
+    max-width: 494px;
   }
 
   .man-img img {

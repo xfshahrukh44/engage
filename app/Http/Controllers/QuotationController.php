@@ -10,55 +10,60 @@ use Illuminate\Support\Facades\Validator;
 
 class QuotationController extends Controller
 {
-    public function store (Request $request)
+    public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required_without:phone',
-            'phone' => 'required_without:email',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->with('error', $validator->errors()->first());
+        try {
+            $validator = Validator::make($request->all(), [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required_without:phone',
+                'phone' => 'required_without:email',
+            ]);
+    
+            if ($validator->fails()) {
+                return redirect()->back()->with('error', $validator->errors()->first());
+            }
+    
+            $quotation = Quotation::create($request->all());
+    
+            $quotation->is_self = $request->has('is_self') && $request->get('is_self') == 'on' ? 'Yes' : 'No';
+            $quotation->is_spouse = $request->has('is_spouse') && $request->get('is_spouse') == 'on' ? 'Yes' : 'No';
+            $quotation->is_children = $request->has('is_children') && $request->get('is_children') == 'on' ? 'Yes' : 'No';
+            $quotation->marital_status = $request->get('marital_status');
+            $quotation->children = $request->get('children');
+            $quotation->save();
+    
+            $html = '';
+            $html .= "First name: " . $quotation->first_name . "<br>";
+            $html .= "Last name: " . $quotation->last_name . "<br>";
+            $html .= "Email: " . $quotation->email . "<br>";
+            $html .= "Phone: " . $quotation->phone . "<br>";
+            $html .= "Insurance type: " . $quotation->insurance_type . "<br>";
+            $html .= "Time to call: " . $quotation->time_to_call . "<br>";
+            $html .= "Type: " . $quotation->type . "<br>";
+            $html .= "Household size: " . $quotation->household_size . "<br>";
+            $html .= "Household income: " . $quotation->household_income . "<br>";
+            $html .= "Gender: " . $quotation->gender . "<br>";
+            $html .= "Date of birth: " . $quotation->dob . "<br>";
+            $html .= "Address: " . $quotation->address . "<br>";
+            $html .= "Marital status: " . $quotation->marital_status . "<br>";
+            $html .= "For self: " . $quotation->is_self . "<br>";
+            $html .= "For spouse: " . $quotation->is_spouse . "<br>";
+            $html .= "For children: " . $quotation->is_children . "<br>";
+            $html .= "Children: " . $quotation->children . "<br>";
+    
+            Mail::send([], [], function ($message) use ($html) {
+                $message->to('info@engagehealthinsurance.org')
+                    ->subject('Engage | Get a Quote')
+                    ->html($html);
+            });
+    
+            return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
         }
-
-        $quotation = Quotation::create($request->all());
-
-        $quotation->is_self = $request->has('is_self') && $request->get('is_self') == 'on' ? 'Yes' : 'No';
-        $quotation->is_spouse = $request->has('is_spouse') && $request->get('is_spouse') == 'on' ? 'Yes' : 'No';
-        $quotation->is_children = $request->has('is_children') && $request->get('is_children') == 'on' ? 'Yes' : 'No';
-        $quotation->marital_status = $request->get('marital_status');
-        $quotation->children = $request->get('children');
-        $quotation->save();
-
-        $html = '';
-        $html .= "First name: ".$quotation->first_name."<br>";
-        $html .= "Last name: ".$quotation->last_name."<br>";
-        $html .= "Email: ".$quotation->email."<br>";
-        $html .= "Phone: ".$quotation->phone."<br>";
-        $html .= "Insurance type: ".$quotation->insurance_type."<br>";
-        $html .= "Time to call: ".$quotation->time_to_call."<br>";
-        $html .= "Type: ".$quotation->type."<br>";
-        $html .= "Household size: ".$quotation->household_size."<br>";
-        $html .= "Household income: ".$quotation->household_income."<br>";
-        $html .= "Gender: ".$quotation->gender."<br>";
-        $html .= "Date of birth: ".$quotation->dob."<br>";
-        $html .= "Address: ".$quotation->address."<br>";
-        $html .= "Marital status: ".$quotation->marital_status."<br>";
-        $html .= "For self: ".$quotation->is_self."<br>";
-        $html .= "For spouse: ".$quotation->is_spouse."<br>";
-        $html .= "For children: ".$quotation->is_children."<br>";
-        $html .= "Children: ".$quotation->children."<br>";
-
-        Mail::send([], [], function ($message) use ($html) {
-            $message->to('info@engagehealthinsurance.org')
-                ->subject('Engage | Get a Quote')
-                ->setBody($html, 'text/html');
-        });
-
-        return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
     }
+
 
     public function inquiryStore (Request $request)
     {
