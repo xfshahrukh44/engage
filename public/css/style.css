@@ -2035,3 +2035,101 @@ button#prevBtn {
     line-height: normal;
     margin-bottom: 20px;
 }
+
+/*new-section*/
+
+@font-face {
+    font-family: Amalfi-Coast;
+    src: url(../fonts/Amalfi-Coast.ttf);
+}
+
+
+.prescription-saving {
+    background-image: url(../images/doctor-patient.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 80px 0px;
+    align-items: center;
+    display: flex;
+}
+
+.saving {
+    background-image: url(../images/white-cover-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px 0px 0px 0px;
+    margin-right: 70px;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+.saving:before {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    width: 5px;
+    height: 150px;
+    background: #0f7abe;
+    left: 0;
+    top: 100px;
+}
+
+
+.saving:after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    width: 5px;
+    height: 150px;
+    background: #0f7abe;
+    right: 0;
+    bottom: 110px;
+}
+
+.free-saving h2
+ {
+    font-family: Amalfi-Coast !important;
+    font-size: 220px;
+    text-transform: lowercase;
+    color: #0f7abe;
+    margin-bottom: -45px;
+    font-weight: 400 !important;
+}
+
+.free-saving h3 {
+    background-color: #444444;
+    display: inline-block;
+    padding: 10px;
+    margin-top: -20px;
+    color: white;
+    font-size: 48px;
+    font-family: "Anton", sans-serif !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.5px;
+}
+
+
+.saving img {
+    width: 40%;
+    margin-top: 40px;
+}
+
+a.btn.btn-custom.rx-card {
+    width: 100%;
+    padding: 5px 20px;
+    margin-top: 30px;
+    border-left: 30px solid black;
+    border-right: 30px solid black;
+    font-size: 45px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    background-color: #0e79bd;
+    border-radius: 0;
+    color: white;
+}
+
+/*new-section*/

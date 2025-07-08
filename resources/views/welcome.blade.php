@@ -280,6 +280,25 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
     </div>
 </section>
 
+<section class="prescription-saving">
+    <div class="container-fluid">
+        <div class="row justify-content-end">
+            <div class="col-lg-7">
+                <div class="saving">
+                    <div class="free-saving">
+                        <h2>Free</h2>
+                        <h3>PRESCRIPTION SAVINGS</h3>
+                    </div>
+                    <img src="{{asset('images/logo-new2.png')}}" class="img-fluid">
+                    <div class="rx-button">
+                        <a href="https://democustom-html.com/engage-lp/" class="btn btn-custom rx-card">CLICK HERE FOR FREE RX CARD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="shop-sec">
     <div class="container">
         <div class="row">
