@@ -52,11 +52,11 @@ class QuotationController extends Controller
             $html .= "For children: " . $quotation->is_children . "<br>";
             $html .= "Children: " . $quotation->children . "<br>";
     
-            Mail::send([], [], function ($message) use ($html) {
+           Mail::html($html, function ($message) {
                 $message->to('info@engagehealthinsurance.org')
-                    ->subject('Engage | Get a Quote')
-                    ->html($html);
+                    ->subject('Engage | Get a Quote');
             });
+
     
             return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
         } catch (\Exception $e) {
@@ -85,10 +85,15 @@ class QuotationController extends Controller
         $html .= "Type of insurance: ".$inquiry->type_of_insurance."<br>";
         $html .= "Suite: ".$inquiry->suite."<br>";
 
-        Mail::send([], [], function ($message) use ($html) {
+        // Mail::send([], [], function ($message) use ($html) {
+        //     $message->to('info@engagehealthinsurance.org')
+        //         ->subject('Engage | Contact inquiry')
+        //         ->setBody($html, 'text/html');
+        // });
+        
+        Mail::html($html, function ($message) {
             $message->to('info@engagehealthinsurance.org')
-                ->subject('Engage | Contact inquiry')
-                ->setBody($html, 'text/html');
+                ->subject('Engage | Contact inquiry');
         });
 
         return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
