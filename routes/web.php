@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -195,7 +196,7 @@ Route::get('contact','HomeController@contact')->name('contact');
 
 
 Route::post('careerSubmit','HomeController@careerSubmit')->name('contactUsSubmit');
-Route::post('newsletter-submit','HomeController@newsletterSubmit')->name('newsletterSubmit');
+Route::post('newsletter-submit','HomeController@newsletterSubmit')->name('newsletter.submit');
 Route::post('update-content','HomeController@updateContent')->name('update-content');
 
 //=================================================================//
@@ -312,3 +313,5 @@ Route::post('save-inquiry', [QuotationController::class, 'inquiryStore'])->name(
 Route::get('/allowed-zipcodes', function () {
     return response()->json(['data' => json_decode(file_get_contents(public_path('allowed-zipcodes.json')))]);
 })->name('allowed-zipcodes');
+
+Route::get('engage-lp', [HomeController::class, 'lp'])->name('lp.app');

@@ -281,29 +281,22 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
 </section>
 
 <section class="prescription-saving">
-        <div class="container-fluid">
-            <div class="row justify-content-end">
-                <div class="col-lg-7">
-                    <div class="saving">
-                        <div class="free-saving">
-                            {!! $sections[8]->value !!}
-                        </div>
-                        <img src="{{asset('images/logo-new2.png')}}" class="img-fluid">
-                        <div class="rx-button">
-                            <a href="https://democustom-html.com/engage-lp/" class="btn btn-custom rx-card">{{ $sections[9]->value }}</a>
-                        </div>
+    <div class="container-fluid">
+        <div class="row justify-content-end">
+            <div class="col-lg-7">
+                <div class="saving">
+                    <div class="free-saving">
+                        {!! $sections[8]->value !!}
+                    </div>
+                    <img src="{{asset('images/logo-new2.png')}}" class="img-fluid">
+                    <div class="rx-button">
+                        <a href="{{ route('lp.app') }}" class="btn btn-custom rx-card">{{ $sections[9]->value }}</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
-
-
-
-
-
+    </div>
+</section>
 
 <section class="shop-sec">
     <div class="container">
