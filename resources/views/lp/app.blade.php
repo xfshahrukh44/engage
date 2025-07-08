@@ -30,13 +30,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="iframe-content">
-                    <link rel='' stylesheet'' href=''
-                        https://secure.unitednetworksofamerica.com/partner/css/iframe.css'' type='' text/css''
-                        charset='' utf-8'' />
-                    <iframe id='' una_1047'' class='' partner'' src=''
-                        https://secure.unitednetworksofamerica.com/partner/card-downloader.php? id=1047&rxgrp=ENGHLTH''
-                        frameborder='' 0'' scrolling='' no''></iframe>
+                    <link rel="stylesheet" href="https://secure.unitednetworksofamerica.com/partner/css/iframe.css" type="text/css" charset="utf-8" />
+
+                    <iframe id="una_1047" class="partner"
+                        src="https://secure.unitednetworksofamerica.com/partner/card-downloader.php?id=1047&rxgrp=ENGHLTH"
+                        frameborder="0"
+                        scrolling="no">
+                    </iframe>
                 </div>
+
             </div>
         </div>
     </div>
