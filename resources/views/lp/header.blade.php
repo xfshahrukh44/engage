@@ -38,6 +38,10 @@
         iframe.partner {
             height: 750px !important;
         }
+
+        section.iframe-sec {
+            padding-top: 50px;
+        }
     </style>
 
 </head>
