@@ -16,7 +16,7 @@ class SectionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sections')->insert([
+        DB::table('section')->insert([
             [
                 'label' => 'Section Prescription Headings',
                 'slug' => 'section_prescription_headings',
