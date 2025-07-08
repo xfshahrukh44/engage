@@ -34,6 +34,10 @@
             opacity: 0.6;
             cursor: not-allowed;
         }
+
+        iframe.partner {
+            height: 750px !important;
+        }
     </style>
 
 </head>
