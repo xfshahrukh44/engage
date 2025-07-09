@@ -37,6 +37,7 @@
 
         .program ul {
             padding: 0px 0px 0px 20px;
+            list-style: disc;
         }
 
         .program ul li {
@@ -87,6 +88,7 @@
 
         .everyone ul {
             padding: 0px 0px 0px 20px;
+            list-style: disc;
         }
 
         .everyone ul li {
@@ -137,6 +139,8 @@
             letter-spacing: 0.2px;
         }
 
+
+
         /* discaimer-sec css end */
     </style>
 @endsection
@@ -148,7 +152,7 @@
                 <div class="col-lg-12">
                     <div class="prescription">
                         <img src="{{ asset($page->image) }}" class="img-fluid">
-                        <h1>{{ $page->name ?? 'PRESCRIPTIONS SAVINGS COUPON CARD PROGRAM' }}</h1>
+                        <h1>{{ $page->name ?? 'PRESCRIPTION SAVINGS COUPON CARD PROGRAM' }}</h1>
                     </div>
                 </div>
             </div>

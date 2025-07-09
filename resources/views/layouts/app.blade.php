@@ -163,6 +163,7 @@
                             <li><a href="{{route('front.learning')}}">Learning ACA</a></li>
                             <li><a href="{{route('front.enroll')}}">Browse Plans/Enroll</a></li>
                             <li><a href="{{route('front.contact')}}">Contact Us</a></li>
+                            <li><a href="{{route('lp.app')}}">RX Savings Program</a></li>
 
 
                             <!-- <li><a href="#">Enroll Now</a></li> -->
@@ -174,9 +175,13 @@
                 <div class="endl-1">
                     <div class="phone">
                         <p>LOCATION</p>
-                        <div class="last-endl-flux">
+                        <div class="last-endl-flux" style=" padding-bottom: 3px; ">
                             <i class="fa-solid fa-map"></i>
                             <p>{{App\Http\Traits\HelperTrait::returnFlag(1975)}}</p>
+                        </div>
+                        <div class="last-endl-flux">
+                            <i class="fa-solid fa-map"></i>
+                            <p>Oakland Park, Florida</p>
                         </div>
                     </div>
                     <div class="quick">
