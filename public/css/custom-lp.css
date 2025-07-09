@@ -321,3 +321,16 @@ footer {
 }
 
 /* animation css end */
+
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+iframe.partner {
+    height: 750px !important;
+}
+
+section.iframe-sec {
+    padding-top: 50px;
+}
