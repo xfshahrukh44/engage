@@ -151,7 +151,12 @@
                         </div>
                         <div class="last-endl-flux new-contact">
                             <p class="small-para">
-                                Office Hours: {{App\Http\Traits\HelperTrait::returnFlag(1974)}}
+                                Office: <a href="tel:{{App\Http\Traits\HelperTrait::returnFlag(1979)}} ">{{App\Http\Traits\HelperTrait::returnFlag(1979)}} </a>
+                            </p>
+                        </div>
+                        <div class="last-endl-flux new-contact">
+                            <p class="small-para">
+                                {{App\Http\Traits\HelperTrait::returnFlag(1974)}}
                             </p>
                         </div>
 
@@ -174,14 +179,16 @@
             <div class="col-lg-3">
                 <div class="endl-1">
                     <div class="phone">
-                        <p>LOCATION</p>
-                        <div class="last-endl-flux" style=" padding-bottom: 3px; ">
-                            <i class="fa-solid fa-map"></i>
-                            <p>{{App\Http\Traits\HelperTrait::returnFlag(1975)}}</p>
-                        </div>
-                        <div class="last-endl-flux">
-                            <i class="fa-solid fa-map"></i>
-                            <p>Oakland Park, Florida</p>
+                        <p class="section-label">LOCATION</p>
+                        <div class="location-list">
+                            <div class="location-item">
+                                <i class="fa-solid fa-map"></i>
+                                <span>Pompano Beach, Florida</span>
+                            </div>
+                            <div class="location-item">
+                                <i class="fa-solid fa-map"></i>
+                                <span>Oakland Park, Florida</span>
+                            </div>
                         </div>
                     </div>
                     <div class="quick">
