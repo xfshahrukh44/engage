@@ -2135,16 +2135,3 @@ a.btn.btn-custom.rx-card {
 }
 
 /*new-section*/
-.location-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 4px;
-}
-
-.location-item i {
-    margin-right: 8px;
-    font-size: 13px;
-    color: #999;
-}
