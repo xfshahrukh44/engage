@@ -1276,6 +1276,7 @@ footer {
   font-weight: 500;
   color: black;
   padding-bottom: 6px;
+      text-transform: uppercase;
 }
 
 .quick ul {
@@ -2135,3 +2136,19 @@ a.btn.btn-custom.rx-card {
 }
 
 /*new-section*/
+
+/*new css start 7/16/2025*/
+.endl-1.insurance_end_1 {
+    flex-direction: column;
+    display: flex;
+    gap: 141px;
+}
+
+
+.location-item span {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+/*new css end 7/16/2025*/

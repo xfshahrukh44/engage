@@ -177,7 +177,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="endl-1">
+                <div class="endl-1 insurance_end_1">
                     <div class="phone">
                         <p class="section-label">LOCATION</p>
                         <div class="location-list">
@@ -198,14 +198,8 @@
                             <li><a href="{{route('front.dental-insurance')}}">Dental Insurance</a></li>
                             <li><a href="{{route('front.vision-insurance')}}">Vision Insurance</a></li>
                             <li><a href="{{route('front.affordable-care-act-aca')}}">Affordable Care Act</a></li>
-
-                            <div class="two-last-endl">
-                                <ul>
-                                    <li><a href="{{route('front.terms')}}">Terms of Use</a></li>
+                             <li><a href="{{route('front.terms')}}">Terms of Use</a></li>
                                     <li><a href="{{route('front.privacy-policy')}}">Privacy Policy</a></li>
-                                </ul>
-
-                            </div>
                         </ul>
                     </div>
 
