@@ -146,7 +146,7 @@
                         <div class="last-endl-flux new-contact">
                             <!-- <i class="fa-solid fa-phone"></i> -->
                             <p class="small-para">
-                                Customer Service/Office: <a href="tel:{{App\Http\Traits\HelperTrait::returnFlag(1973)}} ">{{App\Http\Traits\HelperTrait::returnFlag(1973)}} </a>
+                                Inquire by Text: <a href="tel:{{App\Http\Traits\HelperTrait::returnFlag(1973)}} ">{{App\Http\Traits\HelperTrait::returnFlag(1973)}} </a>
                             </p>
                         </div>
                         <div class="last-endl-flux new-contact">
