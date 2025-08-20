@@ -40,6 +40,7 @@
 <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        <link href="{{ asset('fonts/Inter-VariableFont_opsz,wght.ttf') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/inner.css')}}">
