@@ -381,36 +381,61 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                 <h2 class="side-heading">Request a <span class="blue">Free</span> Quote</h2>
                                 <p class="para-1">One of our licensed agents can help review your health insurance needs
                                     and match you with a great plan. We welcome your inquiry! </p>
-                                <form action="{{route('front.save-quotation')}}" method="POST">
+                                    
+                                    <div id="formMessages">
+                                        <!-- Success/error messages will appear here -->
+                                    </div>
+                                    {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
+                                <form id="quotationForm" method="POST">
                                     @csrf
                                     <div class="main-form">
-                                        <input type="text" placeholder="First Name" name="first_name">
-                                        <input type="text" placeholder="Last Name" name="last_name">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" name="first_name" id="first_name" required>
+                                            <div class="error-message" id="first_name_error"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" name="last_name" id="last_name" required>
+                                            <div class="error-message" id="last_name_error"></div>
+                                        </div>
                                     </div>
+
                                     <div class="main-form">
-                                        <input type="text" placeholder="Email" name="email">
-                                        <select name="type">
-                                            <option value="">Select insurance type</option>
-                                            <option value="Individual Health">Individual Health</option>
-                                            <option value="Family Health">Family Health</option>
-                                            <option value="Dental/Vision">Dental/Vision</option>
-                                        </select>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" name="email" id="email">
+                                            <div class="error-message" id="email_error"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="type" id="type" required>
+                                                <option value="">Select insurance type *</option>
+                                                <option value="Individual Health">Individual Health</option>
+                                                <option value="Family Health">Family Health</option>
+                                                <option value="Dental/Vision">Dental/Vision</option>
+                                            </select>
+                                            <div class="error-message" id="type_error"></div>
+                                        </div>
                                     </div>
+
                                     <div class="main-form">
-                                        <input type="text" placeholder="Phone Number" name="phone">
-                                        <select name="time_to_call">
-                                            <option value="">Best Time To Call</option>
-                                            <option value="8am – 10am">8am – 10am</option>
-                                            <option value="10am – 12pm">10am – 12pm</option>
-                                            <option value="12pm – 3pm">12pm – 3pm</option>
-                                            <option value="3pm – 6pm">3pm – 6pm</option>
-                                        </select>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" placeholder="Phone Number *" name="phone" id="phone">
+                                            <div class="error-message" id="phone_error"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="time_to_call" id="time_to_call" required>
+                                                <option value="">Best Time To Call *</option>
+                                                <option value="8am – 10am">8am – 10am</option>
+                                                <option value="10am – 12pm">10am – 12pm</option>
+                                                <option value="12pm – 3pm">12pm – 3pm</option>
+                                                <option value="3pm – 6pm">3pm – 6pm</option>
+                                            </select>
+                                            <div class="error-message" id="time_to_call_error"></div>
+                                        </div>
                                     </div>
+
                                     <div class="submit-btn">
-                                        <button type="submit" class="btn btn-custom">Submit</button>
-                                        {{-- <a href="#" class="btn btn-custom">Submit</a>--}}
-                                        <!--  data-toggle="modal" data-target="#exampleModal -->
+                                        <button type="submit" class="btn btn-custom">Submit Request</button>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -658,14 +683,14 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                 method: 'GET',
                 data: {},
                 success: (data) => {
-                    // alert(typeof data);
-                    // console.log(data);
+                    $('.input_zipcode').val('');
+                    alert('Too many Invalid Entries.');
 
-                    window.location.href = '{{route('front.form')}}';
+                    return false;
                 },
                 error: (e) => {
                     $('.input_zipcode').val('');
-                    alert('Please enter a valid zipcode.');
+                    alert('Too many Invalid Entries.');
 
                     return false;
                 },
@@ -715,4 +740,79 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         {{--});--}}
     });
 </script>
+     <script>
+        document.getElementById('quotationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.textContent = '';
+            });
+            
+            // Basic validation
+            let isValid = true;
+            const firstName = document.getElementById('first_name').value.trim();
+            const lastName = document.getElementById('last_name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const type = document.getElementById('type').value;
+            const timeToCall = document.getElementById('time_to_call').value;
+            
+            if (!firstName) {
+                document.getElementById('first_name_error').textContent = 'First name is required';
+                isValid = false;
+            }
+            
+            if (!lastName) {
+                document.getElementById('last_name_error').textContent = 'Last name is required';
+                isValid = false;
+            }
+            
+            if (!email && !phone) {
+                document.getElementById('email_error').textContent = 'Email or phone number is required';
+                document.getElementById('phone_error').textContent = 'Email or phone number is required';
+                isValid = false;
+            }
+            
+            if (email && !isValidEmail(email)) {
+                document.getElementById('email_error').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            
+            if (!type) {
+                document.getElementById('type_error').textContent = 'Please select an insurance type';
+                isValid = false;
+            }
+            
+            if (!timeToCall) {
+                document.getElementById('time_to_call_error').textContent = 'Please select a best time to call';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                showMessage('Please correct the errors above.', 'danger');
+                return;
+            }
+            
+            // If validation passes, show success message (in a real scenario, this would submit to the server)
+            showMessage('Too many Invalid Entries', 'danger');
+            
+            // In a real application, you would submit the form to the server here
+            // this.submit();
+        });
+        
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('formMessages');
+            messageDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 @endsection
