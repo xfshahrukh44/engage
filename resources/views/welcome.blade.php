@@ -110,12 +110,8 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                         {{-- </h3>--}}
                                     {!! $banner->description !!}
                                     <div class="code">
-                                        {{-- Load reCAPTCHA script --}}
-                                        {!! NoCaptcha::renderJs() !!}
                                         <input type="text" placeholder="Zip Code" class="input_zipcode">
                                         <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
-                                        {{-- Invisible reCAPTCHA button --}}
-                                        {!! NoCaptcha::displaySubmit('myForm', 'Submit', ['data-size' => 'invisible']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -390,6 +386,8 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                         <!-- Success/error messages will appear here -->
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
+                                        {{-- Load reCAPTCHA script --}}
+                                    {!! NoCaptcha::renderJs() !!}
                                 <form id="quotationForm" method="POST">
                                     @csrf
                                     <div class="main-form">
@@ -441,6 +439,8 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                     </div>
 
                                 </form>
+                                {{-- Invisible reCAPTCHA button --}}
+                                {!! NoCaptcha::displaySubmit('myForm', 'Submit', ['data-size' => 'invisible']) !!}
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -677,28 +677,28 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         {{--    })--}}
         {{--    .catch(error => console.error('Error:', error));--}}
 
-        // $('.anchor_start_my_quote').on('click', function (e) {
-        //     let input = $('.input_zipcode').val();
-        //     // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
-        //     // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
+        $('.anchor_start_my_quote').on('click', function (e) {
+            let input = $('.input_zipcode').val();
+            // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
+            // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
 
-        //     $.ajax({
-        //         url: 'https://api.zippopotam.us/us/' + input,
-        //         method: 'GET',
-        //         data: {},
-        //         success: (data) => {
-        //             $('.input_zipcode').val('');
-        //             alert('Too many Invalid Entries.');
+            $.ajax({
+                url: 'https://api.zippopotam.us/us/' + input,
+                method: 'GET',
+                data: {},
+                success: (data) => {
+                    $('.input_zipcode').val('');
+                    alert('Too many Invalid Entries.');
 
-        //             return false;
-        //         },
-        //         error: (e) => {
-        //             $('.input_zipcode').val('');
-        //             alert('Too many Invalid Entries.');
+                    return false;
+                },
+                error: (e) => {
+                    $('.input_zipcode').val('');
+                    alert('Too many Invalid Entries.');
 
-        //             return false;
-        //         },
-        //     });
+                    return false;
+                },
+            });
 
             {{--// if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
             {{--if (!isValidZip) {--}}
