@@ -110,8 +110,12 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                         {{-- </h3>--}}
                                     {!! $banner->description !!}
                                     <div class="code">
+                                        {{-- Load reCAPTCHA script --}}
+                                        {!! NoCaptcha::renderJs() !!}
                                         <input type="text" placeholder="Zip Code" class="input_zipcode">
                                         <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
+                                        {{-- Invisible reCAPTCHA button --}}
+                                        {!! NoCaptcha::displaySubmit('myForm', 'Submit', ['data-size' => 'invisible']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -673,28 +677,28 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         {{--    })--}}
         {{--    .catch(error => console.error('Error:', error));--}}
 
-        $('.anchor_start_my_quote').on('click', function (e) {
-            let input = $('.input_zipcode').val();
-            // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
-            // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
+        // $('.anchor_start_my_quote').on('click', function (e) {
+        //     let input = $('.input_zipcode').val();
+        //     // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
+        //     // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
 
-            $.ajax({
-                url: 'https://api.zippopotam.us/us/' + input,
-                method: 'GET',
-                data: {},
-                success: (data) => {
-                    $('.input_zipcode').val('');
-                    alert('Too many Invalid Entries.');
+        //     $.ajax({
+        //         url: 'https://api.zippopotam.us/us/' + input,
+        //         method: 'GET',
+        //         data: {},
+        //         success: (data) => {
+        //             $('.input_zipcode').val('');
+        //             alert('Too many Invalid Entries.');
 
-                    return false;
-                },
-                error: (e) => {
-                    $('.input_zipcode').val('');
-                    alert('Too many Invalid Entries.');
+        //             return false;
+        //         },
+        //         error: (e) => {
+        //             $('.input_zipcode').val('');
+        //             alert('Too many Invalid Entries.');
 
-                    return false;
-                },
-            });
+        //             return false;
+        //         },
+        //     });
 
             {{--// if (input == "" || !(allowed_zipcodes.includes(input))) {--}}
             {{--if (!isValidZip) {--}}
@@ -740,79 +744,79 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
         {{--});--}}
     });
 </script>
-     <script>
-        document.getElementById('quotationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    //  <script>
+    //     document.getElementById('quotationForm').addEventListener('submit', function(e) {
+    //         e.preventDefault();
             
-            // Reset error messages
-            const errorElements = document.querySelectorAll('.error-message');
-            errorElements.forEach(element => {
-                element.textContent = '';
-            });
+    //         // Reset error messages
+    //         const errorElements = document.querySelectorAll('.error-message');
+    //         errorElements.forEach(element => {
+    //             element.textContent = '';
+    //         });
             
-            // Basic validation
-            let isValid = true;
-            const firstName = document.getElementById('first_name').value.trim();
-            const lastName = document.getElementById('last_name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const type = document.getElementById('type').value;
-            const timeToCall = document.getElementById('time_to_call').value;
+    //         // Basic validation
+    //         let isValid = true;
+    //         const firstName = document.getElementById('first_name').value.trim();
+    //         const lastName = document.getElementById('last_name').value.trim();
+    //         const email = document.getElementById('email').value.trim();
+    //         const phone = document.getElementById('phone').value.trim();
+    //         const type = document.getElementById('type').value;
+    //         const timeToCall = document.getElementById('time_to_call').value;
             
-            if (!firstName) {
-                document.getElementById('first_name_error').textContent = 'First name is required';
-                isValid = false;
-            }
+    //         if (!firstName) {
+    //             document.getElementById('first_name_error').textContent = 'First name is required';
+    //             isValid = false;
+    //         }
             
-            if (!lastName) {
-                document.getElementById('last_name_error').textContent = 'Last name is required';
-                isValid = false;
-            }
+    //         if (!lastName) {
+    //             document.getElementById('last_name_error').textContent = 'Last name is required';
+    //             isValid = false;
+    //         }
             
-            if (!email && !phone) {
-                document.getElementById('email_error').textContent = 'Email or phone number is required';
-                document.getElementById('phone_error').textContent = 'Email or phone number is required';
-                isValid = false;
-            }
+    //         if (!email && !phone) {
+    //             document.getElementById('email_error').textContent = 'Email or phone number is required';
+    //             document.getElementById('phone_error').textContent = 'Email or phone number is required';
+    //             isValid = false;
+    //         }
             
-            if (email && !isValidEmail(email)) {
-                document.getElementById('email_error').textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
+    //         if (email && !isValidEmail(email)) {
+    //             document.getElementById('email_error').textContent = 'Please enter a valid email address';
+    //             isValid = false;
+    //         }
             
-            if (!type) {
-                document.getElementById('type_error').textContent = 'Please select an insurance type';
-                isValid = false;
-            }
+    //         if (!type) {
+    //             document.getElementById('type_error').textContent = 'Please select an insurance type';
+    //             isValid = false;
+    //         }
             
-            if (!timeToCall) {
-                document.getElementById('time_to_call_error').textContent = 'Please select a best time to call';
-                isValid = false;
-            }
+    //         if (!timeToCall) {
+    //             document.getElementById('time_to_call_error').textContent = 'Please select a best time to call';
+    //             isValid = false;
+    //         }
             
-            if (!isValid) {
-                showMessage('Please correct the errors above.', 'danger');
-                return;
-            }
+    //         if (!isValid) {
+    //             showMessage('Please correct the errors above.', 'danger');
+    //             return;
+    //         }
             
-            // If validation passes, show success message (in a real scenario, this would submit to the server)
-            showMessage('Too many Invalid Entries', 'danger');
+    //         // If validation passes, show success message (in a real scenario, this would submit to the server)
+    //         showMessage('Too many Invalid Entries', 'danger');
             
-            // In a real application, you would submit the form to the server here
-            // this.submit();
-        });
+    //         // In a real application, you would submit the form to the server here
+    //         // this.submit();
+    //     });
         
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
+    //     function isValidEmail(email) {
+    //         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //         return re.test(email);
+    //     }
         
-        function showMessage(message, type) {
-            const messageDiv = document.getElementById('formMessages');
-            messageDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+    //     function showMessage(message, type) {
+    //         const messageDiv = document.getElementById('formMessages');
+    //         messageDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
             
-            // Scroll to message
-            messageDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    //         // Scroll to message
+    //         messageDiv.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // </script>
 @endsection
