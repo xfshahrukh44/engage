@@ -688,7 +688,7 @@
             window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
         }
     </script>
-
+{{-- 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let form = document.getElementById("quotation");
@@ -704,4 +704,4 @@
                 }
             });
         });
-    </script>
+    </script> --}}
