@@ -114,6 +114,13 @@
                                                 <a href="#" class="btn btn-custom anchor_start_my_quote">Start My
                                                     Quote</a>
                                             </div>
+
+                                            {{-- reCAPTCHA --}}
+                                            {!! NoCaptcha::display() !!}
+
+                                            {{-- reCAPTCHA Script --}}
+                                            {!! NoCaptcha::renderJs() !!}
+
                                         </div>
                                     </div>
                                 </div>
@@ -222,8 +229,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                </div> -->
+                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                        </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -696,23 +703,41 @@
                 // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
                 // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
 
-                $.ajax({
-                    url: 'https://api.zippopotam.us/us/' + input,
-                    method: 'GET',
-                    data: {},
-                    success: (data) => {
-                        $('.input_zipcode').val('');
-                        alert('Too many Invalid Entries.');
+                $('.anchor_start_my_quote').on('click', function(e) {
+                    e.preventDefault();
 
+                    // Check captcha
+                    let captchaResponse = grecaptcha.getResponse();
+                    if (captchaResponse.length === 0) {
+                        alert("Please verify that you are not a robot.");
                         return false;
-                    },
-                    error: (e) => {
-                        $('.input_zipcode').val('');
-                        alert('Too many Invalid Entries.');
+                    }
 
+                    // Get Zip Code
+                    let input = $('.input_zipcode').val();
+
+                    if (!input) {
+                        alert("Please enter a Zip Code.");
                         return false;
-                    },
+                    }
+
+                    $.ajax({
+                        url: 'https://api.zippopotam.us/us/' + input,
+                        method: 'GET',
+                        success: (data) => {
+                            $('.input_zipcode').val('');
+                            alert(
+                                'Valid Zip Code, but demo response: Too many Invalid Entries.');
+                            return false;
+                        },
+                        error: (e) => {
+                            $('.input_zipcode').val('');
+                            alert('Too many Invalid Entries.');
+                            return false;
+                        },
+                    });
                 });
+
 
                 {{-- // if (input == "" || !(allowed_zipcodes.includes(input))) { --}}
                 {{-- if (!isValidZip) { --}}
