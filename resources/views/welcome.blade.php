@@ -387,7 +387,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
                                         
-                                <form id="quotationForm" method="POST">
+                                <form action="{{route('front.save-quotation')}}" method="POST">
                                     @csrf
                                     <div class="main-form">
                                         <div class="form-group">
