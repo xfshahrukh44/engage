@@ -222,8 +222,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                </div> -->
+                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -440,10 +440,10 @@
                                                 <div class="error-message" id="time_to_call_error"></div>
                                             </div>
                                         </div>
+
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
-
                                         {{-- reCAPTCHA --}}
                                         {!! NoCaptcha::display() !!}
 
@@ -662,109 +662,29 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-            // $('.anchor_start_my_quote').on('click', function(e) {
-            //     e.preventDefault();
 
-            //     // Captcha check
-            //     let captchaResponse = grecaptcha.getResponse();
-            //     if (captchaResponse.length === 0) {
-            //         alert("Please verify that you are not a robot.");
-            //         return false;
-            //     }
+            document.getElementById("quotationForm").addEventListener("submit", function(e) {
+    let firstName = document.getElementById('first_name').value.trim();
+    let lastName = document.getElementById('last_name').value.trim();
+    let type = document.getElementById('type').value;
+    let timeToCall = document.getElementById('time_to_call').value;
 
-            //     // Zip Code check
-            //     let input = $('.input_zipcode').val().trim();
+    if (!firstName || !lastName || !type || !timeToCall) {
+        e.preventDefault();
+        alert("Please fill all required fields.");
+        return false;
+    }
 
-            //     if (!input) {
-            //         alert("Please enter a Zip Code.");
-            //         return false;
-            //     }
+    let response = grecaptcha.getResponse();
+    if (response.length === 0) {
+        e.preventDefault();
+        alert("Please verify that you are not a robot.");
+        return false;
+    }
 
-            //     $.ajax({
-            //         url: 'https://api.zippopotam.us/us/' + input,
-            //         method: 'GET',
-            //         success: (data) => {
-            //             $('.input_zipcode').val('');
-            //             alert('Valid Zip Code ✅');
-            //         },
-            //         error: (e) => {
-            //             $('.input_zipcode').val('');
-            //             alert('Too many Invalid Entries ❌');
-            //         },
-            //     });
-            // });
+    // Form will submit normally if everything is ok
+});
 
-            //  $('.anchor_start_my_quote').on('click', function(e) {
-            //     let input = $('.input_zipcode').val();
-            //     // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
-            //     // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
-
-            //     $('.anchor_start_my_quote').on('click', function(e) {
-            //         e.preventDefault();
-
-            //         // Check captcha
-            //         let captchaResponse = grecaptcha.getResponse();
-            //         if (captchaResponse.length === 0) {
-            //             alert("Please verify that you are not a robot.");
-            //             return false;
-            //         }
-
-            //         // Get Zip Code
-            //         let input = $('.input_zipcode').val();
-
-            //         if (!input) {
-            //             alert("Please enter a Zip Code.");
-            //             return false;
-            //         }
-
-            //         $.ajax({
-            //             url: 'https://api.zippopotam.us/us/' + input,
-            //             method: 'GET',
-            //             success: (data) => {
-            //                 $('.input_zipcode').val('');
-            //                 alert(
-            //                     'Valid Zip Code, but demo response: Too many Invalid Entries.'
-            //                     );
-            //                 return false;
-            //             },
-            //             error: (e) => {
-            //                 $('.input_zipcode').val('');
-            //                 alert('Too many Invalid Entries.');
-            //                 return false;
-            //             },
-            //         });
-            //     });
-
-
-
-            <script>
-    $(document).ready(function() {
-        $('.anchor_start_my_quote').on('click', function(e) {
-            e.preventDefault(); // Form ya link ko turant submit hone se rok do
-
-            let zip = $('.input_zipcode').val().trim();
-
-            if (!zip) {
-                alert("Please enter a Zip Code.");
-                return false;
-            }
-
-            // Zip Code validation via API
-            $.ajax({
-                url: 'https://api.zippopotam.us/us/' + zip,
-                method: 'GET',
-                success: function(data) {
-                    alert("Valid Zip Code ✅");
-                    $('.input_zipcode').val(''); // Clear input if you want
-                },
-                error: function(err) {
-                    alert("Invalid Zip Code ❌");
-                    $('.input_zipcode').val(''); // Clear input
-                }
-            });
-        });
-    });
-</script>
 
 
     </script>
