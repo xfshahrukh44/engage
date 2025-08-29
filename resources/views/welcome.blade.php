@@ -673,50 +673,46 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
-    {{-- <script type="text/javascript">
-        // Zip Code Validation
-        function validateZipCode(section) {
-            let zipCode;
-            if (section === 'banner') {
-                zipCode = document.getElementById('zip_code_banner').value;
-            } else {
-                zipCode = document.getElementById('zip_code_shop').value;
-            }
-
-            if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
-                alert('Please enter a valid zip code.');
-                return false;
-            }
-
-            window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
+<script type="text/javascript">
+    // Zip Code Validation
+    function validateZipCode(section) {
+        let zipCode;
+        if (section === 'banner') {
+            zipCode = document.getElementById('zip_code_banner').value;
+        } else {
+            zipCode = document.getElementById('zip_code_shop').value;
         }
 
-        // Form Submission with Captcha
-        // document.getElementById("quotationForm").addEventListener("submit", function(e) {
-        //     let response = grecaptcha.getResponse();
-        //     if (response.length === 0) {
-        //         e.preventDefault();
-        //         alert("Please complete the captcha verification.");
-        //         return false;
-        //     }
-        // });
-    </script> --}}
+        if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
+            alert('Please enter a valid zip code.');
+            return false;
+        }
+
+        window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
+    }
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const quotationForm = document.getElementById("quotationForm");
     const captchaError = document.getElementById("captcha_error");
 
     quotationForm.addEventListener("submit", function (e) {
+        // Get captcha response
         const response = grecaptcha.getResponse();
 
-        if (!response) {
+        // If captcha is not verified
+        if (!response || response.length === 0) {
             e.preventDefault();
             captchaError.innerText = "Please verify the captcha.";
             captchaError.style.display = "block";
-        } else {
-            captchaError.innerText = "";
-            captchaError.style.display = "none";
+            return false;
         }
+
+        // ✅ If captcha verified -> allow form to submit
+        captchaError.innerText = "";
+        captchaError.style.display = "none";
+        return true;
     });
 });
 </script>
