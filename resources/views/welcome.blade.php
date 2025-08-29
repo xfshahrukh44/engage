@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                    </div> -->
+                                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                        </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -374,13 +374,14 @@
                 {{-- </div> --}}
                 <div class="col-lg-12">
                     <div class="code text-center">
-        <input type="text" placeholder="Zip Code" class="input_zipcode" id="zip_code_shop">
-        <div class="captcha-container" id="zipCaptchaContainerShop" style="display:none; margin:10px 0;">
-            {!! NoCaptcha::display() !!}
-            <div class="error-message" id="zip_captcha_error_shop"></div>
-        </div>
-        <a href="#" class="btn btn-custom anchor_start_my_quote" id="zipSubmitShop">Start My Quote</a>
-    </div>
+                        <input type="text" placeholder="Zip Code" class="input_zipcode" id="zip_code_shop">
+                        <div class="captcha-container" id="zipCaptchaContainerShop" style="display:none; margin:10px 0;">
+                            {!! NoCaptcha::display() !!}
+                            <div class="error-message" id="zip_captcha_error_shop"></div>
+                        </div>
+                        <a href="#" class="btn btn-custom anchor_start_my_quote" id="zipSubmitShop">Start My
+                            Quote</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -456,15 +457,19 @@
                                             </div>
                                         </div>
 
+                                        <!-- CAPTCHA SECTION - ADDED BEFORE SUBMIT BUTTON -->
+                                        <div class="form-group captcha-container"
+                                            style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+                                            {!! NoCaptcha::display() !!}
+                                            <div class="error-message" id="captcha_error"
+                                                style="color: red; margin-top: 10px;"></div>
+                                        </div>
+
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
-                                        {{-- reCAPTCHA --}}
-                                        {!! NoCaptcha::display() !!}
-
                                     </form>
 
-                                    {{-- Load reCAPTCHA script --}}
                                     {!! NoCaptcha::renderJs() !!}
                                 </div>
                             </div>
@@ -700,94 +705,6 @@
             if (response.length === 0) {
                 e.preventDefault();
                 alert("Please complete the captcha verification.");
-                return false;
-            }
-        });
-    </script>
-    //
-    <script>
-        //     document.getElementById('quotationForm').addEventListener('submit', function(e) {
-        //         e.preventDefault();
-
-        //         // Reset error messages
-        //         const errorElements = document.querySelectorAll('.error-message');
-        //         errorElements.forEach(element => {
-        //             element.textContent = '';
-        //         });
-
-        //         // Basic validation
-        //         let isValid = true;
-        //         const firstName = document.getElementById('first_name').value.trim();
-        //         const lastName = document.getElementById('last_name').value.trim();
-        //         const email = document.getElementById('email').value.trim();
-        //         const phone = document.getElementById('phone').value.trim();
-        //         const type = document.getElementById('type').value;
-        //         const timeToCall = document.getElementById('time_to_call').value;
-
-        //         if (!firstName) {
-        //             document.getElementById('first_name_error').textContent = 'First name is required';
-        //             isValid = false;
-        //         }
-
-        //         if (!lastName) {
-        //             document.getElementById('last_name_error').textContent = 'Last name is required';
-        //             isValid = false;
-        //         }
-
-        //         if (!email && !phone) {
-        //             document.getElementById('email_error').textContent = 'Email or phone number is required';
-        //             document.getElementById('phone_error').textContent = 'Email or phone number is required';
-        //             isValid = false;
-        //         }
-
-        //         if (email && !isValidEmail(email)) {
-        //             document.getElementById('email_error').textContent = 'Please enter a valid email address';
-        //             isValid = false;
-        //         }
-
-        //         if (!type) {
-        //             document.getElementById('type_error').textContent = 'Please select an insurance type';
-        //             isValid = false;
-        //         }
-
-        //         if (!timeToCall) {
-        //             document.getElementById('time_to_call_error').textContent = 'Please select a best time to call';
-        //             isValid = false;
-        //         }
-
-        //         if (!isValid) {
-        //             showMessage('Please correct the errors above.', 'danger');
-        //             return;
-        //         }
-
-        //         // If validation passes, show success message (in a real scenario, this would submit to the server)
-        //         showMessage('Too many Invalid Entries', 'danger');
-
-        //         // In a real application, you would submit the form to the server here
-        //         // this.submit();
-        //     });
-
-        //     function isValidEmail(email) {
-        //         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        //         return re.test(email);
-        //     }
-
-        //     function showMessage(message, type) {
-        //         const messageDiv = document.getElementById('formMessages');
-        //         messageDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-
-        //         // Scroll to message
-        //         messageDiv.scrollIntoView({ behavior: 'smooth' });
-        //     }
-        // 
-    </script>
-
-    <script>
-        document.getElementById("quotationForm").addEventListener("submit", function(e) {
-            let response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                e.preventDefault();
-                alert("Please verify that you are not a robot.");
                 return false;
             }
         });
