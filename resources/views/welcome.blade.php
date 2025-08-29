@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                                </div> -->
+                                                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                                    </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -449,15 +449,14 @@
                                         </div>
 
                                         {{-- reCAPTCHA --}}
-                                        {!! NoCaptcha::display() !!}
+                                        <div id="recaptcha-quotation">
+                                            {!! NoCaptcha::display() !!}
+                                        </div>
 
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
                                     </form>
-
-                                    {{-- Load reCAPTCHA script --}}
-                                    {!! NoCaptcha::renderJs() !!}
 
 
                                 </div>
@@ -690,21 +689,44 @@
     </script>
 
 
+{{-- JS --}}
+{!! NoCaptcha::renderJs() !!}
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("quotation").addEventListener("submit", function(e) {
-        // Agar grecaptcha object load nahi hua
-        if (typeof grecaptcha === "undefined") {
-            e.preventDefault();
-            alert("Captcha failed to load. Please refresh and try again.");
-            return;
-        }
+    var quotationCaptcha;
 
-        // Agar captcha verify nahi hua
-        if (grecaptcha.getResponse().length === 0) {
-            e.preventDefault();
-            alert("Please verify you are not a robot");
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+        // reCAPTCHA render hook
+        setTimeout(function () {
+            // Find captcha widget
+            var captchaEl = document.querySelector("#recaptcha-quotation .g-recaptcha");
+            if (captchaEl) {
+                quotationCaptcha = captchaEl.getAttribute("data-widget-id");
+            }
+        }, 1000);
+
+        // Form submit check
+        document.getElementById("quotation").addEventListener("submit", function (e) {
+            if (typeof grecaptcha === "undefined") {
+                e.preventDefault();
+                alert("Captcha failed to load. Please refresh and try again.");
+                return;
+            }
+
+            // Agar widget id assign ho gayi hai to uska response check karo
+            var response = quotationCaptcha ? grecaptcha.getResponse(quotationCaptcha) : grecaptcha.getResponse();
+
+            if (response.length === 0) {
+                e.preventDefault();
+                alert("Please verify you are not a robot");
+            }
+        });
     });
+</script>
+<script>
+document.getElementById("quotation").addEventListener("submit", function(e) {
+    if (grecaptcha.getResponse().length === 0) {
+        e.preventDefault();
+        alert("Please verify you are not a robot");
+    }
 });
 </script>
