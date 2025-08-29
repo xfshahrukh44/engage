@@ -264,36 +264,7 @@
                 inquiryError.style.display = "none";
             });
 
-            // Quotation Form (if exists on this page)
-            const quotationForm = document.getElementById("quotationForm");
-            if (quotationForm) {
-                const quotationError = document.createElement("div");
-                quotationError.classList.add("error-box");
-                quotationError.style.display = "none";
-                quotationError.innerText = "Too many Invalid Entries";
-                quotationForm.prepend(quotationError);
 
-                quotationForm.addEventListener("submit", function(e) {
-                    let response = grecaptcha.getResponse();
-                    if (response.length === 0) {
-                        e.preventDefault();
-
-                        // Show alert
-                        alert("Please complete the captcha verification first.");
-
-                        document.getElementById('captcha_error').textContent =
-                            'Please complete the captcha verification.';
-                        quotationError.style.display = "block";
-                        window.scrollTo({
-                            top: quotationForm.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        return false;
-                    }
-
-                    quotationError.style.display = "none";
-                });
-            }
         });
     </script>
 @endsection
