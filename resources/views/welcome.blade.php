@@ -386,8 +386,7 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                         <!-- Success/error messages will appear here -->
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
-                                        {{-- Load reCAPTCHA script --}}
-                                    {!! NoCaptcha::renderJs() !!}
+                                        
                                 <form id="quotationForm" method="POST">
                                     @csrf
                                     <div class="main-form">
@@ -438,9 +437,11 @@ $banners = \Illuminate\Support\Facades\DB::table('banners')->get();
                                         <button type="submit" class="btn btn-custom">Submit Request</button>
                                     </div>
 
+                               {{-- Show reCAPTCHA --}}
+                                {!! NoCaptcha::display() !!}
                                 </form>
-                                {{-- Invisible reCAPTCHA button --}}
-                                {!! NoCaptcha::displaySubmit('myForm', 'Submit', ['data-size' => 'invisible']) !!}
+                                {{-- Load reCAPTCHA script --}}
+                                {!! NoCaptcha::renderJs() !!}
                             </div>
                         </div>
                         <div class="col-lg-6">
