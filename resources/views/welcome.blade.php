@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                            </div> -->
+                                                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                                </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -689,12 +689,11 @@
         }
     </script>
 
-<script>
-    document.getElementById("quotation").addEventListener("submit", function(e) {
-    if (grecaptcha.getResponse().length === 0) {
-        e.preventDefault();
-        alert("Please verify you are not a robot");
-    }
-});
-
-</script>
+    <script>
+        document.getElementById("quotation").addEventListener("submit", function(e) {
+            if (grecaptcha.getResponse().length === 0) {
+                e.preventDefault();
+                alert("Please verify you are not a robot");
+            }
+        });
+    </script>

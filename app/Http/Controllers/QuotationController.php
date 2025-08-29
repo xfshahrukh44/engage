@@ -13,29 +13,28 @@ class QuotationController extends Controller
     public function store(Request $request)
     {
         try {
-           $request->validate([
-    'first_name' => 'required|string|max:255',
-    'last_name'  => 'required|string|max:255',
-    'email'      => 'required|email',
-    'type'       => 'required',
-    'phone'      => 'required',
-    'time_to_call' => 'required',
-    'g-recaptcha-response' => 'required|captcha', // 👈 Important
-]);
-    
-            if ($validator->fails()) {
-                return redirect()->back()->with('error', $validator->errors()->first());
-            }
-    
-            $quotation = Quotation::create($request->all());
-    
-            $quotation->is_self = $request->has('is_self') && $request->get('is_self') == 'on' ? 'Yes' : 'No';
-            $quotation->is_spouse = $request->has('is_spouse') && $request->get('is_spouse') == 'on' ? 'Yes' : 'No';
-            $quotation->is_children = $request->has('is_children') && $request->get('is_children') == 'on' ? 'Yes' : 'No';
+            // Validate inputs (reCAPTCHA included)
+            $validated = $request->validate([
+                'first_name' => 'required|string|max:255',
+                'last_name'  => 'required|string|max:255',
+                'email'      => 'required|email',
+                'type'       => 'required',
+                'phone'      => 'required',
+                'time_to_call' => 'required',
+                'g-recaptcha-response' => 'required|captcha', // 👈 Important
+            ]);
+
+            // Save quotation
+            $quotation = Quotation::create($validated);
+
+            $quotation->is_self = $request->boolean('is_self') ? 'Yes' : 'No';
+            $quotation->is_spouse = $request->boolean('is_spouse') ? 'Yes' : 'No';
+            $quotation->is_children = $request->boolean('is_children') ? 'Yes' : 'No';
             $quotation->marital_status = $request->get('marital_status');
             $quotation->children = $request->get('children');
             $quotation->save();
-    
+
+            // Send mail
             $html = '';
             $html .= "First name: " . $quotation->first_name . "<br>";
             $html .= "Last name: " . $quotation->last_name . "<br>";
@@ -54,13 +53,12 @@ class QuotationController extends Controller
             $html .= "For spouse: " . $quotation->is_spouse . "<br>";
             $html .= "For children: " . $quotation->is_children . "<br>";
             $html .= "Children: " . $quotation->children . "<br>";
-    
-           Mail::html($html, function ($message) {
+
+            Mail::html($html, function ($message) {
                 $message->to('info@engagehealthinsurance.org')
                     ->subject('Engage | Get a Quote');
             });
 
-    
             return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
@@ -68,37 +66,38 @@ class QuotationController extends Controller
     }
 
 
-    public function inquiryStore (Request $request)
+
+    public function inquiryStore(Request $request)
     {
         $inquiry = Inquiry::create($request->all());
 
         $html = '';
-        $html .= "First name: ".$inquiry->fname."<br>";
-        $html .= "Last name: ".$inquiry->lname."<br>";
-        $html .= "Email: ".$inquiry->email."<br>";
-        $html .= "Notes: ".$inquiry->notes."<br>";
-        $html .= "Phone: ".$inquiry->phone."<br>";
-        $html .= "Time: ".$inquiry->time."<br>";
-        $html .= "Date: ".$inquiry->date."<br>";
-        $html .= "Classes: ".$inquiry->classes."<br>";
-        $html .= "Form name: ".$inquiry->form_name."<br>";
-        $html .= "Address: ".$inquiry->address."<br>";
-        $html .= "City: ".$inquiry->city."<br>";
-        $html .= "Zipcode: ".$inquiry->zipcode."<br>";
-        $html .= "Type of insurance: ".$inquiry->type_of_insurance."<br>";
-        $html .= "Suite: ".$inquiry->suite."<br>";
+        $html .= "First name: " . $inquiry->fname . "<br>";
+        $html .= "Last name: " . $inquiry->lname . "<br>";
+        $html .= "Email: " . $inquiry->email . "<br>";
+        $html .= "Notes: " . $inquiry->notes . "<br>";
+        $html .= "Phone: " . $inquiry->phone . "<br>";
+        $html .= "Time: " . $inquiry->time . "<br>";
+        $html .= "Date: " . $inquiry->date . "<br>";
+        $html .= "Classes: " . $inquiry->classes . "<br>";
+        $html .= "Form name: " . $inquiry->form_name . "<br>";
+        $html .= "Address: " . $inquiry->address . "<br>";
+        $html .= "City: " . $inquiry->city . "<br>";
+        $html .= "Zipcode: " . $inquiry->zipcode . "<br>";
+        $html .= "Type of insurance: " . $inquiry->type_of_insurance . "<br>";
+        $html .= "Suite: " . $inquiry->suite . "<br>";
 
         // Mail::send([], [], function ($message) use ($html) {
         //     $message->to('info@engagehealthinsurance.org')
         //         ->subject('Engage | Contact inquiry')
         //         ->setBody($html, 'text/html');
         // });
-        
+
         Mail::html($html, function ($message) use ($inquiry) {
-    $message->to('info@engagehealthinsurance.org')
-            ->subject('Engage | Contact inquiry')
-            ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
-});
+            $message->to('info@engagehealthinsurance.org')
+                ->subject('Engage | Contact inquiry')
+                ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
+        });
 
         return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
     }
