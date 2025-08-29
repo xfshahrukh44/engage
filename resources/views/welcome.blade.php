@@ -113,10 +113,10 @@
                                                 <input type="text" placeholder="Zip Code" class="input_zipcode"
                                                     id="zip_code_banner">
 
-                                                <!-- CAPTCHA for Zip Code Submission -->
+                                                <!-- CAPTCHA Container - Initially hidden -->
                                                 <div class="captcha-container" id="zipCaptchaContainer"
                                                     style="display: none; margin: 10px 0;">
-                                                    {!! NoCaptcha::display() !!}
+                                                    <div id="zip-captcha-element"></div>
                                                     <div class="error-message" id="zip_captcha_error"></div>
                                                 </div>
 
@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                    </div> -->
+                                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                            </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -673,64 +673,46 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-        // Function to validate zip code and show captcha
 function validateZipCode(section) {
-    let zipInput;
-    if (section === 'banner') {
-        zipInput = document.getElementById('zip_code_banner');
-    } else {
-        zipInput = document.getElementById('zip_code_shop');
-    }
-
+    let zipInput = section === 'banner' ? document.getElementById('zip_code_banner') : document.getElementById('zip_code_shop');
     let zipCode = zipInput.value.trim();
 
+    // Validate zip code
     if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
-        alert('Please enter a valid zip code.');
+        alert('Please enter a valid 5-digit zip code.');
         return false;
     }
 
-    // Show the captcha container dynamically
-    let captchaContainer = document.getElementById('zipCaptchaContainer');
-    if (captchaContainer) {
-        captchaContainer.style.display = 'block';
+    // Hide the original button to prevent double clicks
+    if(section === 'banner'){
+        document.querySelector('.anchor_start_my_quote').style.display = 'none';
     }
 
-    // Wait for user to complete captcha
-    let submitBtn = document.createElement('button');
-    submitBtn.textContent = "Verify and Continue";
-    submitBtn.className = 'btn btn-custom mt-2';
-    submitBtn.type = 'button';
-    zipInput.parentNode.appendChild(submitBtn);
+    // Render captcha
+    grecaptcha.render('zip-captcha-element', {
+        'sitekey': '{{ config("services.recaptcha.site_key") }}',
+        'callback': function(token) {
+            // Auto-submit after successful captcha
+            let form = document.createElement('form');
+            form.method = 'GET';
+            form.action = '{{ route("front.form") }}';
 
-    submitBtn.addEventListener('click', function() {
-        let response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            alert("Please verify that you are not a robot.");
-            return false;
+            let input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'zip';
+            input.value = zipCode;
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
         }
-
-        // If captcha verified, redirect with zip code
-        window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
     });
 
-    // Disable original Start My Quote button to avoid double click
-    let originalBtn = zipInput.parentNode.querySelector('.anchor_start_my_quote');
-    if (originalBtn) originalBtn.disabled = true;
+    // Show captcha container
+    document.getElementById('zipCaptchaContainer').style.display = 'block';
+    return false;
 }
-
-// Form submission validation with reCAPTCHA
-document.getElementById("quotationForm").addEventListener("submit", function(e) {
-    let response = grecaptcha.getResponse();
-    if (response.length === 0) {
-        e.preventDefault();
-        alert("Please complete the captcha verification.");
-        return false;
-    }
-
-    // You can add more validation here if needed
-});
     </script>
-    //
     <script>
         //     document.getElementById('quotationForm').addEventListener('submit', function(e) {
         //         e.preventDefault();
