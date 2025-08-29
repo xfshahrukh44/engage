@@ -448,12 +448,12 @@
                                             </div>
                                         </div>
 
-                                        {{-- reCAPTCHA --}}
-                                        {!! NoCaptcha::display() !!}
-
+                                        
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
+                                        {{-- reCAPTCHA --}}
+                                        {!! NoCaptcha::display() !!}
                                     </form>
 
                                     {{-- Load reCAPTCHA script --}}
