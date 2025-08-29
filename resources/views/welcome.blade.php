@@ -114,13 +114,6 @@
                                                 <a href="#" class="btn btn-custom anchor_start_my_quote">Start My
                                                     Quote</a>
                                             </div>
-
-                                            {{-- reCAPTCHA --}}
-                                            {!! NoCaptcha::display() !!}
-
-                                            {{-- reCAPTCHA Script --}}
-                                            {!! NoCaptcha::renderJs() !!}
-
                                         </div>
                                     </div>
                                 </div>
@@ -373,12 +366,6 @@
                         <input type="text" placeholder="Zip Code" class="input_zipcode">
                         <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
                     </div>
-
-                    {{-- reCAPTCHA --}}
-                    {!! NoCaptcha::display() !!}
-
-                    {{-- reCAPTCHA Script --}}
-                    {!! NoCaptcha::renderJs() !!}
                 </div>
             </div>
         </div>
@@ -675,37 +662,37 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-            $('.anchor_start_my_quote').on('click', function(e) {
-                e.preventDefault();
+            // $('.anchor_start_my_quote').on('click', function(e) {
+            //     e.preventDefault();
 
-                // Captcha check
-                let captchaResponse = grecaptcha.getResponse();
-                if (captchaResponse.length === 0) {
-                    alert("Please verify that you are not a robot.");
-                    return false;
-                }
+            //     // Captcha check
+            //     let captchaResponse = grecaptcha.getResponse();
+            //     if (captchaResponse.length === 0) {
+            //         alert("Please verify that you are not a robot.");
+            //         return false;
+            //     }
 
-                // Zip Code check
-                let input = $('.input_zipcode').val().trim();
+            //     // Zip Code check
+            //     let input = $('.input_zipcode').val().trim();
 
-                if (!input) {
-                    alert("Please enter a Zip Code.");
-                    return false;
-                }
+            //     if (!input) {
+            //         alert("Please enter a Zip Code.");
+            //         return false;
+            //     }
 
-                $.ajax({
-                    url: 'https://api.zippopotam.us/us/' + input,
-                    method: 'GET',
-                    success: (data) => {
-                        $('.input_zipcode').val('');
-                        alert('Valid Zip Code ✅');
-                    },
-                    error: (e) => {
-                        $('.input_zipcode').val('');
-                        alert('Too many Invalid Entries ❌');
-                    },
-                });
-            });
+            //     $.ajax({
+            //         url: 'https://api.zippopotam.us/us/' + input,
+            //         method: 'GET',
+            //         success: (data) => {
+            //             $('.input_zipcode').val('');
+            //             alert('Valid Zip Code ✅');
+            //         },
+            //         error: (e) => {
+            //             $('.input_zipcode').val('');
+            //             alert('Too many Invalid Entries ❌');
+            //         },
+            //     });
+            // });
 
             //  $('.anchor_start_my_quote').on('click', function(e) {
             //     let input = $('.input_zipcode').val();
@@ -747,6 +734,38 @@
             //             },
             //         });
             //     });
+
+
+
+            <script>
+    $(document).ready(function() {
+        $('.anchor_start_my_quote').on('click', function(e) {
+            e.preventDefault(); // Form ya link ko turant submit hone se rok do
+
+            let zip = $('.input_zipcode').val().trim();
+
+            if (!zip) {
+                alert("Please enter a Zip Code.");
+                return false;
+            }
+
+            // Zip Code validation via API
+            $.ajax({
+                url: 'https://api.zippopotam.us/us/' + zip,
+                method: 'GET',
+                success: function(data) {
+                    alert("Valid Zip Code ✅");
+                    $('.input_zipcode').val(''); // Clear input if you want
+                },
+                error: function(err) {
+                    alert("Invalid Zip Code ❌");
+                    $('.input_zipcode').val(''); // Clear input
+                }
+            });
+        });
+    });
+</script>
+
 
     </script>
     <script>
