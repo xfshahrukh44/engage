@@ -405,54 +405,62 @@
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
 
-                                        <form id="quotation" action="#" method="POST">
-        @csrf
-        <div class="main-form">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="First Name *" name="first_name" required>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Last Name *" name="last_name" required>
-            </div>
-        </div>
+                                    <form id="quotation" action="{{ route('front.save-quotation') }}"
+                                        method="POST">
+                                        @csrf
+                                        <div class="main-form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name *"
+                                                    name="first_name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name *"
+                                                    name="last_name" required>
+                                            </div>
+                                        </div>
 
-        <div class="main-form">
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email *" name="email" required>
-            </div>
-            <div class="form-group">
-                <select class="form-control" name="type" required>
-                    <option value="">Select insurance type *</option>
-                    <option value="Individual Health">Individual Health</option>
-                    <option value="Family Health">Dental/Vision</option>
-                </select>
-            </div>
-        </div>
+                                        <div class="main-form">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email *"
+                                                    name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" name="type" required>
+                                                    <option value="">Select insurance type *</option>
+                                                    <option value="Individual Health">Individual Health</option>
+                                                    <option value="Family Health">Dental/Vision</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-        <div class="main-form">
-            <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Phone Number *" name="phone" required>
-            </div>
-            <div class="form-group">
-                <select class="form-control" name="time_to_call" required>
-                    <option value="">Best Time To Call *</option>
-                    <option value="8am – 10am">8am – 10am</option>
-                    <option value="10am – 12pm">10am – 12pm</option>
-                    <option value="12pm – 3pm">12pm – 3pm</option>
-                    <option value="3pm – 6pm">3pm – 6pm</option>
-                </select>
-            </div>
-        </div>
+                                        <div class="main-form">
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" placeholder="Phone Number *"
+                                                    name="phone" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" name="time_to_call" required>
+                                                    <option value="">Best Time To Call *</option>
+                                                    <option value="8am – 10am">8am – 10am</option>
+                                                    <option value="10am – 12pm">10am – 12pm</option>
+                                                    <option value="12pm – 3pm">12pm – 3pm</option>
+                                                    <option value="3pm – 6pm">3pm – 6pm</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-        <!-- reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="your-site-key"></div>
-        
-        <div id="captcha_error" class="error-message">Please verify the captcha.</div>
-        
-        <div class="submit-btn">
-            <button type="submit" class="btn btn-custom">Submit Request</button>
-        </div>
-    </form>
+                                        <div class="submit-btn">
+                                            <button type="submit" class="btn btn-custom">Submit Request</button>
+                                        </div>
+
+                                        
+                        {{-- reCAPTCHA --}}
+                        {!! NoCaptcha::display() !!}
+
+                    </form>
+
+                    {{-- Load reCAPTCHA script --}}
+                    {!! NoCaptcha::renderJs() !!}
 
 
                                 </div>
