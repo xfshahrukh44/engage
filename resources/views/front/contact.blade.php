@@ -50,11 +50,11 @@
         <div class="container">
             <div class="row">
                 <!-- <div class="col-lg-4">
-                                         <div class="find-us">
-                                              <h4>Find us</h4>
+                                             <div class="find-us">
+                                                  <h4>Find us</h4>
 
-                                         </div>
-                                    </div> -->
+                                             </div>
+                                        </div> -->
 
                 <div class="col-lg-6">
                     <div class="find-us">
@@ -233,55 +233,67 @@
         });
     </script> --}}
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Contact / Inquiry Form
-    const inquiryForm = document.getElementById("inquiryForm");
-    const inquiryError = document.getElementById("errorMessage");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Contact / Inquiry Form
+            const inquiryForm = document.getElementById("inquiryForm");
+            const inquiryError = document.getElementById("errorMessage");
 
-    inquiryForm.addEventListener("submit", function(e) {
-        // CAPTCHA validation
-        let response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            e.preventDefault();
-            document.getElementById('captcha_error').textContent = 'Please complete the captcha verification.';
-            inquiryError.style.display = "block";
-            window.scrollTo({
-                top: inquiryForm.offsetTop - 100,
-                behavior: 'smooth'
+            inquiryForm.addEventListener("submit", function(e) {
+                // CAPTCHA validation
+                let response = grecaptcha.getResponse();
+                if (response.length === 0) {
+                    e.preventDefault();
+
+                    // Show alert
+                    alert("Please complete the captcha verification first.");
+
+                    // Show error message
+                    document.getElementById('captcha_error').textContent =
+                        'Please complete the captcha verification.';
+                    inquiryError.style.display = "block";
+
+                    // Scroll to captcha
+                    document.querySelector('.captcha-container').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    return false;
+                }
+
+                // If captcha is verified, allow form submission
+                inquiryError.style.display = "none";
             });
-            return false;
-        }
 
-        // If captcha is verified, allow form submission
-        // Remove e.preventDefault() to allow form to submit
-        inquiryError.style.display = "none";
-    });
+            // Quotation Form (if exists on this page)
+            const quotationForm = document.getElementById("quotationForm");
+            if (quotationForm) {
+                const quotationError = document.createElement("div");
+                quotationError.classList.add("error-box");
+                quotationError.style.display = "none";
+                quotationError.innerText = "Too many Invalid Entries";
+                quotationForm.prepend(quotationError);
 
-    // Quotation Form (if exists on this page)
-    const quotationForm = document.getElementById("quotationForm");
-    if (quotationForm) {
-        const quotationError = document.createElement("div");
-        quotationError.classList.add("error-box");
-        quotationError.style.display = "none";
-        quotationError.innerText = "Too many Invalid Entries";
-        quotationForm.prepend(quotationError);
+                quotationForm.addEventListener("submit", function(e) {
+                    let response = grecaptcha.getResponse();
+                    if (response.length === 0) {
+                        e.preventDefault();
 
-        quotationForm.addEventListener("submit", function(e) {
-            let response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                e.preventDefault();
-                document.getElementById('captcha_error').textContent = 'Please complete the captcha verification.';
-                quotationError.style.display = "block";
-                window.scrollTo({
-                    top: quotationForm.offsetTop - 100,
-                    behavior: 'smooth'
+                        // Show alert
+                        alert("Please complete the captcha verification first.");
+
+                        document.getElementById('captcha_error').textContent =
+                            'Please complete the captcha verification.';
+                        quotationError.style.display = "block";
+                        window.scrollTo({
+                            top: quotationForm.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        return false;
+                    }
+
+                    quotationError.style.display = "none";
                 });
-                return false;
             }
-            
-            quotationError.style.display = "none";
         });
-    }
-});
-</script>
+    </script>
 @endsection
