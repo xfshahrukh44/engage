@@ -405,7 +405,7 @@
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
 
-                                    <form id="quotationForm" action="{{ route('front.save-quotation') }}"
+                                    <form id="quotation" action="{{ route('front.save-quotation') }}"
                                         method="POST">
                                         @csrf
                                         <div class="main-form">
@@ -694,10 +694,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const quotationForm = document.getElementById("quotationForm");
+    const quotation = document.getElementById("quotation");
     const captchaError = document.getElementById("captcha_error");
 
-    quotationForm.addEventListener("submit", function (e) {
+    quotation.addEventListener("submit", function (e) {
         // Get captcha response
         const response = grecaptcha.getResponse();
 
