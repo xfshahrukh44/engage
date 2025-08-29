@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                            </div> -->
+                                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -411,49 +411,41 @@
                                         <div class="main-form">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="First Name *"
-                                                    name="first_name" id="first_name" required>
-                                                <div class="error-message" id="first_name_error"></div>
+                                                    name="first_name" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Last Name *"
-                                                    name="last_name" id="last_name" required>
-                                                <div class="error-message" id="last_name_error"></div>
+                                                    name="last_name" required>
                                             </div>
                                         </div>
 
                                         <div class="main-form">
                                             <div class="form-group">
                                                 <input type="email" class="form-control" placeholder="Email *"
-                                                    name="email" id="email">
-                                                <div class="error-message" id="email_error"></div>
+                                                    name="email" required>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" name="type" id="type" required>
+                                                <select class="form-control" name="type" required>
                                                     <option value="">Select insurance type *</option>
                                                     <option value="Individual Health">Individual Health</option>
-                                                    <option value="Family Health">Family Health</option>
-                                                    <option value="Dental/Vision">Dental/Vision</option>
+                                                    <option value="Family Health">Dental/Vision</option>
                                                 </select>
-                                                <div class="error-message" id="type_error"></div>
                                             </div>
                                         </div>
 
                                         <div class="main-form">
                                             <div class="form-group">
                                                 <input type="tel" class="form-control" placeholder="Phone Number *"
-                                                    name="phone" id="phone">
-                                                <div class="error-message" id="phone_error"></div>
+                                                    name="phone" required>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" name="time_to_call" id="time_to_call"
-                                                    required>
+                                                <select class="form-control" name="time_to_call" required>
                                                     <option value="">Best Time To Call *</option>
                                                     <option value="8am – 10am">8am – 10am</option>
                                                     <option value="10am – 12pm">10am – 12pm</option>
                                                     <option value="12pm – 3pm">12pm – 3pm</option>
                                                     <option value="3pm – 6pm">3pm – 6pm</option>
                                                 </select>
-                                                <div class="error-message" id="time_to_call_error"></div>
                                             </div>
                                         </div>
 
@@ -461,16 +453,15 @@
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
 
-                                        <!-- CAPTCHA moved under the button -->
-                                        <div class="form-group captcha-container"
-                                            style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+                                        <!-- Captcha (ONLY ONE) -->
+                                        <div class="form-group" style="margin:20px 0;">
                                             {!! NoCaptcha::display() !!}
-                                            <div class="error-message" id="captcha_error"
-                                                style="color: red; margin-top: 10px;"></div>
+                                            <div class="error-message" id="captcha_error" style="color:red;"></div>
                                         </div>
                                     </form>
 
                                     {!! NoCaptcha::renderJs() !!}
+
 
                                 </div>
                             </div>
@@ -718,7 +709,7 @@ document.addEventListener("DOMContentLoaded", function () {
     quotationForm.addEventListener("submit", function (e) {
         const response = grecaptcha.getResponse();
 
-        if (response.length === 0) {
+        if (!response) {
             e.preventDefault();
             captchaError.innerText = "Please verify the captcha.";
             captchaError.style.display = "block";
