@@ -374,9 +374,13 @@
                 {{-- </div> --}}
                 <div class="col-lg-12">
                     <div class="code text-center">
-                        <input type="text" placeholder="Zip Code" class="input_zipcode">
-                        <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
-                    </div>
+        <input type="text" placeholder="Zip Code" class="input_zipcode" id="zip_code_shop">
+        <div class="captcha-container" id="zipCaptchaContainerShop" style="display:none; margin:10px 0;">
+            {!! NoCaptcha::display() !!}
+            <div class="error-message" id="zip_captcha_error_shop"></div>
+        </div>
+        <a href="#" class="btn btn-custom anchor_start_my_quote" id="zipSubmitShop">Start My Quote</a>
+    </div>
                 </div>
             </div>
         </div>

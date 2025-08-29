@@ -91,10 +91,11 @@ class QuotationController extends Controller
         //         ->setBody($html, 'text/html');
         // });
         
-        Mail::html($html, function ($message) {
-            $message->to('info@engagehealthinsurance.org')
-                ->subject('Engage | Contact inquiry');
-        });
+        Mail::html($html, function ($message) use ($inquiry) {
+    $message->to('info@engagehealthinsurance.org')
+            ->subject('Engage | Contact inquiry')
+            ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
+});
 
         return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
     }
