@@ -453,14 +453,14 @@
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
 
-                                        <!-- Captcha (ONLY ONE) -->
-                                        <div class="form-group" style="margin:20px 0;">
-                                            {!! NoCaptcha::display() !!}
-                                            <div class="error-message" id="captcha_error" style="color:red;"></div>
-                                        </div>
-                                    </form>
+                                        
+                        {{-- reCAPTCHA --}}
+                        {!! NoCaptcha::display() !!}
 
-                                    {!! NoCaptcha::renderJs() !!}
+                    </form>
+
+                    {{-- Load reCAPTCHA script --}}
+                    {!! NoCaptcha::renderJs() !!}
 
 
                                 </div>
