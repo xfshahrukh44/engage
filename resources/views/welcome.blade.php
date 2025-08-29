@@ -458,6 +458,9 @@
                                         </div>
                                     </form>
 
+                                    {{-- Load reCAPTCHA script --}}
+                                    {!! NoCaptcha::renderJs() !!}
+
 
                                 </div>
                             </div>
@@ -721,12 +724,4 @@
             }
         });
     });
-</script>
-<script>
-document.getElementById("quotation").addEventListener("submit", function(e) {
-    if (grecaptcha.getResponse().length === 0) {
-        e.preventDefault();
-        alert("Please verify you are not a robot");
-    }
-});
 </script>
