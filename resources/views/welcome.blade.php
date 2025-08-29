@@ -222,8 +222,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                </div> -->
+                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                    </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -661,33 +661,62 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
+$(document).ready(function() {
+    // Fetch allowed zip codes from your JSON file
+    $.getJSON("{{ route('allowed-zipcodes') }}", function(data) {
+        let allowed_zipcodes = data.data; // make sure your JSON structure matches
 
+        // Handle "Start My Quote" button click
+        $('.anchor_start_my_quote').on('click', function(e) {
+            let input = $('.input_zipcode').val().trim();
 
-            document.getElementById("quotationForm").addEventListener("submit", function(e) {
-    let firstName = document.getElementById('first_name').value.trim();
-    let lastName = document.getElementById('last_name').value.trim();
-    let type = document.getElementById('type').value;
-    let timeToCall = document.getElementById('time_to_call').value;
+            if (input === "" || !allowed_zipcodes.includes(input)) {
+                alert('Please enter a valid zipcode.');
+                $('.input_zipcode').val('');
+                return false;
+            }
 
-    if (!firstName || !lastName || !type || !timeToCall) {
-        e.preventDefault();
-        alert("Please fill all required fields.");
-        return false;
-    }
+            // If valid, redirect to the form page
+            window.location.href = '{{ route('front.form') }}';
+        });
 
-    let response = grecaptcha.getResponse();
-    if (response.length === 0) {
-        e.preventDefault();
-        alert("Please verify that you are not a robot.");
-        return false;
-    }
+        // Sync all zip code input fields
+        $('.input_zipcode').on('change', function() {
+            let changed_val = $(this).val();
+            $('.input_zipcode').each((i, item) => {
+                $(item).val(changed_val);
+            });
+        });
+    }).fail(function() {
+        console.error('Failed to load allowed zip codes.');
+    });
 
-    // Form will submit normally if everything is ok
+    // Form submission with reCAPTCHA
+    document.getElementById("quotationForm").addEventListener("submit", function(e) {
+        let firstName = document.getElementById('first_name').value.trim();
+        let lastName = document.getElementById('last_name').value.trim();
+        let type = document.getElementById('type').value;
+        let timeToCall = document.getElementById('time_to_call').value;
+
+        if (!firstName || !lastName || !type || !timeToCall) {
+            e.preventDefault();
+            alert("Please fill all required fields.");
+            return false;
+        }
+
+        // Check reCAPTCHA
+        let response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            e.preventDefault();
+            alert("Please verify that you are not a robot.");
+            return false;
+        }
+
+        // Form will submit normally if everything is ok
+    });
 });
-
-
-
     </script>
+    //
     <script>
         //     document.getElementById('quotationForm').addEventListener('submit', function(e) {
         //         e.preventDefault();
