@@ -688,30 +688,20 @@
             window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
         }
     </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let form = document.getElementById("quotation");
 
-    form.addEventListener("submit", function (e) {
-        var captcha = grecaptcha.getResponse(recaptchaWidgetId);
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let form = document.getElementById("quotation");
 
-        if (!captcha || captcha.length === 0) {
-            e.preventDefault();
-            alert("⚠️ Please verify the captcha before submitting.");
-            return false;
-        }
-    });
-});
-</script>
+            form.addEventListener("submit", function(e) {
+                // yahan 0 index ka recaptcha widget use karo
+                var captcha = grecaptcha.getResponse(0);
 
-<script>
-    var recaptchaWidgetId;
-    var onloadCallback = function() {
-        recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
-            'sitekey' : '{{ config("captcha.sitekey") }}'
+                if (!captcha || captcha.length === 0) {
+                    e.preventDefault(); // Stop form submission
+                    alert("⚠️ Please verify the captcha before submitting.");
+                    return false;
+                }
+            });
         });
-    };
-</script>
-
-{{-- Load reCAPTCHA script with callback --}}
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    </script>
