@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                    </div> -->
+                                                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                        </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -689,13 +689,19 @@
         }
     </script>
 
-<script>
-document.getElementById("quotation").addEventListener("submit", function(e) {
-    var captcha = grecaptcha.getResponse();
+    <script>
+        // Wait until page fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            let form = document.getElementById("quotation");
 
-    if (captcha.length === 0) {
-        e.preventDefault(); // Form submit stop karega
-        alert("⚠️ Please verify the captcha first!");
-    }
-});
-</script>
+            form.addEventListener("submit", function(e) {
+                let captcha = grecaptcha.getResponse();
+
+                if (!captcha || captcha.length === 0) {
+                    e.preventDefault(); // Stop form submission
+                    alert("⚠️ Please verify the captcha before submitting.");
+                    return false;
+                }
+            });
+        });
+    </script>
