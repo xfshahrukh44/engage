@@ -689,12 +689,13 @@
         }
     </script>
 
-    <script>
-        document.getElementById("quotation").addEventListener("submit", function(e) {
-            var captcha = grecaptcha.getResponse();
-            if (captcha.length === 0) {
-                e.preventDefault(); // stop form submit
-                alert("Please verify that you are not a robot.");
-            }
-        });
-    </script>
+<script>
+document.getElementById("quotation").addEventListener("submit", function(e) {
+    var captcha = grecaptcha.getResponse();
+
+    if (captcha.length === 0) {
+        e.preventDefault(); // Form submit stop karega
+        alert("⚠️ Please verify the captcha first!");
+    }
+});
+</script>
