@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                        </div> -->
+                                                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                            </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -690,12 +690,12 @@
     </script>
 
     <script>
-        // Wait until page fully loaded
         document.addEventListener("DOMContentLoaded", function() {
             let form = document.getElementById("quotation");
 
             form.addEventListener("submit", function(e) {
-                let captcha = grecaptcha.getResponse();
+                // yahan 0 index ka recaptcha widget use karo
+                var captcha = grecaptcha.getResponse(0);
 
                 if (!captcha || captcha.length === 0) {
                     e.preventDefault(); // Stop form submission
