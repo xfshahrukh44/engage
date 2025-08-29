@@ -229,8 +229,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                        </div> -->
+                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                            </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -373,6 +373,12 @@
                         <input type="text" placeholder="Zip Code" class="input_zipcode">
                         <a href="#" class="btn btn-custom anchor_start_my_quote">Start My Quote</a>
                     </div>
+
+                    {{-- reCAPTCHA --}}
+                    {!! NoCaptcha::display() !!}
+
+                    {{-- reCAPTCHA Script --}}
+                    {!! NoCaptcha::renderJs() !!}
                 </div>
             </div>
         </div>
@@ -727,7 +733,8 @@
                         success: (data) => {
                             $('.input_zipcode').val('');
                             alert(
-                                'Valid Zip Code, but demo response: Too many Invalid Entries.');
+                                'Valid Zip Code, but demo response: Too many Invalid Entries.'
+                                );
                             return false;
                         },
                         error: (e) => {
