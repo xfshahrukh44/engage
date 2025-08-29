@@ -689,11 +689,22 @@
         }
     </script>
 
-    <script>
-        document.getElementById("quotation").addEventListener("submit", function(e) {
-            if (grecaptcha.getResponse().length === 0) {
-                e.preventDefault();
-                alert("Please verify you are not a robot");
-            }
-        });
-    </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("quotation").addEventListener("submit", function(e) {
+        // Agar grecaptcha object load nahi hua
+        if (typeof grecaptcha === "undefined") {
+            e.preventDefault();
+            alert("Captcha failed to load. Please refresh and try again.");
+            return;
+        }
+
+        // Agar captcha verify nahi hua
+        if (grecaptcha.getResponse().length === 0) {
+            e.preventDefault();
+            alert("Please verify you are not a robot");
+        }
+    });
+});
+</script>
