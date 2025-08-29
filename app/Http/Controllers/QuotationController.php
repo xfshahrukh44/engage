@@ -13,12 +13,15 @@ class QuotationController extends Controller
     public function store(Request $request)
     {
         try {
-            $validator = Validator::make($request->all(), [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'email' => 'required_without:phone',
-                'phone' => 'required_without:email',
-            ]);
+           $request->validate([
+    'first_name' => 'required|string|max:255',
+    'last_name'  => 'required|string|max:255',
+    'email'      => 'required|email',
+    'type'       => 'required',
+    'phone'      => 'required',
+    'time_to_call' => 'required',
+    'g-recaptcha-response' => 'required|captcha', // 👈 Important
+]);
     
             if ($validator->fails()) {
                 return redirect()->back()->with('error', $validator->errors()->first());

@@ -448,12 +448,12 @@
                                             </div>
                                         </div>
 
-                                        
+                                        {{-- reCAPTCHA --}}
+                                        {!! NoCaptcha::display() !!}
+
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
-                                        {{-- reCAPTCHA --}}
-                                        {!! NoCaptcha::display() !!}
                                     </form>
 
                                     {{-- Load reCAPTCHA script --}}
@@ -688,20 +688,13 @@
             window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
         }
     </script>
-{{-- 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let form = document.getElementById("quotation");
 
-            form.addEventListener("submit", function(e) {
-                // yahan 0 index ka recaptcha widget use karo
-                var captcha = grecaptcha.getResponse(0);
+<script>
+    document.getElementById("quotation").addEventListener("submit", function(e) {
+    if (grecaptcha.getResponse().length === 0) {
+        e.preventDefault();
+        alert("Please verify you are not a robot");
+    }
+});
 
-                if (!captcha || captcha.length === 0) {
-                    e.preventDefault(); // Stop form submission
-                    alert("⚠️ Please verify the captcha before submitting.");
-                    return false;
-                }
-            });
-        });
-    </script> --}}
+</script>
