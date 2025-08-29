@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                            <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                        </div> -->
+                                                                <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                            </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -457,20 +457,21 @@
                                             </div>
                                         </div>
 
-                                        <!-- CAPTCHA SECTION - ADDED BEFORE SUBMIT BUTTON -->
+                                        <div class="submit-btn">
+                                            <button type="submit" class="btn btn-custom">Submit Request</button>
+                                        </div>
+
+                                        <!-- CAPTCHA moved under the button -->
                                         <div class="form-group captcha-container"
                                             style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
                                             {!! NoCaptcha::display() !!}
                                             <div class="error-message" id="captcha_error"
                                                 style="color: red; margin-top: 10px;"></div>
                                         </div>
-
-                                        <div class="submit-btn">
-                                            <button type="submit" class="btn btn-custom">Submit Request</button>
-                                        </div>
                                     </form>
 
                                     {!! NoCaptcha::renderJs() !!}
+
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -709,179 +710,22 @@
         //     }
         // });
     </script>
-    {{-- <script>
-            document.getElementById('quotationForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Reset error messages
-                const errorElements = document.querySelectorAll('.error-message');
-                errorElements.forEach(element => {
-                    element.textContent = '';
-                });
-
-                // Basic validation
-                let isValid = true;
-                const firstName = document.getElementById('first_name').value.trim();
-                const lastName = document.getElementById('last_name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const type = document.getElementById('type').value;
-                const timeToCall = document.getElementById('time_to_call').value;
-
-                if (!firstName) {
-                    document.getElementById('first_name_error').textContent = 'First name is required';
-                    isValid = false;
-                }
-
-                if (!lastName) {
-                    document.getElementById('last_name_error').textContent = 'Last name is required';
-                    isValid = false;
-                }
-
-                if (!email && !phone) {
-                    document.getElementById('email_error').textContent = 'Email or phone number is required';
-                    document.getElementById('phone_error').textContent = 'Email or phone number is required';
-                    isValid = false;
-                }
-
-                if (email && !isValidEmail(email)) {
-                    document.getElementById('email_error').textContent = 'Please enter a valid email address';
-                    isValid = false;
-                }
-
-                if (!type) {
-                    document.getElementById('type_error').textContent = 'Please select an insurance type';
-                    isValid = false;
-                }
-
-                if (!timeToCall) {
-                    document.getElementById('time_to_call_error').textContent = 'Please select a best time to call';
-                    isValid = false;
-                }
-
-                if (!isValid) {
-                    showMessage('Please correct the errors above.', 'danger');
-                    return;
-                }
-
-                // If validation passes, show success message (in a real scenario, this would submit to the server)
-                showMessage('Too many Invalid Entries', 'danger');
-
-                // In a real application, you would submit the form to the server here
-                // this.submit();
-            });
-
-            function isValidEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-
-            function showMessage(message, type) {
-                const messageDiv = document.getElementById('formMessages');
-                messageDiv.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-
-                // Scroll to message
-                messageDiv.scrollIntoView({ behavior: 'smooth' });
-            }
-        
-    </script> --}}
-
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Quotation Form Validation
+document.addEventListener("DOMContentLoaded", function () {
     const quotationForm = document.getElementById("quotationForm");
-    if (quotationForm) {
-        quotationForm.addEventListener("submit", function(e) {
-            // Basic form validation
-            let firstName = document.getElementById('first_name').value.trim();
-            let lastName = document.getElementById('last_name').value.trim();
-            let type = document.getElementById('type').value;
-            let timeToCall = document.getElementById('time_to_call').value;
-            
-            // Reset error messages
-            document.querySelectorAll('.error-message').forEach(function(el) {
-                el.textContent = '';
-            });
-            
-            let isValid = true;
-            
-            if (!firstName) {
-                document.getElementById('first_name_error').textContent = 'First name is required';
-                isValid = false;
-            }
-            
-            if (!lastName) {
-                document.getElementById('last_name_error').textContent = 'Last name is required';
-                isValid = false;
-            }
-            
-            if (!type) {
-                document.getElementById('type_error').textContent = 'Please select insurance type';
-                isValid = false;
-            }
-            
-            if (!timeToCall) {
-                document.getElementById('time_to_call_error').textContent = 'Please select best time to call';
-                isValid = false;
-            }
-            
-            if (!isValid) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // CAPTCHA validation
-            let response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                e.preventDefault();
-                // Show alert
-                alert("Please complete the captcha verification first.");
-                
-                // Show error message
-                document.getElementById('captcha_error').textContent = 'Please complete the captcha verification.';
-                
-                // Scroll to captcha
-                document.querySelector('.captcha-container').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-                return false;
-            }
-            
-            // If all validations pass, form will submit normally
-        });
-    }
+    const captchaError = document.getElementById("captcha_error");
 
-    // Contact Form Validation (if exists on this page)
-    const inquiryForm = document.getElementById("inquiryForm");
-    if (inquiryForm) {
-        const inquiryError = document.getElementById("errorMessage");
-        
-        inquiryForm.addEventListener("submit", function(e) {
-            // CAPTCHA validation
-            let response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                e.preventDefault();
-                
-                // Show alert
-                alert("Please complete the captcha verification first.");
-                
-                // Show error message
-                document.getElementById('captcha_error').textContent = 'Please complete the captcha verification.';
-                if (inquiryError) inquiryError.style.display = "block";
-                
-                // Scroll to captcha
-                document.querySelector('.captcha-container').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-                return false;
-            }
-            
-            // If captcha is verified, allow form submission
-            if (inquiryError) inquiryError.style.display = "none";
-        });
-    }
+    quotationForm.addEventListener("submit", function (e) {
+        const response = grecaptcha.getResponse();
+
+        if (response.length === 0) {
+            e.preventDefault();
+            captchaError.innerText = "Please verify the captcha.";
+            captchaError.style.display = "block";
+        } else {
+            captchaError.innerText = "";
+            captchaError.style.display = "none";
+        }
+    });
 });
 </script>
-@endsection
