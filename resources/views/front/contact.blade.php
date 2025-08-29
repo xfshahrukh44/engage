@@ -198,6 +198,8 @@
 
                             <div class="col-12">
 
+                                        {{-- reCAPTCHA --}}
+                                        {!! NoCaptcha::display() !!}
                                 <div class="mssg-group">
                                     <button type="submit" class="btn btn-custom">send a message</button>
                                 </div>
@@ -211,8 +213,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- reCAPTCHA --}}
-                        {!! NoCaptcha::display() !!}
 
                     </form>
 
