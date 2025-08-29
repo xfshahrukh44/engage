@@ -110,10 +110,21 @@
                                             {{-- </h3> --}}
                                             {!! $banner->description !!}
                                             <div class="code">
-                                                <input type="text" placeholder="Zip Code" class="input_zipcode">
-                                                <a href="#" class="btn btn-custom anchor_start_my_quote">Start My
-                                                    Quote</a>
+                                                <input type="text" placeholder="Zip Code" class="input_zipcode"
+                                                    id="zip_code_banner">
+
+                                                <!-- CAPTCHA for Zip Code Submission -->
+                                                <div class="captcha-container" id="zipCaptchaContainer"
+                                                    style="display: none; margin: 10px 0;">
+                                                    {!! NoCaptcha::display() !!}
+                                                    <div class="error-message" id="zip_captcha_error"></div>
+                                                </div>
+
+                                                <a href="#" class="btn btn-custom anchor_start_my_quote"
+                                                    onclick="validateZipCode('banner')">Start My Quote</a>
                                             </div>
+
+                                            {!! NoCaptcha::renderJs() !!}
                                         </div>
                                     </div>
                                 </div>
@@ -222,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                    </div> -->
+                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                    </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -660,60 +671,63 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
-$(document).ready(function() {
-    // Fetch allowed zip codes from your JSON file
-    $.getJSON("{{ route('allowed-zipcodes') }}", function(data) {
-        let allowed_zipcodes = data.data; // make sure your JSON structure matches
+        // Function to validate zip code and show captcha
+function validateZipCode(section) {
+    let zipInput;
+    if (section === 'banner') {
+        zipInput = document.getElementById('zip_code_banner');
+    } else {
+        zipInput = document.getElementById('zip_code_shop');
+    }
 
-        // Handle "Start My Quote" button click
-        $('.anchor_start_my_quote').on('click', function(e) {
-            let input = $('.input_zipcode').val().trim();
+    let zipCode = zipInput.value.trim();
 
-            if (input === "" || !allowed_zipcodes.includes(input)) {
-                alert('Please enter a valid zipcode.');
-                $('.input_zipcode').val('');
-                return false;
-            }
+    if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
+        alert('Please enter a valid zip code.');
+        return false;
+    }
 
-            // If valid, redirect to the form page
-            window.location.href = '{{ route('front.form') }}';
-        });
+    // Show the captcha container dynamically
+    let captchaContainer = document.getElementById('zipCaptchaContainer');
+    if (captchaContainer) {
+        captchaContainer.style.display = 'block';
+    }
 
-        // Sync all zip code input fields
-        $('.input_zipcode').on('change', function() {
-            let changed_val = $(this).val();
-            $('.input_zipcode').each((i, item) => {
-                $(item).val(changed_val);
-            });
-        });
-    }).fail(function() {
-        console.error('Failed to load allowed zip codes.');
-    });
+    // Wait for user to complete captcha
+    let submitBtn = document.createElement('button');
+    submitBtn.textContent = "Verify and Continue";
+    submitBtn.className = 'btn btn-custom mt-2';
+    submitBtn.type = 'button';
+    zipInput.parentNode.appendChild(submitBtn);
 
-    // Form submission with reCAPTCHA
-    document.getElementById("quotationForm").addEventListener("submit", function(e) {
-        let firstName = document.getElementById('first_name').value.trim();
-        let lastName = document.getElementById('last_name').value.trim();
-        let type = document.getElementById('type').value;
-        let timeToCall = document.getElementById('time_to_call').value;
-
-        if (!firstName || !lastName || !type || !timeToCall) {
-            e.preventDefault();
-            alert("Please fill all required fields.");
-            return false;
-        }
-
-        // Check reCAPTCHA
+    submitBtn.addEventListener('click', function() {
         let response = grecaptcha.getResponse();
         if (response.length === 0) {
-            e.preventDefault();
             alert("Please verify that you are not a robot.");
             return false;
         }
 
-        // Form will submit normally if everything is ok
+        // If captcha verified, redirect with zip code
+        window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
     });
+
+    // Disable original Start My Quote button to avoid double click
+    let originalBtn = zipInput.parentNode.querySelector('.anchor_start_my_quote');
+    if (originalBtn) originalBtn.disabled = true;
+}
+
+// Form submission validation with reCAPTCHA
+document.getElementById("quotationForm").addEventListener("submit", function(e) {
+    let response = grecaptcha.getResponse();
+    if (response.length === 0) {
+        e.preventDefault();
+        alert("Please complete the captcha verification.");
+        return false;
+    }
+
+    // You can add more validation here if needed
 });
     </script>
     //
