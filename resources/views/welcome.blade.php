@@ -675,78 +675,78 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-            // $('.anchor_start_my_quote').on('click', function(e) {
-            //     e.preventDefault();
+            $('.anchor_start_my_quote').on('click', function(e) {
+                e.preventDefault();
 
-            //     // Captcha check
-            //     let captchaResponse = grecaptcha.getResponse();
-            //     if (captchaResponse.length === 0) {
-            //         alert("Please verify that you are not a robot.");
-            //         return false;
-            //     }
+                // Captcha check
+                let captchaResponse = grecaptcha.getResponse();
+                if (captchaResponse.length === 0) {
+                    alert("Please verify that you are not a robot.");
+                    return false;
+                }
 
-            //     // Zip Code check
-            //     let input = $('.input_zipcode').val().trim();
+                // Zip Code check
+                let input = $('.input_zipcode').val().trim();
 
-            //     if (!input) {
-            //         alert("Please enter a Zip Code.");
-            //         return false;
-            //     }
+                if (!input) {
+                    alert("Please enter a Zip Code.");
+                    return false;
+                }
 
-            //     $.ajax({
-            //         url: 'https://api.zippopotam.us/us/' + input,
-            //         method: 'GET',
-            //         success: (data) => {
-            //             $('.input_zipcode').val('');
-            //             alert('Valid Zip Code ✅');
-            //         },
-            //         error: (e) => {
-            //             $('.input_zipcode').val('');
-            //             alert('Too many Invalid Entries ❌');
-            //         },
-            //     });
-            // });
-
-             $('.anchor_start_my_quote').on('click', function(e) {
-                let input = $('.input_zipcode').val();
-                // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
-                // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
-
-                $('.anchor_start_my_quote').on('click', function(e) {
-                    e.preventDefault();
-
-                    // Check captcha
-                    let captchaResponse = grecaptcha.getResponse();
-                    if (captchaResponse.length === 0) {
-                        alert("Please verify that you are not a robot.");
-                        return false;
-                    }
-
-                    // Get Zip Code
-                    let input = $('.input_zipcode').val();
-
-                    if (!input) {
-                        alert("Please enter a Zip Code.");
-                        return false;
-                    }
-
-                    $.ajax({
-                        url: 'https://api.zippopotam.us/us/' + input,
-                        method: 'GET',
-                        success: (data) => {
-                            $('.input_zipcode').val('');
-                            alert(
-                                'Valid Zip Code, but demo response: Too many Invalid Entries.'
-                                );
-                            return false;
-                        },
-                        error: (e) => {
-                            $('.input_zipcode').val('');
-                            alert('Too many Invalid Entries.');
-                            return false;
-                        },
-                    });
+                $.ajax({
+                    url: 'https://api.zippopotam.us/us/' + input,
+                    method: 'GET',
+                    success: (data) => {
+                        $('.input_zipcode').val('');
+                        alert('Valid Zip Code ✅');
+                    },
+                    error: (e) => {
+                        $('.input_zipcode').val('');
+                        alert('Too many Invalid Entries ❌');
+                    },
                 });
+            });
+
+            //  $('.anchor_start_my_quote').on('click', function(e) {
+            //     let input = $('.input_zipcode').val();
+            //     // let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input);
+            //     // let isValidZip = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/.test(input);
+
+            //     $('.anchor_start_my_quote').on('click', function(e) {
+            //         e.preventDefault();
+
+            //         // Check captcha
+            //         let captchaResponse = grecaptcha.getResponse();
+            //         if (captchaResponse.length === 0) {
+            //             alert("Please verify that you are not a robot.");
+            //             return false;
+            //         }
+
+            //         // Get Zip Code
+            //         let input = $('.input_zipcode').val();
+
+            //         if (!input) {
+            //             alert("Please enter a Zip Code.");
+            //             return false;
+            //         }
+
+            //         $.ajax({
+            //             url: 'https://api.zippopotam.us/us/' + input,
+            //             method: 'GET',
+            //             success: (data) => {
+            //                 $('.input_zipcode').val('');
+            //                 alert(
+            //                     'Valid Zip Code, but demo response: Too many Invalid Entries.'
+            //                     );
+            //                 return false;
+            //             },
+            //             error: (e) => {
+            //                 $('.input_zipcode').val('');
+            //                 alert('Too many Invalid Entries.');
+            //                 return false;
+            //             },
+            //         });
+            //     });
 
     </script>
     <script>
