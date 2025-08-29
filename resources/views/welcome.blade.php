@@ -233,8 +233,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                </div> -->
+                                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                    </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -405,8 +405,7 @@
                                     </div>
                                     {{-- <form action="{{route('front.save-quotation')}}" method="POST"> --}}
 
-                                    <form id="quotation" action="{{ route('front.save-quotation') }}"
-                                        method="POST">
+                                    <form id="quotation" action="{{ route('front.save-quotation') }}" method="POST">
                                         @csrf
                                         <div class="main-form">
                                             <div class="form-group">
@@ -449,18 +448,16 @@
                                             </div>
                                         </div>
 
+                                        {{-- reCAPTCHA --}}
+                                        {!! NoCaptcha::display() !!}
+
                                         <div class="submit-btn">
                                             <button type="submit" class="btn btn-custom">Submit Request</button>
                                         </div>
+                                    </form>
 
-                                        
-                        {{-- reCAPTCHA --}}
-                        {!! NoCaptcha::display() !!}
-
-                    </form>
-
-                    {{-- Load reCAPTCHA script --}}
-                    {!! NoCaptcha::renderJs() !!}
+                                    {{-- Load reCAPTCHA script --}}
+                                    {!! NoCaptcha::renderJs() !!}
 
 
                                 </div>
@@ -673,54 +670,31 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    // Zip Code Validation
-    function validateZipCode(section) {
-        let zipCode;
-        if (section === 'banner') {
-            zipCode = document.getElementById('zip_code_banner').value;
-        } else {
-            zipCode = document.getElementById('zip_code_shop').value;
-        }
+    <script type="text/javascript">
+        // Zip Code Validation
+        function validateZipCode(section) {
+            let zipCode;
+            if (section === 'banner') {
+                zipCode = document.getElementById('zip_code_banner').value;
+            } else {
+                zipCode = document.getElementById('zip_code_shop').value;
+            }
 
-        if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
-            alert('Please enter a valid zip code.');
-            return false;
-        }
+            if (zipCode === "" || !/^\d{5}(-\d{4})?$/.test(zipCode)) {
+                alert('Please enter a valid zip code.');
+                return false;
+            }
 
-        window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
-    }
-</script>
+            window.location.href = '{{ route('front.form') }}?zip=' + zipCode;
+        }
+    </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const quotation = document.getElementById("quotation");
-            const captchaError = document.getElementById("captcha_error");
-
-            quotation.addEventListener("submit", function (e) {
-                // Check if grecaptcha is loaded
-                if (typeof grecaptcha === 'undefined') {
-                    e.preventDefault();
-                    captchaError.innerText = "Captcha not loaded. Please try again.";
-                    captchaError.style.display = "block";
-                    return false;
-                }
-
-                // Get captcha response
-                const response = grecaptcha.getResponse();
-
-                // If captcha is not verified
-                if (!response || response.length === 0) {
-                    e.preventDefault();
-                    captchaError.innerText = "Please verify the captcha.";
-                    captchaError.style.display = "block";
-                    return false;
-                }
-
-                // ✅ If captcha verified -> allow form to submit
-                captchaError.innerText = "";
-                captchaError.style.display = "none";
-                return true;
-            });
+        document.getElementById("quotation").addEventListener("submit", function(e) {
+            var captcha = grecaptcha.getResponse();
+            if (captcha.length === 0) {
+                e.preventDefault(); // stop form submit
+                alert("Please verify that you are not a robot.");
+            }
         });
     </script>
