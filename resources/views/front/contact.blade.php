@@ -50,11 +50,11 @@
         <div class="container">
             <div class="row">
                 <!-- <div class="col-lg-4">
-                                             <div class="find-us">
-                                                  <h4>Find us</h4>
+                                                 <div class="find-us">
+                                                      <h4>Find us</h4>
 
-                                             </div>
-                                        </div> -->
+                                                 </div>
+                                            </div> -->
 
                 <div class="col-lg-6">
                     <div class="find-us">
@@ -198,14 +198,15 @@
 
                             <div class="col-12">
 
-                                        {{-- reCAPTCHA --}}
-                                        {!! NoCaptcha::display() !!}
+                                {{-- reCAPTCHA --}}
+                                {!! NoCaptcha::display() !!}
                                 <div class="mssg-group">
                                     <button type="submit" class="btn btn-custom">send a message</button>
                                 </div>
 
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input gaapo" id="exampleCheck1">
+                                <div class="form-check mt-2">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                        name="subscribe_updates" value="Yes">
                                     <label class="form-check-label" for="exampleCheck1">
                                         Yes, email me about news, deadline or update information regarding ACA enrollment
                                         timelines.

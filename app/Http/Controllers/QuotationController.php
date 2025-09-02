@@ -55,10 +55,10 @@ class QuotationController extends Controller
             $html .= "Children: " . $quotation->children . "<br>";
 
             Mail::html($html, function ($message) {
-    $message->to('info@engagehealthinsurance.org')
-            ->from('no-reply@yourdomain.com', 'Engage Health Insurance') // ✅ From add karo
-            ->subject('Engage | Get a Quote');
-});
+                $message->to('info@engagehealthinsurance.org')
+                    ->from('no-reply@yourdomain.com', 'Engage Health Insurance') // ✅ From add karo
+                    ->subject('Engage | Get a Quote');
+            });
 
             return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
         } catch (\Exception $e) {
@@ -68,38 +68,37 @@ class QuotationController extends Controller
 
 
 
-    public function inquiryStore(Request $request)
-    {
-        $inquiry = Inquiry::create($request->all());
+public function inquiryStore(Request $request)
+{
+    $inquiry = Inquiry::create($request->all());
 
-        $html = '';
-        $html .= "First name: " . $inquiry->fname . "<br>";
-        $html .= "Last name: " . $inquiry->lname . "<br>";
-        $html .= "Email: " . $inquiry->email . "<br>";
-        $html .= "Notes: " . $inquiry->notes . "<br>";
-        $html .= "Phone: " . $inquiry->phone . "<br>";
-        $html .= "Time: " . $inquiry->time . "<br>";
-        $html .= "Date: " . $inquiry->date . "<br>";
-        $html .= "Classes: " . $inquiry->classes . "<br>";
-        $html .= "Form name: " . $inquiry->form_name . "<br>";
-        $html .= "Address: " . $inquiry->address . "<br>";
-        $html .= "City: " . $inquiry->city . "<br>";
-        $html .= "Zipcode: " . $inquiry->zipcode . "<br>";
-        $html .= "Type of insurance: " . $inquiry->type_of_insurance . "<br>";
-        $html .= "Suite: " . $inquiry->suite . "<br>";
-
-        // Mail::send([], [], function ($message) use ($html) {
-        //     $message->to('info@engagehealthinsurance.org')
-        //         ->subject('Engage | Contact inquiry')
-        //         ->setBody($html, 'text/html');
-        // });
-
-        Mail::html($html, function ($message) use ($inquiry) {
-            $message->to('info@engagehealthinsurance.org')
-                ->subject('Engage | Contact inquiry')
-                ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
-        });
-
-        return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
+    // 🚫 Agar mailinator hai to return kardo bina save kiye
+    if (str_contains(strtolower($inquiry->email), '@mailinator.com')) {
+        return redirect()->back()->with('error', 'Mailinator emails are not allowed.');
     }
+
+    $html = '';
+    $html .= "First name: " . $inquiry->fname . "<br>";
+    $html .= "Last name: " . $inquiry->lname . "<br>";
+    $html .= "Email: " . $inquiry->email . "<br>";
+    $html .= "Notes: " . $inquiry->notes . "<br>";
+    $html .= "Phone: " . $inquiry->phone . "<br>";
+    $html .= "Address: " . $inquiry->address . "<br>";
+    $html .= "City: " . $inquiry->city . "<br>";
+    $html .= "Zipcode: " . $inquiry->zipcode . "<br>";
+    $html .= "Type of insurance: " . $inquiry->type_of_insurance . "<br>";
+    $html .= "Suite: " . $inquiry->suite . "<br>";
+
+    // ✅ Checkbox ke liye extra line
+    $html .= "Wants Updates/Emails: " . ($request->has('subscribe_updates') ? 'Yes' : 'No') . "<br>";
+
+    Mail::html($html, function ($message) use ($inquiry) {
+        $message->to('info@engagehealthinsurance.org')
+            ->subject('Engage | Contact inquiry')
+            ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
+    });
+
+    return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
+}
+
 }
