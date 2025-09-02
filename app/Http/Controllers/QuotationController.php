@@ -68,39 +68,39 @@ class QuotationController extends Controller
 
 
 
-public function inquiryStore(Request $request)
-{
-    $inquiry = Inquiry::create($request->all());
+    public function inquiryStore(Request $request)
+    {
+        $inquiry = Inquiry::create($request->all());
 
-    // 🚫 Agar mailinator hai to return kardo bina save kiye
-    if (str_contains(strtolower($inquiry->email), '@mailinator.com')) {
-        return redirect()->back()->with('error', 'Mailinator emails are not allowed.');
+        // 🚫 Mailinator check
+        if (str_contains(strtolower($inquiry->email), '@mailinator.com')) {
+            return redirect()->back()->with('error', 'Mailinator emails are not allowed.');
+        }
+
+        $html = '';
+        $html .= "First name: " . $inquiry->fname . "<br>";
+        $html .= "Last name: " . $inquiry->lname . "<br>";
+        $html .= "Email: " . $inquiry->email . "<br>";
+        $html .= "Notes: " . $inquiry->notes . "<br>";
+        $html .= "Phone: " . $inquiry->phone . "<br>";
+        $html .= "Address: " . $inquiry->address . "<br>";
+        $html .= "City: " . $inquiry->city . "<br>";
+        $html .= "Zipcode: " . $inquiry->zipcode . "<br>";
+        $html .= "Type of insurance: " . $inquiry->type_of_insurance . "<br>";
+        $html .= "Suite: " . $inquiry->suite . "<br>";
+
+        // ✅ Checkbox ka data sirf tab add hoga jab tick kiya ho
+        if ($request->has('subscribe_updates')) {
+            $html .= "Wants Updates/Emails: Yes<br>";
+        }
+
+        Mail::html($html, function ($message) use ($inquiry) {
+            $message->to('info@engagehealthinsurance.org')
+                ->subject('Engage | Contact inquiry')
+                ->from('no-reply@engagehealthinsurance.org', 'Engage Website')
+                ->replyTo($inquiry->email, $inquiry->fname ?? 'Website User');
+        });
+
+        return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
     }
-
-    $html = '';
-    $html .= "First name: " . $inquiry->fname . "<br>";
-    $html .= "Last name: " . $inquiry->lname . "<br>";
-    $html .= "Email: " . $inquiry->email . "<br>";
-    $html .= "Notes: " . $inquiry->notes . "<br>";
-    $html .= "Phone: " . $inquiry->phone . "<br>";
-    $html .= "Address: " . $inquiry->address . "<br>";
-    $html .= "City: " . $inquiry->city . "<br>";
-    $html .= "Zipcode: " . $inquiry->zipcode . "<br>";
-    $html .= "Type of insurance: " . $inquiry->type_of_insurance . "<br>";
-    $html .= "Suite: " . $inquiry->suite . "<br>";
-
-    // ✅ Checkbox ke liye extra line
-    $html .= "Wants Updates/Emails: " . ($request->has('subscribe_updates') ? 'Yes' : 'No') . "<br>";
-
-
-    Mail::html($html, function ($message) use ($inquiry) {
-        $message->to('info@engagehealthinsurance.org')
-            ->subject('Engage | Contact inquiry')
-            ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
-    });
-
-
-    return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
-}
-
 }
