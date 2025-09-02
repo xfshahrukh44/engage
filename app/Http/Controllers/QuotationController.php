@@ -92,11 +92,20 @@ public function inquiryStore(Request $request)
     // ✅ Checkbox ke liye extra line
     $html .= "Wants Updates/Emails: " . ($request->has('subscribe_updates') ? 'Yes' : 'No') . "<br>";
 
+if($html === 'No'){
+    Mail::html(function ($message) use ($inquiry) {
+        $message->to('info@engagehealthinsurance.org')
+            ->subject('Engage | Contact inquiry')
+            ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
+    });
+}
+else{
     Mail::html($html, function ($message) use ($inquiry) {
         $message->to('info@engagehealthinsurance.org')
             ->subject('Engage | Contact inquiry')
             ->from($inquiry->email ?? 'no-reply@yourdomain.com', $inquiry->fname ?? 'Website User');
     });
+}
 
     return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
 }
