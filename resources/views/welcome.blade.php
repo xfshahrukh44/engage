@@ -117,14 +117,19 @@
                                                 <div class="captcha-container" id="zipCaptchaContainer"
                                                     style="display: none; margin: 10px 0;">
                                                     {!! NoCaptcha::display() !!}
-                                                    <div class="error-message" id="zip_captcha_error"></div>
+                                                    @if ($errors->has('g-recaptcha-response'))
+                                                        <div class="text-danger">
+                                                            {{ $errors->first('g-recaptcha-response') }}</div>
+                                                    @endif
                                                 </div>
 
                                                 <a href="#" class="btn btn-custom anchor_start_my_quote"
                                                     onclick="validateZipCode('banner')">Start My Quote</a>
                                             </div>
 
+                                            {{-- render JS only ONCE, at bottom of page --}}
                                             {!! NoCaptcha::renderJs() !!}
+
                                         </div>
                                     </div>
                                 </div>
@@ -233,8 +238,8 @@
                             </div>
 
                             <!-- <div class="item">
-                                                                                    <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
-                                                                                </div> -->
+                                                                                        <img src="{{ asset('images') }}/imagessw.png" class="img-fluid">
+                                                                                    </div> -->
 
                             <div class="item">
                                 <img src="{{ asset('images/imagesws.jfif') }}" class="img-fluid">
@@ -689,13 +694,12 @@
         }
     </script>
 
-<script>
-document.getElementById("quotation").addEventListener("submit", function(e) {
-    // reCAPTCHA response check
-    if (grecaptcha.getResponse().length === 0) {
-        e.preventDefault(); // stop submit
-        alert("Please verify you are not a robot");
-    }
-});
-</script>
-
+    <script>
+        document.getElementById("quotation").addEventListener("submit", function(e) {
+            // reCAPTCHA response check
+            if (grecaptcha.getResponse().length === 0) {
+                e.preventDefault(); // stop submit
+                alert("Please verify you are not a robot");
+            }
+        });
+    </script>

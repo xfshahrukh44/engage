@@ -20,8 +20,8 @@ class QuotationController extends Controller
                 'email'      => 'required|email',
                 'type'       => 'required',
                 'phone'      => 'required',
-                'time_to_call' => 'required',
-                'g-recaptcha-response' => 'required|captcha', // 👈 Important
+                // Agar neeche wala form me captcha nahi chahiye to ye hata do:
+                // 'g-recaptcha-response' => 'required|captcha',
             ]);
 
             // Save quotation
@@ -55,9 +55,10 @@ class QuotationController extends Controller
             $html .= "Children: " . $quotation->children . "<br>";
 
             Mail::html($html, function ($message) {
-                $message->to('info@engagehealthinsurance.org')
-                    ->subject('Engage | Get a Quote');
-            });
+    $message->to('info@engagehealthinsurance.org')
+            ->from('no-reply@yourdomain.com', 'Engage Health Insurance') // ✅ From add karo
+            ->subject('Engage | Get a Quote');
+});
 
             return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
         } catch (\Exception $e) {
