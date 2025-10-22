@@ -199,7 +199,7 @@
                             <div class="col-12">
 
                                 {{-- reCAPTCHA --}}
-                                {{-- {!! NoCaptcha::display() !!} --}}
+                                {!! NoCaptcha::display() !!}
                                 <div class="mssg-group">
                                     <button type="submit" class="btn btn-custom">send a message</button>
                                 </div>
@@ -218,7 +218,7 @@
                     </form>
 
                     {{-- Load reCAPTCHA script --}}
-                    {{-- {!! NoCaptcha::renderJs() !!} --}}
+                    {!! NoCaptcha::renderJs() !!}
                 </div>
             </div>
         </div>
