@@ -7,6 +7,7 @@ use App\Quotation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class QuotationController extends Controller
 {
@@ -54,11 +55,22 @@ class QuotationController extends Controller
             $html .= "For children: " . $quotation->is_children . "<br>";
             $html .= "Children: " . $quotation->children . "<br>";
 
-            Mail::html($html, function ($message) {
-                $message->to('info@engagehealthinsurance.org')
-                    ->from('no-reply@yourdomain.com', 'Engage Health Insurance') // ✅ From add karo
-                    ->subject('Engage | Get a Quote');
-            });
+            try {
+                Mail::html($html, function ($message) {
+                    $message->to('info@engagehealthinsurance.org')
+                        ->from(config('mail.from.address'), config('mail.from.name'))
+                        ->subject('Engage | Get a Quote');
+                });
+                    // Send thank you email to user
+                    Mail::html('<p>Thank you for contacting Engage Health Insurance. We have received your request and will get back to you soon.</p>', function ($message) use ($quotation) {
+                        $message->to($quotation->email)
+                            ->from(config('mail.from.address'), config('mail.from.name'))
+                            ->subject('Thank you for your quotation request');
+                    });
+            } catch (\Exception $e) {
+                Log::error('Quotation mail failed: ' . $e->getMessage(), ['email' => $quotation->email ?? null, 'quotation_id' => $quotation->id ?? null]);
+                // Keep user experience friendly; inquiry is saved above
+            }
 
             return redirect()->back()->with('success', 'Your request for quotation has been submitted!');
         } catch (\Exception $e) {
@@ -94,13 +106,25 @@ class QuotationController extends Controller
             $html .= "Wants Updates/Emails: Yes<br>";
         }
 
-        Mail::html($html, function ($message) use ($inquiry) {
-            $message->to('info@engagehealthinsurance.org')
-                ->subject('Engage | Contact inquiry')
-                ->from('no-reply@engagehealthinsurance.org', 'Engage Website')
-                ->replyTo($inquiry->email, $inquiry->fname ?? 'Website User');
-        });
+        try {
+            Mail::html($html, function ($message) use ($inquiry) {
+                $message->to('info@engagehealthinsurance.org')
+                    ->subject('Engage | Contact inquiry')
+                    ->from(config('mail.from.address'), config('mail.from.name'))
+                    ->replyTo($inquiry->email, $inquiry->fname ?? 'Website User');
+            });
+                // Send thank you email to user
+                Mail::html('<p>Thank you for contacting Engage Health Insurance. We have received your inquiry and will get back to you soon.</p>', function ($message) use ($inquiry) {
+                    $message->to($inquiry->email)
+                        ->from(config('mail.from.address'), config('mail.from.name'))
+                        ->subject('Thank you for your inquiry');
+                });
+        } catch (\Exception $e) {
+            Log::error('Inquiry mail failed: ' . $e->getMessage(), ['inquiry_id' => $inquiry->id ?? null, 'email' => $inquiry->email ?? null]);
+            // don't break the user flow; inquiry is stored
+        }
 
         return redirect()->back()->with('success', 'Your contact inquiry has been submitted to administration!');
     }
 }
+ 
