@@ -58,7 +58,7 @@ class QuotationController extends Controller
             try {
                 Mail::html($html, function ($message) use ($quotation) {
                     $message->to('info@engagehealthinsurance.org')
-                        ->from($quotation->email)
+                        ->from(config('mail.from.address'), config('mail.from.name'))
                         ->subject('Engage | Get a Quote');
                 });
                     // Send thank you email to user
@@ -110,7 +110,7 @@ class QuotationController extends Controller
             Mail::html($html, function ($message) use ($inquiry) {
                 $message->to('info@engagehealthinsurance.org')
                     ->subject('Engage | Contact inquiry')
-                    ->from($inquiry->email)
+                    ->from(config('mail.from.address'), config('mail.from.name'))
                     ->replyTo($inquiry->email, $inquiry->fname ?? 'Website User');
             });
                 // Send thank you email to user
