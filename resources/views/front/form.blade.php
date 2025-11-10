@@ -317,7 +317,7 @@
             });
         });
     </script>
-        {{-- <script>
+        <script>
             var currentTab = 0;
             showTab(currentTab);
 
@@ -397,6 +397,6 @@
                 }
                 x[n].className += " active";
             }
-        </script> --}}
+        </script>
 
 @endsection
